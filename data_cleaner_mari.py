@@ -13,3 +13,10 @@ def useless_column(df, useless):
     return df
 
 # useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO", "NO_BAIRRO", "CO_CEP", "NU_TELEFONE", "NO_EMAIL"]
+
+def treat_outliers(df, column):
+    for value in df[column]:
+        print(value)
+        if value > 9999:
+            df.drop(value, axis = 0, inplace = True)
+    return df
