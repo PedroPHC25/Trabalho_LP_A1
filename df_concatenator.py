@@ -30,3 +30,5 @@ data_2021.rename(columns = renaming_columns, inplace = True)
 data_2022.rename(columns = renaming_columns, inplace = True)
 
 data = pd.concat([data_2019, data_2020, data_2021, data_2022, data_2023], axis = 0)
+
+data.set_index(["COMP", "CNES"], inplace = True)
