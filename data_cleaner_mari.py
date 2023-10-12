@@ -16,7 +16,6 @@ def useless_column(df, useless):
 
 def treat_outliers(df, column):
     for value in df[column]:
-        print(value)
         if value > 9999:
             df.drop(value, axis = 0, inplace = True)
     return df
