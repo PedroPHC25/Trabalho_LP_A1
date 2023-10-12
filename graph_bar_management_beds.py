@@ -10,49 +10,6 @@ import  matplotlib.pyplot as plt
 from df_concatenator import data
 from typing import Optional
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Função para plotar um gráfico de barras
 def graph_bar(df: pd.DataFrame, x_column: str, y_column: str, 
                title: Optional[str] = "", 
@@ -98,3 +55,10 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
+df = data.head(100)
+df = df[["MUNICIPIO", "LEITOS_SUS", "TP_GESTAO", "LEITOS_EXISTENTES"]]
+print(df)
+
+graph_bar(df, "TP_GESTAO", "LEITOS_EXISTENTES")
+
+#Função que substitui o código 
