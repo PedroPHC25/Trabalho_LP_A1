@@ -67,5 +67,30 @@ def replacement(df: pd.DataFrame,
                 column:str, 
                 word: str, 
                 new_word: str)-> pd.DataFrame:
-    df[column].replace(word, new_word, inplace = True)
-    return df
+    """
+    A função substitui todas as repetições da palavra fornecida por 
+    outra palavra especificada. 
+
+    :param df: Dataframe com os dados
+    :type df: pandas.Dataframe
+
+    :param column: coluna do dataframe que ocorrerá a mudança
+    :type column: str
+
+    :param word: palavra que consta inicialmente no df
+    :type word: str
+
+    :param new_word: palavra que substituirá a anterior
+    :type new_word: str  
+
+    :return: df com as palavras substituidas.
+    """
+    try:
+        df[column].replace(word, new_word, inplace = True)
+        return df
+    except TypeError:
+        return "Argumento(s) inadequado(s)"
+    except KeyError:
+        return "Coluna ou palavra não encontrada"
+
+
