@@ -14,8 +14,14 @@ def select_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     :return: Dataframe apenas com as colunas especificadas
     :rtype: pandas.Dataframe
     """
-    selected_columns = df[columns]
-    return selected_columns
+    try:
+        selected_columns = df[columns]
+        return selected_columns
+    except TypeError or IndexError:
+        return "Argumento(s) inadequado(s)"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+
 
 # Função para resetar o index do dataframe
 def reset_index(df: pd.DataFrame) -> pd.DataFrame:
@@ -28,8 +34,11 @@ def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     :return: Dataframe com o índice resetado
     :rtype: pandas.Dataframe
     """
-    df.reset_index(inplace = True)
-    return df
+    try:
+        df.reset_index(inplace = True)
+        return df
+    except AttributeError:
+        return "Argumento não é um dataframe"
 
 # Função para excluir colunas desnecessárias do dataframe
 def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
@@ -45,5 +54,10 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     :return: Dataframe sem as colunas especificadas
     :rtype: pandas.Dataframe
     """
-    df.drop(columns, axis = 1, inplace = True)
-    return df
+    try:
+        df.drop(columns, axis = 1, inplace = True)
+        return df
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
