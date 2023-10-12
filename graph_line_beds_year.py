@@ -7,14 +7,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from typing import Optional
+from df_concatenator import data
 
 # Função para somar dados de uma coluna de acordo com o agrupamento de outra
 def group_and_sum(df: pd.DataFrame, column_group: list, column_sum: list) -> pd.DataFrame:
     """
     Soma os dados de uma ou mais colunas do dataframe com base no agrupamento de outra(s) coluna(s).
 
-    :param df: Dataframe a ser manipulado
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ser manipulado
+    :type df: pandas.DataFrame
 
     :param column_group: Coluna(s) a ser(em) agrupada(s)
     :type column_group: list
@@ -22,19 +23,29 @@ def group_and_sum(df: pd.DataFrame, column_group: list, column_sum: list) -> pd.
     :param column_sum: Coluna(s) que terá(ão) os elementos somados.
     :type column_sum: list
 
-    :return: Dataframe alterado
-    :rtype: pandas.Dataframe
+    :return: DataFrame alterado
+    :rtype: pandas.DataFrame
     """
-    df = df.groupby(column_group)[column_sum].sum().reset_index()
-    return df
+    try:
+        df = df.groupby(column_group)[column_sum].sum().reset_index()
+        return df
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado"
+    except:
+        return "Erro desconhecido"
+
 
 # Função para converter uma coluna do dataframe para o formato de data
 def date_conversor(df: pd.DataFrame, column: str, date_format: str) -> pd.DataFrame:
     """
     Converte os dados de uma coluna do dataframe para o tipo datetime.
 
-    :param df: Dataframe a ser manipulado
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ser manipulado
+    :type df: pandas.DataFrame
 
     :param column: Coluna cujos dados serão convertidos
     :type column: str
@@ -42,19 +53,31 @@ def date_conversor(df: pd.DataFrame, column: str, date_format: str) -> pd.DataFr
     :param date_format: Formato da informação de data na coluna original
     :type date_format: str
 
-    :return: Dataframe alterado
-    :rtype: pandas.Dataframe
+    :return: DataFrame alterado
+    :rtype: pandas.DataFrame
     """
-    df[column] = pd.to_datetime(df[column], format = date_format)
-    return df
+    try:
+        df[column] = pd.to_datetime(df[column], format = date_format)
+        return df
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado"
+    except ValueError:
+        return "Argumento 'format' inadequado ou coluna não adequada ao formato passado"
+    except:
+        return "Erro desconhecido"
+
 
 # Função para calcular a média dos registros dos anos especificados
 def mean_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
     """
     Calcula a média dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.
 
-    :param df: Dataframe a ser manipulado
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ser manipulado
+    :type df: pandas.DataFrame
 
     :param column_date: Coluna com a informação de data no formato datetime
     :type column_date: str
@@ -68,19 +91,30 @@ def mean_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, 
     :return: Média dos dados de cada ano especificado
     :rtype: dict
     """
-    means = {}
-    for each_year in years:
-        # Filtra para o ano especificado, calcula a média e adiciona ao dicionário
-        means[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].mean()
-    return means
+    try:
+        means = {}
+        for each_year in years:
+            # Filtra para o ano especificado, calcula a média e adiciona ao dicionário
+            means[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].mean()
+        return means
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado"
+    
+data.reset_index(inplace = True)
+data["COMP"] = pd.to_datetime(data["COMP"], format = "%Y%m")
+print(mean_per_year(data, "COMP", "UF", [2019, 2020, 2021]))
 
 # Função para calcular a mediana dos registros dos anos especificados
 def median_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
     """
     Calcula a mediana dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.
 
-    :param df: Dataframe a ser manipulado
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ser manipulado
+    :type df: pandas.DataFrame
 
     :param column_date: Coluna com a informação de data no formato datetime
     :type column_date: str
@@ -105,8 +139,8 @@ def std_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, y
     """
     Calcula o desvio padrão dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.
 
-    :param df: Dataframe a ser manipulado
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ser manipulado
+    :type df: pandas.DataFrame
 
     :param column_date: Coluna com a informação de data no formato datetime
     :type column_date: str
@@ -131,8 +165,8 @@ def max_and_min_per_year(df: pd.DataFrame, column_date: str, column_to_calculate
     """
     Entrega o máximo e o mínimo dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.
 
-    :param df: Dataframe a ser manipulado
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ser manipulado
+    :type df: pandas.DataFrame
 
     :param column_date: Coluna com a informação de data no formato datetime
     :type column_date: str
@@ -162,8 +196,8 @@ def graph_line(df: pd.DataFrame, x_column: str, y_column: str,
     """
     Plota um gráfico de linhas com base em um dataframe e nos parâmetros especificados.
 
-    :param df: Dataframe a ter os dados plotados
-    :type df: pandas.Dataframe
+    :param df: DataFrame a ter os dados plotados
+    :type df: pandas.DataFrame
 
     :param x_column: Coluna cujos dados serão colocados como o eixo x do gráfico
     :type x_column: str
