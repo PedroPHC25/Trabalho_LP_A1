@@ -7,7 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from typing import Optional
-from df_concatenator import data
+
 
 # Função para somar dados de uma coluna de acordo com o agrupamento de outra
 def group_and_sum(df: pd.DataFrame, column_group: list, column_sum: list) -> pd.DataFrame:
@@ -102,11 +102,10 @@ def mean_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, 
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
-        return "Argumento inadequado"
+        return "Argumento inadequado ou 'column_to_calculate' não numérica"
+    except:
+        return "Erro desconhecido"
     
-data.reset_index(inplace = True)
-data["COMP"] = pd.to_datetime(data["COMP"], format = "%Y%m")
-print(mean_per_year(data, "COMP", "UF", [2019, 2020, 2021]))
 
 # Função para calcular a mediana dos registros dos anos especificados
 def median_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
@@ -128,11 +127,21 @@ def median_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str
     :return: Mediana dos dados de cada ano especificado
     :rtype: dict
     """
-    medians = {}
-    for each_year in years:
-        # Filtra para o ano especificado, calcula a mediana e adiciona ao dicionário
-        medians[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].median()
-    return medians
+    try:
+        medians = {}
+        for each_year in years:
+            # Filtra para o ano especificado, calcula a mediana e adiciona ao dicionário
+            medians[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].median()
+        return medians
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado ou 'column_to_calculate' não numérica"
+    except:
+        return "Erro desconhecido"
+
 
 # Função para calcular o desvio padrão dos registros dos anos especificados
 def std_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
@@ -154,11 +163,21 @@ def std_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, y
     :return: Desvios padrão dos dados de cada ano especificado
     :rtype: dict
     """
-    stds = {}
-    for each_year in years:
-        # Filtra para o ano especificado, calcula o desvio padrão e adiciona ao dicionário
-        stds[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].std()
-    return stds
+    try:
+        stds = {}
+        for each_year in years:
+            # Filtra para o ano especificado, calcula o desvio padrão e adiciona ao dicionário
+            stds[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].std()
+        return stds
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado ou 'column_to_calculate' não numérica"
+    except:
+        return "Erro desconhecido"
+
 
 # Função para retornar o máximo e o mínimo dos registros dos anos especificados
 def max_and_min_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
@@ -180,12 +199,22 @@ def max_and_min_per_year(df: pd.DataFrame, column_date: str, column_to_calculate
     :return: Máximos e mínimos em forma de uma tupla dos dados de cada ano especificado
     :rtype: dict
     """
-    maxs_and_mins = {}
-    for each_year in years:
-        # Filtra para o ano especificado, encontra o máximo e o mínimo e adiciona ao dicionário como uma tupla
-        maxs_and_mins[each_year] = (df[df[column_date].dt.year == each_year][column_to_calculate].min(),
-                                    df[df[column_date].dt.year == each_year][column_to_calculate].max())
-    return maxs_and_mins
+    try:
+        maxs_and_mins = {}
+        for each_year in years:
+            # Filtra para o ano especificado, encontra o máximo e o mínimo e adiciona ao dicionário como uma tupla
+            maxs_and_mins[each_year] = (df[df[column_date].dt.year == each_year][column_to_calculate].min(),
+                                        df[df[column_date].dt.year == each_year][column_to_calculate].max())
+        return maxs_and_mins
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado ou 'column_to_calculate' não calculável"
+    except:
+        return "Erro desconhecido"
+
 
 # Função para plotar um gráfico de linha
 def graph_line(df: pd.DataFrame, x_column: str, y_column: str, 
@@ -220,18 +249,28 @@ def graph_line(df: pd.DataFrame, x_column: str, y_column: str,
     :return: Salva o gráfico em uma imagem dentro da pasta "graphs" e o exibe.
     :rtype: None
     """
-    # Ajustando o tamanho do gráfico
-    plt.figure(figsize = (10, 6))
-    plt.plot(df[x_column], df[y_column], linewidth = 3, color = "black")
-    # Configurando os textos
-    plt.title(title, fontsize = 16)
-    plt.xlabel(x_label, fontsize = 14)
-    plt.ylabel(y_label, fontsize = 14)
-    plt.tick_params(axis = "x", labelsize = 10)
-    plt.tick_params(axis = "y", labelsize = 10)
-    # Adicionando ponto como separador de milhar no eixo
-    formatter = ticker.FuncFormatter(lambda x, pos: "{:,.0f}".format(x).replace(",", "."))
-    plt.gca().yaxis.set_major_formatter(formatter)
+    try:
+        # Ajustando o tamanho do gráfico
+        plt.figure(figsize = (10, 6))
+        plt.plot(df[x_column], df[y_column], linewidth = 3, color = "black")
+        # Configurando os textos
+        plt.title(title, fontsize = 16)
+        plt.xlabel(x_label, fontsize = 14)
+        plt.ylabel(y_label, fontsize = 14)
+        plt.tick_params(axis = "x", labelsize = 10)
+        plt.tick_params(axis = "y", labelsize = 10)
+        # Adicionando ponto como separador de milhar no eixo
+        formatter = ticker.FuncFormatter(lambda x, pos: "{:,.0f}".format(x).replace(",", "."))
+        plt.gca().yaxis.set_major_formatter(formatter)
 
-    plt.savefig(f"graphs/{image_graph_name}")
-    plt.show()
+        plt.savefig(f"graphs/{image_graph_name}")
+        plt.show()
+
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado"
+    except:
+        return "Erro desconhecido"
