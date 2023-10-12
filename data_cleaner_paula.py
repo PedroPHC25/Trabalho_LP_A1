@@ -5,21 +5,23 @@ from df_concatenator import data
 
 def delete_columns_na(df):
     """
-    Recebe um dataframe e elimina as colunas em que todos os valores são NA.
+    Recebe um dataframe e elimina as colunas em que todos
+    os valores são NA.
 
-    Parameters
-    ----------
-    df : DataFrame
-        Tipo do pandas. 
     
-    Returns
-    -------
-    df
+    :param df: DataFrame fornecido.
+
+    :type df: DataFrame  
     
-    Notes
-    -----
-    A função funciona "inplace", ou seja, modifica diretamente o DataFrame original.
+    :return: Retorna outro DataFrame.
     
+    A função recebrá um DataFrame e as colunas que tiverem 
+    TODOS os valores com NA serão removidas.
+
+    ..warning::
+    A mudança ocorre 'inplace', ou seja, modifica o dataframe 
+    original.
+
     """
     df.dropna(how = "all", axis = 1, inplace = True)
     return df
