@@ -1,3 +1,8 @@
+"""Módulo do gráfico "Leitos x Ano"
+
+Este módulo contém as funções necessárias para a análise e para a geração da visualização dos dados sobre o total de leitos nos hospitais do Brasil por ano de 2019 a 2023.
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
