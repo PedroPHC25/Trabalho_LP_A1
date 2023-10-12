@@ -3,7 +3,12 @@
 Este módulo contém a  função que gera o gráfico de barras que permite uma
 análise comparativa da quantidade total de leitos pediátricos por região 
 do Brasil.
+
 """
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import ticker
+
 def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name):
     """
     Gera um gráfico de barras a partir de um DataFrame.
@@ -35,10 +40,14 @@ def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name)
               'Região', 'Total de leitos pediátricos',
               'uti_pediatrico_por_regiao.jpg')
     """
+    try:
+        # Verifica se as colunas fornecidas existem no DataFrame
+        assert x_column in df.columns, f"A coluna {x_column} não existe no DataFrame."
+        assert y_column in df.columns, f"A coluna {y_column} não existe no DataFrame."
+    except AssertionError as e:
+        print(e)
+        return
     
-
-# Função para plotar um gráfico de barras
-def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name):
     # Ajustando o tamanho do gráfico
     plt.figure(figsize=(10, 6))
     plt.bar(df[x_column], df[y_column], color='pink')  
@@ -57,4 +66,11 @@ def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name)
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
+# Exemplo de DataFrame (substitua com seus próprios dados)
+data = pd.DataFrame({
+    'REGIAO': ['Norte', 'Sul', 'Leste', 'Oeste'],
+    'UTI_PEDIATRICO_EXIST': [20, 15, 18, 12]
+})
+
+# Teste do exemplo de uso
 graph_bar(data, 'REGIAO', 'UTI_PEDIATRICO_EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.jpg')
