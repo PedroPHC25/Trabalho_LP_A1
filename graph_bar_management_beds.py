@@ -61,4 +61,11 @@ print(df)
 
 graph_bar(df, "TP_GESTAO", "LEITOS_EXISTENTES")
 
-#Função que substitui o código 
+#Função que substitui os códigos de domínio pelo nome extenso
+
+def replacement(df: pd.DataFrame,
+                column:str, 
+                word: str, 
+                new_word: str)-> pd.DataFrame:
+    df[column].replace(word, new_word, inplace = True)
+    return df
