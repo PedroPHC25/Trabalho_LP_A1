@@ -11,52 +11,14 @@ def date_conversor(df, column, date_format):
     df[column] = pd.to_datetime(df[column], format = date_format)
     return df
 
+def mean_per_year(df, column_date, column_to_calculate, years):
+    means = {}
+    for each_year in years:
+        means[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].mean()
+    return means
 
-
-subdata = select_columns(data, ["LEITOS_EXISTENTES"])
-subdata = reset_index(subdata)
-subdata = not_necessary_columns(subdata, "CNES")
-subdata = group_and_sum(subdata, ["COMP"], "LEITOS_EXISTENTES")
-subdata = date_conversor(subdata, "COMP", "%Y%m")
-
-# print(subdata)
-
-# print(subdata[subdata["COMP"].dt.year == 2019]["LEITOS_EXISTENTES"].mean())
-# print(subdata[subdata["COMP"].dt.year == 2020]["LEITOS_EXISTENTES"].mean())
-# print(subdata[subdata["COMP"].dt.year == 2021]["LEITOS_EXISTENTES"].mean())
-# print(subdata[subdata["COMP"].dt.year == 2022]["LEITOS_EXISTENTES"].mean())
-# print(subdata[subdata["COMP"].dt.year == 2023]["LEITOS_EXISTENTES"].mean())
-
-# print(subdata[subdata["COMP"].dt.year == 2019]["LEITOS_EXISTENTES"].median())
-# print(subdata[subdata["COMP"].dt.year == 2020]["LEITOS_EXISTENTES"].median())
-# print(subdata[subdata["COMP"].dt.year == 2021]["LEITOS_EXISTENTES"].median())
-# print(subdata[subdata["COMP"].dt.year == 2022]["LEITOS_EXISTENTES"].median())
-# print(subdata[subdata["COMP"].dt.year == 2023]["LEITOS_EXISTENTES"].median())
-
-# print(subdata[subdata["COMP"].dt.year == 2019]["LEITOS_EXISTENTES"].std())
-# print(subdata[subdata["COMP"].dt.year == 2020]["LEITOS_EXISTENTES"].std())
-# print(subdata[subdata["COMP"].dt.year == 2021]["LEITOS_EXISTENTES"].std())
-# print(subdata[subdata["COMP"].dt.year == 2022]["LEITOS_EXISTENTES"].std())
-# print(subdata[subdata["COMP"].dt.year == 2023]["LEITOS_EXISTENTES"].std())
-
-# print(subdata[subdata["COMP"].dt.year == 2019]["LEITOS_EXISTENTES"].max())
-# print(subdata[subdata["COMP"].dt.year == 2020]["LEITOS_EXISTENTES"].max())
-# print(subdata[subdata["COMP"].dt.year == 2021]["LEITOS_EXISTENTES"].max())
-# print(subdata[subdata["COMP"].dt.year == 2022]["LEITOS_EXISTENTES"].max())
-# print(subdata[subdata["COMP"].dt.year == 2023]["LEITOS_EXISTENTES"].max())
-
-# print(subdata[subdata["COMP"].dt.year == 2019]["LEITOS_EXISTENTES"].min())
-# print(subdata[subdata["COMP"].dt.year == 2020]["LEITOS_EXISTENTES"].min())
-# print(subdata[subdata["COMP"].dt.year == 2021]["LEITOS_EXISTENTES"].min())
-# print(subdata[subdata["COMP"].dt.year == 2022]["LEITOS_EXISTENTES"].min())
-# print(subdata[subdata["COMP"].dt.year == 2023]["LEITOS_EXISTENTES"].min())
-
-# print(subdata)
-
-# print(data_2019)
-
-
-# plt.plot(subdata["COMP"], subdata["LEITOS_EXISTENTES"])
-
-
-# plt.show()
+def median_per_year(df, column_date, column_to_calculate, years):
+    medians = {}
+    for each_year in years:
+        medians[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].median()
+    return medians
