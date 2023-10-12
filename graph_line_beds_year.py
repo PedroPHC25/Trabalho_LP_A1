@@ -8,17 +8,17 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 # Função para somar dados de uma coluna de acordo com o agrupamento de outra
-def group_and_sum(df, column_group, column_sum):
+def group_and_sum(df: pd.DataFrame, column_group: list, column_sum: list) -> pd.DataFrame:
     df = df.groupby(column_group)[column_sum].sum().reset_index()
     return df
 
 # Função para converter uma coluna do dataframe para o formato de data
-def date_conversor(df, column, date_format):
+def date_conversor(df: pd.DataFrame, column: str, date_format: str) -> pd.DataFrame:
     df[column] = pd.to_datetime(df[column], format = date_format)
     return df
 
 # Função para calcular a média dos registros dos anos especificados
-def mean_per_year(df, column_date, column_to_calculate, years):
+def mean_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
     means = {}
     for each_year in years:
         # Filtra para o ano especificado, calcula a média e adiciona ao dicionário
@@ -26,7 +26,7 @@ def mean_per_year(df, column_date, column_to_calculate, years):
     return means
 
 # Função para calcular a mediana dos registros dos anos especificados
-def median_per_year(df, column_date, column_to_calculate, years):
+def median_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
     medians = {}
     for each_year in years:
         # Filtra para o ano especificado, calcula a mediana e adiciona ao dicionário
@@ -34,7 +34,7 @@ def median_per_year(df, column_date, column_to_calculate, years):
     return medians
 
 # Função para calcular o desvio padrão dos registros dos anos especificados
-def std_per_year(df, column_date, column_to_calculate, years):
+def std_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
     stds = {}
     for each_year in years:
         # Filtra para o ano especificado, calcula o desvio padrão e adiciona ao dicionário
@@ -42,7 +42,7 @@ def std_per_year(df, column_date, column_to_calculate, years):
     return stds
 
 # Função para retornar o máximo e o mínimo dos registros dos anos especificados
-def max_and_min_per_year(df, column_date, column_to_calculate, years):
+def max_and_min_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, years: list) -> dict:
     maxs_and_mins = {}
     for each_year in years:
         # Filtra para o ano especificado, encontra o máximo e o mínimo e adiciona ao dicionário como uma tupla
@@ -51,7 +51,8 @@ def max_and_min_per_year(df, column_date, column_to_calculate, years):
     return maxs_and_mins
 
 # Função para plotar um gráfico de linha
-def graph_line(df, x_column, y_column, title, x_label, y_label, image_graph_name):
+def graph_line(df: pd.DataFrame, x_column: str, y_column: str, title: str,
+               x_label: str, y_label: str, image_graph_name: str) -> None:
     # Ajustando o tamanho do gráfico
     plt.figure(figsize = (10, 6))
     plt.plot(df[x_column], df[y_column], linewidth = 3, color = "black")
@@ -65,5 +66,5 @@ def graph_line(df, x_column, y_column, title, x_label, y_label, image_graph_name
     formatter = ticker.FuncFormatter(lambda x, pos: "{:,.0f}".format(x).replace(",", "."))
     plt.gca().yaxis.set_major_formatter(formatter)
 
-    plt.savefig(f"graphs/{image_graph_name}]")
+    plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
