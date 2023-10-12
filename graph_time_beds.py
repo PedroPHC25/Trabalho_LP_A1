@@ -1,20 +1,24 @@
-# subdata = select_columns(data, ["REGIAO", "LEITOS_EXISTENTES"])
-# subdata = reset_index(subdata)
-# subdata = not_necessary_columns(subdata, "CNES")
-# subdata = group_and_sum(subdata, ["COMP", "REGIAO"], "LEITOS_EXISTENTES")
-# subdata = date_conversor(subdata, "COMP", "%Y%m")
+from data_cleaner_pedro import select_columns, reset_index, not_necessary_columns
+from df_concatenator import data
+import pandas as pd
+import matplotlib.pyplot as plt
 
-# subdata.reset_index(inplace = True)
-# subdata.drop("CNES", axis = 1, inplace = True)
-# subdata = subdata.groupby(["COMP"])["LEITOS_EXISTENTES"].sum().reset_index()
-# subdata["COMP"] = pd.to_datetime(subdata["COMP"], format = "%Y%m")
+def group_and_sum(df, column_group, column_sum):
+    df = df.groupby(column_group)[column_sum].sum().reset_index()
+    return df
 
-# data_centrooeste = subdata[subdata["REGIAO"] == "CENTRO-OESTE"]
-# data_nordeste = subdata[subdata["REGIAO"] == "NORDESTE"]
-# data_norte = subdata[subdata["REGIAO"] == "NORTE"]
-# data_sudeste = subdata[subdata["REGIAO"] == "SUDESTE"]
-# data_sul = subdata[subdata["REGIAO"] == "SUL"]
+def date_conversor(df, column, date_format):
+    df[column] = pd.to_datetime(df[column], format = date_format)
+    return df
 
-# plt.figure(figsize = (15, 5))
-# plt.plot(subdata["COMP"], subdata["LEITOS_EXISTENTES"])
-# plt.show()
+def mean_per_year(df, column_date, column_to_calculate, years):
+    means = {}
+    for each_year in years:
+        means[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].mean()
+    return means
+
+def median_per_year(df, column_date, column_to_calculate, years):
+    medians = {}
+    for each_year in years:
+        medians[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].median()
+    return medians
