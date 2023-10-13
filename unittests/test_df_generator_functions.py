@@ -5,7 +5,7 @@ sys.path.append('..\Trabalho_LP_A1')
 
 from df_generator_functions import select_columns, reset_index, not_necessary_columns
 
-class TestDataCleanerPedro(unittest.TestCase):
+class TestDFGeneratorFunctions(unittest.TestCase):
 
     def test_select_columns(self):
 
