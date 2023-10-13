@@ -1,3 +1,8 @@
+"""Módulos dos testes do df_generator_functions
+
+Este módulo contém todos os testes unitários das funções do módulo "df_generator_functions".
+"""
+
 import sys
 import unittest
 import pandas as pd
