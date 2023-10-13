@@ -1,4 +1,5 @@
 import pandas as pd
+import df_generator_functions as dfgf
 
 ### CONCATENAÇÃO DOS ARQUIVOS CSV ###
 
@@ -34,3 +35,10 @@ data_2022.rename(columns = renaming_columns, inplace = True)
 data = pd.concat([data_2019, data_2020, data_2021, data_2022, data_2023], axis = 0)
 
 data.set_index(["COMP", "CNES"], inplace = True)
+
+
+### GERAÇÃO DO DATAFRAME PARA A ANÁLISE "BEDS X YEAR" ###
+
+data_beds_year = dfgf.select_columns(data, ["LEITOS_EXISTENTES"])
+data_beds_year = dfgf.reset_index(data_beds_year)
+data_beds_year = dfgf.not_necessary_columns(data_beds_year, ["CNES"])
