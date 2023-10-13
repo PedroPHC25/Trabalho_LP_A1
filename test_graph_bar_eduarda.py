@@ -14,7 +14,6 @@ class TestGraphBar(unittest.TestCase):
                   'Região', 'Total de leitos pediátricos',
                   'uti_pediatrico_por_regiao.jpg')
 
-        # Adicione outros testes conforme necessário
 
 if __name__ == '__main__':
     unittest.main()
