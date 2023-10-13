@@ -32,3 +32,10 @@ def mean_SUS(df, tipo_hospital):
 
 def std_SUS(df, tipo_hospital):
     return df[tipo_hospital].std()
+
+def max_min_SUS(df, tipo_hospital):
+    min = df[tipo_hospital].min()
+    max = df[tipo_hospital].max()
+    return min, max
+
+print(max_min_SUS(df_formatado, "Hospital Público"))
