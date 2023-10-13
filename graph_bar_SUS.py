@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from typing import Optional
+import doctest
 
 # TODO adicionar testes
 
@@ -33,6 +34,21 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+    
+    Teste de mediana
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [5,6,8], [14,12,23]])
+    
+    >>> median_SUS(example, "a")
+    5.0
+
+    >>> median_SUS(example, "b")
+    6.0
+
+    >>> median_SUS(example, "d")
+    Chave fora da formatação necessária
+
+    >>> median_SUS("d", example)
+    Argumentos inadequados
     """
     try:
         return df[tipo_hospital].median()
@@ -64,6 +80,21 @@ def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+    
+    Teste de média
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
+    
+    >>> mean_SUS(example, "a")
+    7.0
+
+    >>> mean_SUS(example, "b")
+    5.0
+
+    >>> mean_SUS(example, "d")
+    Chave fora da formatação necessária
+
+    >>> mean_SUS("d", example)
+    Argumentos inadequados
     """
     try:
         return df[tipo_hospital].mean()
@@ -94,6 +125,21 @@ def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+
+    Teste de desvio padrão
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
+    
+    >>> std_SUS(example, "a")
+    6.0
+
+    >>> std_SUS(example, "b")
+    2.6457513110645907
+
+    >>> std_SUS(example, "d")
+    Chave fora da formatação necessária
+
+    >>> std_SUS("d", example)
+    Argumentos inadequados
     """
     try:
         return df[tipo_hospital].std()
@@ -213,3 +259,6 @@ def graph_SUS(df: pd.DataFrame,
         print("DataFrame inserido não válido")
     except:
         print("Erro desconhecido")
+
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)
