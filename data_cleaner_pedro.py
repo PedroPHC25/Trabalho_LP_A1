@@ -35,6 +35,7 @@ def select_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     >>> select_columns(df_test, ["Nome", "Cidade"])
     'Coluna(s) não encontrada(s)'
     """
+
     try:
         selected_columns = df[columns]
         return selected_columns
@@ -71,6 +72,7 @@ def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     >>> reset_index(1)
     'Argumento não é um dataframe'
     """
+
     try:
         df.reset_index(inplace = True)
         return df
@@ -112,6 +114,7 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     >>> not_necessary_columns(df_test, ["Cidade"])
     'Coluna(s) não encontrada(s)'
     """
+
     try:
         df.drop(columns, axis = 1, inplace = True)
         return df
