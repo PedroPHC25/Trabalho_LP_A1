@@ -1,38 +1,36 @@
+"""Módulo de dados para o gráfico de Leitos pertencentes ao SUS
+
+Este módulo reúne as manipulações e informações necessárias 
+para a geração do gráfico de barras agrupadas, essas informações 
+a partir desse módulo ficam explícitas em colunas próprias.
+"""
+
 from df_concatenator import data
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 
+# Selecionando a data e reunindo somente as colunas necessárias
 data = data.loc[202201]
 estados = data["UF"].unique()
 data = data.groupby(["UF", "DESC_NATUREZA_JURIDICA"])["LEITOS_SUS"].sum()
 
+# Criando um novo df com a formatação correta
 df_formatado = pd.DataFrame(columns=["Estado", "Hospital Filantrópico", "Hospital Privado", "Hospital Público"])
 
+# Cria-se uma linha para cada estado
 for estado in estados:
         try:    
+            # Localizando as informações e organizando em colunas
             nova_linha = [estado, 
                         data.loc[estado].loc["HOSPITAL_FILANTROPICO"],
                         data.loc[estado].loc["HOSPITAL_PRIVADO"],
                         data.loc[estado].loc["HOSPITAL_PUBLICO"]]
+            # Adicionando a linha criada
             df_formatado.loc[len(df_formatado)] = nova_linha 
+        
+        # o estado de Roraima não possui a coluna "Hospital Filatrópico"
         except KeyError:
             nova_linha = [estado, 
                         0,
                         data.loc[estado].loc["HOSPITAL_PRIVADO"],
                         data.loc[estado].loc["HOSPITAL_PUBLICO"]]
             df_formatado.loc[len(df_formatado)] = nova_linha
-
-x = np.arange(len(df_formatado))
-y1 = df_formatado["Hospital Filantrópico"]
-y2 = df_formatado["Hospital Privado"]
-y3 = df_formatado["Hospital Público"]
-width = 0.2
-
-# Plot com barras agrupadas 
-plt.bar(x-0.2, y1, width, color='royalblue') 
-plt.bar(x, y2, width, color='lightseagreen') 
-plt.bar(x+0.2, y3, width, color="mediumpurple" ) 
-plt.xticks(x, df_formatado["Estado"]) 
-plt.legend(["Hospital Filantrópico", "Hospital Privado", "Hospital Público"]) 
-plt.show() 
