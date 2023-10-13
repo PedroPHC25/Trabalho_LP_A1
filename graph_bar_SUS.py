@@ -1,6 +1,13 @@
-import pandas as pd
+"""Módulo de análise das estatístcas e geração do gráfico
+
+Este módulo contém a análise estatística com a
+base já formatada sobre a presença de leitos SUS
+em hospitais de várias naturezas e define a função
+geradora para o gráfico de barras agrupadas.
+"""
+
+
 import matplotlib.pyplot as plt
-from df_concatenator import data
 import numpy as np
 
 def graph_SUS(df, y1, y2, y3, title, image_graph_name, legend = ["Hospital Filantrópico", "Hospital Privado", "Hospital Público"], width = 0.2, colors = ['royalblue', 'lightseagreen', 'mediumpurple']):
@@ -14,3 +21,5 @@ def graph_SUS(df, y1, y2, y3, title, image_graph_name, legend = ["Hospital Filan
     plt.legend(legend) 
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
+
+# TODO adiconar typehint, adicionar comentários, adicionar tratamento de exceção, adicionar testes, adicionar docstring, adicionar a análise estatística

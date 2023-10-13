@@ -1,4 +1,4 @@
-"""Módulo de dados para o gráfico de Leitos pertencentes ao SUS
+"""Módulo de dados para a análise da presença de leitos SUS em hospitais
 
 Este módulo reúne as manipulações e informações necessárias 
 para a geração do gráfico de barras agrupadas, essas informações 
