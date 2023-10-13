@@ -55,14 +55,13 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
-df = data.head(100)
-df = df[["MUNICIPIO", "LEITOS_SUS", "TP_GESTAO", "LEITOS_EXISTENTES"]]
-print(df)
+# df = data.head(100)
+# df = df[["MUNICIPIO", "LEITOS_SUS", "TP_GESTAO", "LEITOS_EXISTENTES"]]
+# print(df)
 
-graph_bar(df, "TP_GESTAO", "LEITOS_EXISTENTES")
+# graph_bar(df, "TP_GESTAO", "LEITOS_EXISTENTES")
 
 #Função que substitui os códigos de domínio pelo nome extenso
-
 def replacement(df: pd.DataFrame,
                 column:str, 
                 word: str, 
