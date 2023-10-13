@@ -1,5 +1,7 @@
 from df_concatenator import data
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
 data = data.loc[202201]
 estados = data["UF"].unique()
@@ -20,4 +22,17 @@ for estado in estados:
                         data.loc[estado].loc["HOSPITAL_PRIVADO"],
                         data.loc[estado].loc["HOSPITAL_PUBLICO"]]
             df_formatado.loc[len(df_formatado)] = nova_linha
-print(df_formatado)    
+
+x = np.arange(len(df_formatado))
+y1 = df_formatado["Hospital Filantrópico"]
+y2 = df_formatado["Hospital Privado"]
+y3 = df_formatado["Hospital Público"]
+width = 0.2
+
+# Plot com barras agrupadas 
+plt.bar(x-0.2, y1, width, color='royalblue') 
+plt.bar(x, y2, width, color='lightseagreen') 
+plt.bar(x+0.2, y3, width, color="mediumpurple" ) 
+plt.xticks(x, df_formatado["Estado"]) 
+plt.legend(["Hospital Filantrópico", "Hospital Privado", "Hospital Público"]) 
+plt.show() 
