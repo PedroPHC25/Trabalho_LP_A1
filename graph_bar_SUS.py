@@ -26,3 +26,9 @@ def graph_SUS(df, y1, y2, y3, title, image_graph_name, legend = ["Hospital Filan
 
 def median_SUS(df, tipo_hospital):
     return df[tipo_hospital].median()
+
+def mean_SUS(df, tipo_hospital):
+    return df[tipo_hospital].mean()
+
+def std_SUS(df, tipo_hospital):
+    return df[tipo_hospital].std()
