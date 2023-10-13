@@ -84,6 +84,7 @@ def replacement(df: pd.DataFrame,
     :type new_word: str  
 
     :return: df com as palavras substituidas.
+    :rtype: pandas.Dataframe
     """
     try:
         df[column].replace(word, new_word, inplace = True)
