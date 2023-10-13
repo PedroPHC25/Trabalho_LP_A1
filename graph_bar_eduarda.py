@@ -66,10 +66,9 @@ def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name)
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
-# Exemplo de DataFrame (substitua com seus próprios dados)
-data = pd.DataFrame({
-    'REGIAO': ['Norte', 'Sul', 'Leste', 'Oeste'],
-    'UTI_PEDIATRICO_EXIST': [20, 15, 18, 12]
+# Exemplo de DataFrame (substituindo com os dados da base)
+data = pd.DataFrame({dat
+    
 })
 
 # Teste do exemplo de uso
