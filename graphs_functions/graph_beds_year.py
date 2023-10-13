@@ -73,7 +73,6 @@ def graph_line(df: pd.DataFrame, x_column: str, y_column: str,
         plt.gca().yaxis.set_major_formatter(formatter)
 
         plt.savefig(f"graphs/{image_graph_name}")
-        plt.show()
 
     except KeyError:
         return "Coluna(s) não encontrada(s)"
