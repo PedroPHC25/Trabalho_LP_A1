@@ -6,16 +6,34 @@ em hospitais de várias naturezas e define a função
 geradora para o gráfico de barras agrupadas.
 """
 
-from data_graph_SUS import df_formatado
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from typing import Optional
 
-# TODO adicionar tratamento de exceção, adicionar testes, adicionar docstring
+# TODO adicionar testes
 
 # Função recebe o df e retorna a mediana do tipo hospital requisitado
 def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
+    """
+    Mediana do número de leitos SUS presentes em hospitais de diversas naturezas.
+
+    :param df: DataFrame com colunas explícitas.
+    :type df: pd.DataFrame
+
+    :param tipo_hospital: Natureza do hospital que deseja calcular a mediana.
+    :type tipo_hospital: str
+
+    :return: Retorna a mediana calculada em float.
+    :rtype: float
+
+    A função precisa de um DataFrame formatado com as informações necessárias
+    expicitamente como colunas, assim é possível calcular a sua respectiva mediana.
+
+    .. warning::
+       O parâmetro tipo_hospital deve estar na formatação correta
+       para encontrar a coluna dentro do df inserido.
+    """
     try:
         return df[tipo_hospital].median()
     except TypeError:
@@ -28,6 +46,25 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
 
 # Função recebe o df e retorna a média do tipo hospital requisitado
 def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
+    """
+    Média do número de leitos SUS presentes em hospitais de diversas naturezas.
+
+    :param df: DataFrame com colunas explícitas.
+    :type df: pd.DataFrame
+
+    :param tipo_hospital: Natureza do hospital que deseja calcular a média.
+    :type tipo_hospital: str
+
+    :return: Retorna a média calculada em float.
+    :rtype: float
+
+    A função precisa de um DataFrame formatado com as informações necessárias
+    expicitamente como colunas, assim é possível calcular a sua respectiva média.
+
+    .. warning::
+       O parâmetro tipo_hospital deve estar na formatação correta
+       para encontrar a coluna dentro do df inserido.
+    """
     try:
         return df[tipo_hospital].mean()
     except TypeError:
@@ -39,6 +76,25 @@ def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
 
 # Função recebe o df e retorna o desvio padrão do tipo hospital requisitado
 def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
+    """
+    Desvio padrão do número de leitos SUS presentes em hospitais de diversas naturezas.
+
+    :param df: DataFrame com colunas explícitas.
+    :type df: pd.DataFrame
+
+    :param tipo_hospital: Natureza do hospital que deseja calcular o desvio padrão.
+    :type tipo_hospital: str
+    
+    :return: Retorna o desvio padrão calculado em float.
+    :rtype: float
+
+    A função precisa de um DataFrame formatado com as informações necessárias
+    expicitamente como colunas, assim é possível calcular seu respectivo desvio padrão.
+
+    .. warning::
+       O parâmetro tipo_hospital deve estar na formatação correta
+       para encontrar a coluna dentro do df inserido.
+    """
     try:
         return df[tipo_hospital].std()
     except TypeError:
@@ -50,6 +106,25 @@ def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
 
 # Função recebe o df e retorna o máximo e mínimo do tipo hospital requisitado
 def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
+    """
+    Máximo e mínimo do número de leitos SUS presentes em hospitais de diversas naturezas
+
+    :param df: DataFrame com colunas explícitas.
+    :type df: pd.DataFrame
+
+    :param tipo_hospital: Natureza do hospital que deseja calcular o máximo e mínimo.
+    :type tipo_hospital: str
+    
+    :return: Retorna uma tupla com o mínimo e máximo da coluna.
+    :rtype: tuple
+
+    A função precisa de um DataFrame formatado com as informações necessárias
+    expicitamente como colunas, assim é possível calcular os respectivos máximos e mínimos.
+
+    .. warning::
+       O parâmetro tipo_hospital deve estar na formatação correta
+       para encontrar a coluna dentro do df inserido.
+    """
     try:
         min = df[tipo_hospital].min()
         max = df[tipo_hospital].max()
@@ -64,10 +139,48 @@ def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
 # Função recebe o df e as colunas que serão as barras agrupadas 
 def graph_SUS(df: pd.DataFrame, 
               y1: str, y2: str, y3: str, 
-              title: Optional[str] = "Leitos SUS em janeiro 2022", 
+              title: Optional[str] = "Leitos SUS - Janeiro 2022", 
               image_graph_name: Optional[str] = "graph_SUS", 
               width: Optional[str] = 0.2, 
               colors: Optional[list] = ['royalblue', 'lightseagreen', 'mediumpurple']) -> None:
+    """
+    Geração do gráfico de barras agrupadas
+
+    :param df: DataFrame com colunas explícitas.
+    :type df: pd.DataFrame
+
+    :param y1: Coluna que será a primeira barrra do seu respectivo estado.
+    :type y1: str
+    
+    :param y2: Coluna que será a segunda barrra do seu respectivo estado.
+    :type y2: str
+
+    :param y3: Coluna que será a terceira barrra do seu respectivo estado.
+    :type y3: str
+
+    :param title: Título do gráfico plotado (opcional).
+    :type title: str
+
+    :param image_graph_name: Nome do arquivo imagem (opcional).
+    :type image_graph_name: str
+
+    :param width: Largura das barras presentes no gráfico (opcional).
+    :type width: float
+
+    :param colors: Lista de cores dos grupos de barras plotados (opcional).
+    :type colors: list
+
+    :return: Salva o arquivo imagem na pasta "graphs" e exibe o gráfico gerado.
+    :rtype: None
+
+    A função precisa de um DataFrame formatado com as informações necessárias
+    expicitamente como colunas, assim é possível plotar suas respectivas barras.
+
+    .. warning::
+       A função não tem retorno, o gráfico gerado será salvo na pasta "graphs" e 
+       após isso o terminal exibe o gráfico gerado.
+    """
+    
     try:
         # Definido o eixo x como os registros da tabela   
         x = np.arange(len(df))
