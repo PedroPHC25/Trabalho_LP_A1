@@ -6,7 +6,7 @@ em hospitais de várias naturezas e define a função
 geradora para o gráfico de barras agrupadas.
 """
 
-
+from data_graph_SUS import df_formatado
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -23,3 +23,6 @@ def graph_SUS(df, y1, y2, y3, title, image_graph_name, legend = ["Hospital Filan
     plt.show()
 
 # TODO adiconar typehint, adicionar comentários, adicionar tratamento de exceção, adicionar testes, adicionar docstring, adicionar a análise estatística
+
+def median_SUS(df, tipo_hospital):
+    return df[tipo_hospital].median()

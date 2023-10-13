@@ -1,4 +1,4 @@
-"""Módulo de dados para a análise da presença de leitos SUS em hospitais
+"""Módulo de dados para a análise da presença de leitos SUS em janeiro de 2022
 
 Este módulo reúne as manipulações e informações necessárias 
 para a geração do gráfico de barras agrupadas, essas informações 
@@ -27,7 +27,7 @@ for estado in estados:
             # Adicionando a linha criada
             df_formatado.loc[len(df_formatado)] = nova_linha 
         
-        # o estado de Roraima não possui a coluna "Hospital Filatrópico"
+        # O estado de Roraima não possui a coluna "Hospital Filatrópico" na data requerida
         except KeyError:
             nova_linha = [estado, 
                         0,
