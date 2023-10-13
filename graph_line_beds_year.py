@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from typing import Optional
+import doctest
 
 
 # Função para somar dados de uma coluna de acordo com o agrupamento de outra
@@ -25,7 +26,29 @@ def group_and_sum(df: pd.DataFrame, column_group: list, column_sum: list) -> pd.
 
     :return: DataFrame alterado
     :rtype: pandas.DataFrame
+
+    >>> test_data = {"Nome": ["Ana", "Ana", "Bruno", "Bruno", "Ana"], "N° de produtos comprados": [3, 1, 4, 1, 5]}
+    >>> df_test = pd.DataFrame(test_data, index = ["001", "002", "003", "004", "005"])
+
+    Teste normal
+    >>> group_and_sum(df_test, ["Nome"], ["N° de produtos comprados"])
+        Nome  N° de produtos comprados
+    0    Ana                         9
+    1  Bruno                         5
+
+    Teste de argumento 'df' não dataframe
+    >>> group_and_sum("A", ["Nome"], ["N° de produtos comprados"])
+    "Argumento 'df' não é um dataframe"
+
+    Teste de coluna inexistente
+    >>> group_and_sum(df_test, ["Nome"], ["Idade"])
+    'Coluna(s) não encontrada(s)'
+
+    Teste de argumento inadequado
+    >>> group_and_sum(df_test, ["Nome"], {"A": 1})
+    'Argumento inadequado'
     """
+
     try:
         df = df.groupby(column_group)[column_sum].sum().reset_index()
         return df
@@ -55,18 +78,39 @@ def date_conversor(df: pd.DataFrame, column: str, date_format: str) -> pd.DataFr
 
     :return: DataFrame alterado
     :rtype: pandas.DataFrame
+
+    >>> test_data = {"ID_Compra": [111, 222, 333], "Data": [20230127, 20220812, 20200417]}
+    >>> df_test = pd.DataFrame(test_data)
+
+    Teste normal
+    >>> date_conversor(df_test, "Data", "%Y%m%d")
+       ID_Compra       Data
+    0        111 2023-01-27
+    1        222 2022-08-12
+    2        333 2020-04-17
+
+    Teste de coluna inexistente
+    >>> date_conversor(df_test, "Mês", "%Y%m%d")
+    'Coluna(s) não encontrada(s)'
+
+    Teste de argumento inválido
+    >>> date_conversor(1, "Data", "%Y%m%d")
+    'Argumento inadequado'
+
+    Teste de coluna inadequada
+    >>> date_conversor(df_test, "ID_Compra", "%Y%m%d")
+    'Coluna não adequada ao formato passado'
     """
+
     try:
         df[column] = pd.to_datetime(df[column], format = date_format)
         return df
-    except AttributeError:
-        return "Argumento 'df' não é um dataframe"
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
         return "Argumento inadequado"
     except ValueError:
-        return "Argumento 'format' inadequado ou coluna não adequada ao formato passado"
+        return "Coluna não adequada ao formato passado"
     except:
         return "Erro desconhecido"
 
@@ -90,7 +134,30 @@ def mean_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, 
 
     :return: Média dos dados de cada ano especificado
     :rtype: dict
+
+    >>> test_data = {"ID_Doação": [111, 222, 333, 444], "Nome": ["Ana", "Bruno", "Carlos", "Daniela"], "Data": [20210523, 20210810, 20220217, 20221204], "Valor": [100, 200, 200, 500]}
+    >>> df_test = pd.DataFrame(test_data)
+    >>> df_test["Data"] = pd.to_datetime(df_test["Data"], format = "%Y%m%d")
+
+    Teste normal
+    >>> mean_per_year(df_test, "Data", "Valor", [2021, 2022])
+    {2021: 150.0, 2022: 350.0}
+
+    Teste de coluna de data inadequada
+    >>> mean_per_year(df_test, "Valor", "Valor", [2021, 2022])
+    "'column_date' não é do formato datetime"
+
+    Teste de coluna inexistente
+    >>> mean_per_year(df_test, "Data", "Quantia", [2021, 2022])
+    'Coluna(s) não encontrada(s)'
+
+    Testes de erro de tipo
+    >>> mean_per_year(df_test, "Data", "Valor", 1)
+    "Argumento inadequado ou 'column_to_calculate' não numérica"
+    >>> mean_per_year(df_test, "Data", "Nome", [2021, 2022])
+    "Argumento inadequado ou 'column_to_calculate' não numérica"
     """
+
     try:
         means = {}
         for each_year in years:
@@ -98,7 +165,7 @@ def mean_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, 
             means[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].mean()
         return means
     except AttributeError:
-        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+        return "'column_date' não é do formato datetime"
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
@@ -126,7 +193,30 @@ def median_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str
 
     :return: Mediana dos dados de cada ano especificado
     :rtype: dict
+
+    >>> test_data = {"ID_Doação": [111, 222, 333, 444], "Nome": ["Ana", "Bruno", "Carlos", "Daniela"], "Data": [20210523, 20210810, 20220217, 20221204], "Valor": [100, 200, 200, 500]}
+    >>> df_test = pd.DataFrame(test_data)
+    >>> df_test["Data"] = pd.to_datetime(df_test["Data"], format = "%Y%m%d")
+
+    Teste normal
+    >>> median_per_year(df_test, "Data", "Valor", [2021, 2022])
+    {2021: 150.0, 2022: 350.0}
+
+    Teste de coluna de data inadequada
+    >>> median_per_year(df_test, "Valor", "Valor", [2021, 2022])
+    "'column_date' não é do formato datetime"
+
+    Teste de coluna inexistente
+    >>> median_per_year(df_test, "Data", "Quantia", [2021, 2022])
+    'Coluna(s) não encontrada(s)'
+
+    Testes de erro de tipo
+    >>> median_per_year(df_test, "Data", "Valor", 1)
+    "Argumento inadequado ou 'column_to_calculate' não numérica"
+    >>> median_per_year(df_test, "Data", "Nome", [2021, 2022])
+    "Argumento inadequado ou 'column_to_calculate' não numérica"
     """
+
     try:
         medians = {}
         for each_year in years:
@@ -134,7 +224,7 @@ def median_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str
             medians[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].median()
         return medians
     except AttributeError:
-        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+        return "'column_date' não é do formato datetime"
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
@@ -162,7 +252,30 @@ def std_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, y
 
     :return: Desvios padrão dos dados de cada ano especificado
     :rtype: dict
+
+    >>> test_data = {"ID_Doação": [111, 222, 333, 444], "Nome": ["Ana", "Bruno", "Carlos", "Daniela"], "Data": [20210523, 20210810, 20220217, 20221204], "Valor": [100, 200, 200, 500]}
+    >>> df_test = pd.DataFrame(test_data)
+    >>> df_test["Data"] = pd.to_datetime(df_test["Data"], format = "%Y%m%d")
+
+    Teste normal
+    >>> std_per_year(df_test, "Data", "Valor", [2021, 2022])
+    {2021: 70.71067811865476, 2022: 212.13203435596427}
+
+    Teste de coluna de data inadequada
+    >>> std_per_year(df_test, "Valor", "Valor", [2021, 2022])
+    "'column_date' não é do formato datetime"
+
+    Teste de coluna inexistente
+    >>> std_per_year(df_test, "Data", "Quantia", [2021, 2022])
+    'Coluna(s) não encontrada(s)'
+
+    Testes de erro de tipo
+    >>> std_per_year(df_test, "Data", "Valor", 1)
+    "Argumento inadequado ou 'column_to_calculate' não numérica"
+    >>> std_per_year(df_test, "Data", "Nome", [2021, 2022])
+    "Argumento inadequado ou 'column_to_calculate' não numérica"
     """
+
     try:
         stds = {}
         for each_year in years:
@@ -170,7 +283,7 @@ def std_per_year(df: pd.DataFrame, column_date: str, column_to_calculate: str, y
             stds[each_year] = df[df[column_date].dt.year == each_year][column_to_calculate].std()
         return stds
     except AttributeError:
-        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+        return "'column_date' não é do formato datetime"
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
@@ -198,7 +311,28 @@ def max_and_min_per_year(df: pd.DataFrame, column_date: str, column_to_calculate
 
     :return: Máximos e mínimos em forma de uma tupla dos dados de cada ano especificado
     :rtype: dict
+
+    >>> test_data = {"ID_Doação": [111, 222, 333, 444], "Nome": ["Ana", "Bruno", "Carlos", "Daniela"], "Data": [20210523, 20210810, 20220217, 20221204], "Valor": [100, 200, 200, 500]}
+    >>> df_test = pd.DataFrame(test_data)
+    >>> df_test["Data"] = pd.to_datetime(df_test["Data"], format = "%Y%m%d")
+
+    Teste normal
+    >>> max_and_min_per_year(df_test, "Data", "Valor", [2021, 2022])
+    {2021: (100, 200), 2022: (200, 500)}
+
+    Teste de coluna de data inadequada
+    >>> max_and_min_per_year(df_test, "Valor", "Valor", [2021, 2022])
+    "'column_date' não é do formato datetime"
+
+    Teste de coluna inexistente
+    >>> max_and_min_per_year(df_test, "Data", "Quantia", [2021, 2022])
+    'Coluna(s) não encontrada(s)'
+
+    Teste de argumento inadequado
+    >>> max_and_min_per_year(df_test, "Data", "Valor", 1)
+    'Argumento inadequado'
     """
+
     try:
         maxs_and_mins = {}
         for each_year in years:
@@ -207,11 +341,11 @@ def max_and_min_per_year(df: pd.DataFrame, column_date: str, column_to_calculate
                                         df[df[column_date].dt.year == each_year][column_to_calculate].max())
         return maxs_and_mins
     except AttributeError:
-        return "Argumento 'df' não é um dataframe ou 'column_date' não é do formato datetime"
+        return "'column_date' não é do formato datetime"
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
-        return "Argumento inadequado ou 'column_to_calculate' não calculável"
+        return "Argumento inadequado"
     except:
         return "Erro desconhecido"
 
@@ -248,7 +382,23 @@ def graph_line(df: pd.DataFrame, x_column: str, y_column: str,
 
     :return: Salva o gráfico em uma imagem dentro da pasta "graphs" e o exibe.
     :rtype: None
+
+    >>> test_data = {"ID_Fatura": [111, 222, 333, 444], "Data": [20210523, 20210810, 20220217, 20221204], "Valor": [100, 200, 200, 500]}
+    >>> df_test = pd.DataFrame(test_data)
+    >>> df_test["Data"] = pd.to_datetime(df_test["Data"], format = "%Y%m%d")
+
+    Teste normal
+    >>> graph_line(df_test, "Data", "Valor", title = "Teste", x_label = "Rótulo x", y_label = "Rótulo y", image_graph_name = "Teste")
+
+    Teste de coluna inexistente
+    >>> graph_line(df_test, "Data", "Quantia")
+    'Coluna(s) não encontrada(s)'
+
+    Teste de argumento inválido
+    >>> graph_line(1, "Data", "Valor")
+    'Argumento inadequado'
     """
+
     try:
         # Ajustando o tamanho do gráfico
         plt.figure(figsize = (10, 6))
@@ -266,11 +416,13 @@ def graph_line(df: pd.DataFrame, x_column: str, y_column: str,
         plt.savefig(f"graphs/{image_graph_name}")
         plt.show()
 
-    except AttributeError:
-        return "Argumento 'df' não é um dataframe"
     except KeyError:
         return "Coluna(s) não encontrada(s)"
     except TypeError:
         return "Argumento inadequado"
     except:
         return "Erro desconhecido"
+    
+
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)
