@@ -3,7 +3,7 @@ import unittest
 import pandas as pd
 sys.path.append('..\Trabalho_LP_A1')
 
-from data_cleaner_pedro import select_columns, reset_index, not_necessary_columns
+from df_generator_functions import select_columns, reset_index, not_necessary_columns
 
 class TestDataCleanerPedro(unittest.TestCase):
 
