@@ -1,18 +1,14 @@
-"""Módulo de análise das estatístcas e geração do gráfico
+"""Módulo de geração do gráfico de barras agrupadas
 
-Este módulo contém a análise estatística com a
-base já formatada sobre a presença de leitos SUS
-em hospitais de várias naturezas e define a função
-geradora para o gráfico de barras agrupadas.
+Este módulo contém a  função geradora do gráfico
+sobre a presença de leitos SUS em hospitais de 
+várias naturezas.
 """
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from typing import Optional
 import doctest
-
-
 
 # Função recebe o df e as colunas que serão as barras agrupadas 
 def graph_SUS(df: pd.DataFrame, 
