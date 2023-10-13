@@ -1,5 +1,7 @@
 import pandas as pd
 
+### CONCATENAÇÃO DOS ARQUIVOS CSV ###
+
 data_2019 = pd.read_csv("dados/Leitos_2019.csv")
 data_2020 = pd.read_csv("dados/Leitos_2020.csv")
 data_2021 = pd.read_csv("dados/Leitos_2021.csv")
