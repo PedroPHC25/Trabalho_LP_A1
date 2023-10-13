@@ -10,8 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from typing import Optional
-
-# TODO adicionar testes
+import doctest
 
 # Função recebe o df e retorna a mediana do tipo hospital requisitado
 def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
@@ -33,15 +32,30 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+    
+    Teste de mediana
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [5,6,8], [14,12,23]])
+    
+    >>> median_SUS(example, "a")
+    5.0
+
+    >>> median_SUS(example, "b")
+    6.0
+
+    >>> median_SUS(example, "d")
+    'Chave fora da formatação necessária'
+
+    >>> median_SUS("d", example)
+    'Argumentos inadequados'
     """
     try:
         return df[tipo_hospital].median()
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados"
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária"
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 
 # Função recebe o df e retorna a média do tipo hospital requisitado
@@ -64,15 +78,30 @@ def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+    
+    Teste de média
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
+    
+    >>> mean_SUS(example, "a")
+    7.0
+
+    >>> mean_SUS(example, "b")
+    5.0
+
+    >>> mean_SUS(example, "d")
+    'Chave fora da formatação necessária'
+
+    >>> mean_SUS("d", example)
+    'Argumentos inadequados'
     """
     try:
         return df[tipo_hospital].mean()
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados"
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária" 
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 # Função recebe o df e retorna o desvio padrão do tipo hospital requisitado
 def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
@@ -94,15 +123,30 @@ def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+
+    Teste de desvio padrão
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
+    
+    >>> std_SUS(example, "a")
+    6.0
+
+    >>> std_SUS(example, "b")
+    2.6457513110645907
+
+    >>> std_SUS(example, "d")
+    'Chave fora da formatação necessária'
+
+    >>> std_SUS("d", example)
+    'Argumentos inadequados'
     """
     try:
         return df[tipo_hospital].std()
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados"
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária"
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 # Função recebe o df e retorna o máximo e mínimo do tipo hospital requisitado
 def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
@@ -130,11 +174,11 @@ def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
         max = df[tipo_hospital].max()
         return min, max
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados" 
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária" 
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 # Função recebe o df e as colunas que serão as barras agrupadas 
 def graph_SUS(df: pd.DataFrame, 
@@ -208,8 +252,11 @@ def graph_SUS(df: pd.DataFrame,
         plt.show()
         
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária"
     except TypeError:
-        print("DataFrame inserido não válido")
+        return "DataFrame inserido não válido"
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
+
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)
