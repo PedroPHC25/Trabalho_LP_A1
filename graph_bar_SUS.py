@@ -12,8 +12,6 @@ import pandas as pd
 from typing import Optional
 import doctest
 
-# TODO adicionar testes
-
 # Função recebe o df e retorna a mediana do tipo hospital requisitado
 def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     """
@@ -45,19 +43,19 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     6.0
 
     >>> median_SUS(example, "d")
-    Chave fora da formatação necessária
+    'Chave fora da formatação necessária'
 
     >>> median_SUS("d", example)
-    Argumentos inadequados
+    'Argumentos inadequados'
     """
     try:
         return df[tipo_hospital].median()
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados"
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária"
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 
 # Função recebe o df e retorna a média do tipo hospital requisitado
@@ -91,19 +89,19 @@ def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     5.0
 
     >>> mean_SUS(example, "d")
-    Chave fora da formatação necessária
+    'Chave fora da formatação necessária'
 
     >>> mean_SUS("d", example)
-    Argumentos inadequados
+    'Argumentos inadequados'
     """
     try:
         return df[tipo_hospital].mean()
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados"
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária" 
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 # Função recebe o df e retorna o desvio padrão do tipo hospital requisitado
 def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
@@ -136,19 +134,19 @@ def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     2.6457513110645907
 
     >>> std_SUS(example, "d")
-    Chave fora da formatação necessária
+    'Chave fora da formatação necessária'
 
     >>> std_SUS("d", example)
-    Argumentos inadequados
+    'Argumentos inadequados'
     """
     try:
         return df[tipo_hospital].std()
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados"
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária"
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 # Função recebe o df e retorna o máximo e mínimo do tipo hospital requisitado
 def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
@@ -176,11 +174,11 @@ def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
         max = df[tipo_hospital].max()
         return min, max
     except TypeError:
-        print("Argumentos inadequados")
+        return "Argumentos inadequados" 
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária" 
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 # Função recebe o df e as colunas que serão as barras agrupadas 
 def graph_SUS(df: pd.DataFrame, 
@@ -254,11 +252,11 @@ def graph_SUS(df: pd.DataFrame,
         plt.show()
         
     except KeyError:
-        print("Chave fora da formatação necessária")
+        return "Chave fora da formatação necessária"
     except TypeError:
-        print("DataFrame inserido não válido")
+        return "DataFrame inserido não válido"
     except:
-        print("Erro desconhecido")
+        return "Erro desconhecido"
 
 if __name__ == "__main__":
     doctest.testmod(verbose = True)
