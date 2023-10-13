@@ -1,14 +1,12 @@
 import pandas as pd
 from df_concatenator import data
 
-#Elimina coluna em que todas as células são na
-
+#Elimina coluna em que todas as células são NA
 def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     """
     Recebe um dataframe e elimina as colunas em que todos
     os valores são NA.
 
-    
     :param df: DataFrame fornecido.
 
     :type df: DataFrame  
@@ -29,4 +27,6 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
         return df
     except AttributeError:
         return "Argumento 'df' não é um dataframe"
+    except:
+        return "Erro desconhecido"
     
