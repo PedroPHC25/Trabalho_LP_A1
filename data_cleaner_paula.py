@@ -1,5 +1,4 @@
 import pandas as pd
-from df_concatenator import data
 
 #Elimina coluna em que todas as células são NA
 def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
@@ -20,6 +19,25 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     A mudança ocorre 'inplace', ou seja, modifica o dataframe 
     original.
 
+    >>> test_data = {"Nome": ["Ana", "Ana", "Bruno", "Bruno", "Ana"],
+                     "N° de produtos comprados": [3, 1, 4, 1, 5]}
+    >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
+
+    Teste normal
+    >>> not_necessary_columns(df_test, ["Estado natal"])
+          Nome  Idade
+    A      Ana     33
+    B  Beatriz     41
+    C   Carlos     19
+
+    Teste de argumento 'df' não dataframe
+    >>> not_necessary_columns("A", ["Estado natal"])
+    "Argumento 'df' não é um dataframe"
+
+    Teste de coluna inexistente
+    >>> not_necessary_columns(df_test, ["Cidade"])
+    'Coluna(s) não encontrada(s)'
+
     """
     try:
 
@@ -30,3 +48,4 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     except:
         return "Erro desconhecido"
     
+print("a")
