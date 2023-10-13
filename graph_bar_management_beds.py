@@ -9,8 +9,42 @@ import pandas as pd
 import  matplotlib.pyplot as plt
 from df_concatenator import data
 from typing import Optional
+print("a")
 
-# Função para plotar um gráfico de barras
+
+#Função que substitui os códigos de domínio pelo nome extenso
+def replacement(df: pd.DataFrame,
+                column:str, 
+                word: str, 
+                new_word: str)-> pd.DataFrame:
+    """
+    A função substitui todas as repetições da palavra fornecida por 
+    outra palavra especificada. 
+
+    :param df: Dataframe com os dados
+    :type df: pandas.Dataframe
+
+    :param column: coluna do dataframe que ocorrerá a mudança
+    :type column: str
+
+    :param word: palavra que consta inicialmente no df
+    :type word: str
+
+    :param new_word: palavra que substituirá a anterior
+    :type new_word: str  
+
+    :return: df com as palavras substituidas.
+    :rtype: pandas.Dataframe
+    """
+    try:
+        df[column].replace(word, new_word, inplace = True)
+        return df
+    except TypeError:
+        return "Argumento(s) inadequado(s)"
+    except KeyError:
+        return "Coluna ou palavra não encontrada"
+    
+    # Função para plotar um gráfico de barras
 def graph_bar(df: pd.DataFrame, x_column: str, y_column: str, 
                title: Optional[str] = "", 
                x_label: Optional[str] = "", 
@@ -55,42 +89,19 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
-# df = data.head(100)
-# df = df[["MUNICIPIO", "LEITOS_SUS", "TP_GESTAO", "LEITOS_EXISTENTES"]]
-# print(df)
-
-# graph_bar(df, "TP_GESTAO", "LEITOS_EXISTENTES")
-
-#Função que substitui os códigos de domínio pelo nome extenso
-def replacement(df: pd.DataFrame,
-                column:str, 
-                word: str, 
-                new_word: str)-> pd.DataFrame:
-    """
-    A função substitui todas as repetições da palavra fornecida por 
-    outra palavra especificada. 
-
-    :param df: Dataframe com os dados
-    :type df: pandas.Dataframe
-
-    :param column: coluna do dataframe que ocorrerá a mudança
-    :type column: str
-
-    :param word: palavra que consta inicialmente no df
-    :type word: str
-
-    :param new_word: palavra que substituirá a anterior
-    :type new_word: str  
-
-    :return: df com as palavras substituidas.
-    :rtype: pandas.Dataframe
-    """
+# Função recebe o df e retorna a mediana do número de leitos do tipo de gestão
+def median_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> float:
     try:
-        df[column].replace(word, new_word, inplace = True)
-        return df
+        df = df[df["TP_GESTAO"]== tipo_gestao]
+        mean = df[tipo_leito].mean()
+        return mean
     except TypeError:
-        return "Argumento(s) inadequado(s)"
+        print("Argumentos inadequados")
     except KeyError:
-        return "Coluna ou palavra não encontrada"
+        print("Chave fora da formatação necessária")
+    except:
+        print("Erro desconhecido")
+
+
 
 
