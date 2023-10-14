@@ -4,26 +4,47 @@ import matplotlib.pyplot as plt
 from matplotlib import ticker
 from df_generator import data_ped
 
-def calculate_statistics(df):
+import numpy as np
+
+def calcular_estatisticas(tupla):
     """
-    Calcula a média, mediana, desvio padrão, valor máximo, valor mínimo, moda e variância de uma coluna em um DataFrame.
+    Calcula a média, mediana, desvio padrão e variância de uma lista de números.
 
-    :param df: DataFrame contendo os dados.
-    :type df: pandas.Series
-
-    :return: Dicionário contendo as estatísticas calculadas.
+    :param tupla: Tupla contendo uma lista de rótulos de região e uma lista de números.
+    :type tupla: tuple
+    :return: Um dicionário contendo as estatísticas.
     :rtype: dict
     """
-    # Calcula as estatísticas
-    statistics = {
-        'Média': np.mean(df[1]),
-        'Mediana': np.median(df[1]),
-        'Desvio Padrão': np.std(df[1]),
-        'Máximo': np.max(df[1]),
-        'Mínimo': np.min(df[1]),
-        'Variância': np.var(df[1])
+    rotulos, numeros = tupla
+    media = np.mean(numeros)
+    mediana = np.median(numeros)
+    desvio_padrao = np.std(numeros)
+    variancia = np.var(numeros)
+    
+    estatisticas = {
+        'Média': media,
+        'Mediana': mediana,
+        'Desvio Padrão': desvio_padrao,
+        'Variância': variancia
     }
     
-    return statistics
+    return estatisticas
 
-statistics = calculate_statistics(data_ped)
+def test_calcular_estatisticas():
+    dados = (['CENTRO-OESTE', 'NORDESTE', 'NORTE', 'SUDESTE', 'SUL'], [30450, 55476, 22550, 150046, 35870])
+    estatisticas = calcular_estatisticas(dados)
+    
+    assert 'Média' in estatisticas
+    assert 'Mediana' in estatisticas
+    assert 'Desvio Padrão' in estatisticas
+    assert 'Variância' in estatisticas
+    
+    assert isinstance(estatisticas['Média'], float)
+    assert isinstance(estatisticas['Mediana'], (int, float))  # Aceita tanto inteiros quanto floats
+    assert isinstance(estatisticas['Desvio Padrão'], float)
+    assert isinstance(estatisticas['Variância'], float)
+
+
+if __name__ == "__main__":
+    test_calcular_estatisticas()
+    print("Todos os testes passaram.")
