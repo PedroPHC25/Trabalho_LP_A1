@@ -2,12 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import ticker
-from df_generator import data
-
-data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
-print(data_ped)
-
-import numpy as np
+from df_generator import data_ped
 
 def calculate_statistics(df):
     """
@@ -31,9 +26,6 @@ def calculate_statistics(df):
     }
     
     return statistics
-
-# Agora, para calcular as estatísticas usando a função
-data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
 
 statistics = calculate_statistics(data_ped)
 print(statistics)

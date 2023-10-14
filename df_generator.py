@@ -36,7 +36,6 @@ data = pd.concat([data_2019, data_2020, data_2021, data_2022, data_2023], axis =
 
 data.set_index(["COMP", "CNES"], inplace = True)
 
-
 ### GERAÇÃO DO DATAFRAME PARA A ANÁLISE "BEDS X YEAR" ###
 
 data_beds_year = dfgf.select_columns(data, ["LEITOS_EXISTENTES"])
@@ -58,4 +57,4 @@ data_management = dfgf.not_necessary_columns(data_management, ["CNES", "COMP"])
 
 ### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS PEDIÁTRICOS POR REGIÃO"
 
-data_ped = generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
+data_ped = dfgf.generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
