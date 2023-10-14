@@ -24,6 +24,7 @@ def select_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
 
     Teste normal
+
     >>> select_columns(df_test, ["Nome", "Estado natal"])
           Nome       Estado natal
     A      Ana     Rio de Janeiro
@@ -31,12 +32,14 @@ def select_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     C   Carlos  Rio Grande do Sul
 
     Testes de argumento inválido
+
     >>> select_columns(1, ["Nome", "Estado natal"])
     'Argumento(s) inadequado(s)'
     >>> select_columns("A", ["Nome", "Estado natal"])
     'Argumento(s) inadequado(s)'
     
     Teste de coluna inexistente
+
     >>> select_columns(df_test, ["Nome", "Cidade"])
     'Coluna(s) não encontrada(s)'
     """
@@ -67,6 +70,7 @@ def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
 
     Teste normal
+
     >>> reset_index(df_test)
       index     Nome  Idade       Estado natal
     0     A      Ana     33     Rio de Janeiro
@@ -74,6 +78,7 @@ def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     2     C   Carlos     19  Rio Grande do Sul
 
     Teste de argumento não dataframe
+    
     >>> reset_index(1)
     'Argumento não é um dataframe'
     """
@@ -105,6 +110,7 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
 
     Teste normal
+
     >>> not_necessary_columns(df_test, ["Estado natal"])
           Nome  Idade
     A      Ana     33
@@ -112,10 +118,12 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     C   Carlos     19
 
     Teste de argumento 'df' não dataframe
+
     >>> not_necessary_columns("A", ["Estado natal"])
     "Argumento 'df' não é um dataframe"
 
     Teste de coluna inexistente
+    
     >>> not_necessary_columns(df_test, ["Cidade"])
     'Coluna(s) não encontrada(s)'
     """
