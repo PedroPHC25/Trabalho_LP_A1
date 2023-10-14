@@ -6,11 +6,9 @@ do Brasil."""
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import ticker
-from df_generator import data
+from df_generator import data_ped
 
-data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
-
-def plot_bar_chart_from_series(data_series, color):
+def plot_bar_chart_from_series(data_series, color='pink'):
     """
     Cria um gráfico de barras a partir de uma série de dados.
 
