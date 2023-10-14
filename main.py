@@ -1,6 +1,7 @@
 import df_generator as dfg
 from data_analysis_functions import analysis_beds_year as aby
 from data_analysis_functions import analysis_functions_SUS as afs
+from data_analysis_functions import analysis_management_beds as amb
 from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 
@@ -59,3 +60,31 @@ min_max_hosp_fil = afs.max_min_SUS(data_SUS, "Hospital Filantrópico")
 
 # Gerando o gráfico de barras agrupadas
 graphbar_SUS = gbs.graph_SUS(data_SUS, "Hospital Público", "Hospital Privado", "Hospital Filantrópico")
+
+### DADOS DA ANÁLISE "BEDS X MANAGEMENT" ###
+
+# importando os dados manipulados para análise
+data_management = dfg.data_management
+
+# Média dos leitos existente de cada gestão 
+mean_beds_municipal = amb.mean_by_management(data_management, "M", "LEITOS_EXISTENTES")
+mean_beds_estadual = amb.mean_by_management(data_management, "E", "LEITOS_EXISTENTES")
+mean_beds_dupla = amb.mean_by_management(data_management, "D", "LEITOS_EXISTENTES")
+mean_beds_sem_gestao = amb.mean_by_management(data_management, "S", "LEITOS_EXISTENTES")
+
+print("média:", mean_beds_dupla, mean_beds_estadual, mean_beds_municipal, mean_beds_sem_gestao)
+
+# Mediana dos leitos existentes de cada gestão
+median_beds_municipal = amb.median_by_management(data_management, "M", "LEITOS_EXISTENTES")
+median_beds_estadual = amb.median_by_management(data_management, "E", "LEITOS_EXISTENTES")
+median_beds_dupla = amb.median_by_management(data_management, "D", "LEITOS_EXISTENTES")
+
+# Desvio padrão dos leitos existentes de cada gestão
+std_beds_municipal = amb.std_by_management(data_management, "M", "LEITOS_EXISTENTES")
+std_beds_estadual = amb.std_by_management(data_management, "E", "LEITOS_EXISTENTES")
+std_beds_dupla = amb.std_by_management(data_management, "D", "LEITOS_EXISTENTES")
+
+# Quantidade de valores distintos de leitos em cada gestão
+unique_beds_municipal = amb.unique_by_management(data_management, "M", "LEITOS_EXISTENTES")
+unique_beds_estadual = amb.unique_by_management(data_management, "E", "LEITOS_EXISTENTES")
+unique_beds_dupla = amb.unique_by_management(data_management, "D", "LEITOS_EXISTENTES")
