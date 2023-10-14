@@ -4,6 +4,8 @@ from data_analysis_functions import analysis_functions_SUS as afs
 from data_analysis_functions import analysis_management_beds as amb
 from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
+from graphs_functions import graph_bar_management_beds as gbm
+
 
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 
@@ -28,7 +30,7 @@ std_per_year = aby.std_per_year(data_beds_year, "COMP", "LEITOS_EXISTENTES", [20
 max_and_min_per_year = aby.max_and_min_per_year(data_beds_year, "COMP", "LEITOS_EXISTENTES", [2019, 2020, 2021, 2022, 2023])
 # print(max_and_min_per_year)
 
-# Gerando um gráfico de linha com base nesses dados
+# # Gerando um gráfico de linha com base nesses dados
 gby.graph_line(data_beds_year, "COMP", "LEITOS_EXISTENTES",
                title = "Número de leitos nos hospitais brasileiros (2019 - 2023)",
                x_label = "Ano", y_label = "Número de leitos", image_graph_name = "graph_beds_year")
@@ -88,14 +90,12 @@ std_beds_dupla = amb.std_by_management(data_management, "D", "LEITOS_EXISTENTES"
 unique_beds_municipal = amb.unique_by_management(data_management, "M", "LEITOS_EXISTENTES")
 unique_beds_estadual = amb.unique_by_management(data_management, "E", "LEITOS_EXISTENTES")
 unique_beds_dupla = amb.unique_by_management(data_management, "D", "LEITOS_EXISTENTES")
-#____________________________________________________________________________________________
+
 # Média dos leitos SUS de cada gestão 
 mean_beds_sus_municipal = amb.mean_by_management(data_management, "M", "LEITOS_SUS")
 mean_beds_sus_estadual = amb.mean_by_management(data_management, "E", "LEITOS_SUS")
 mean_beds_sus_dupla = amb.mean_by_management(data_management, "D", "LEITOS_SUS")
 mean_beds_sus_sem_gestao = amb.mean_by_management(data_management, "S", "LEITOS_SUS")
-
-print("média sus:", mean_beds_sus_dupla, mean_beds_sus_estadual, mean_beds_sus_municipal, mean_beds_sus_sem_gestao)
 
 # Mediana dos leitos existentes de cada gestão
 median_beds_sus_municipal = amb.median_by_management(data_management, "M", "LEITOS_SUS")
@@ -111,3 +111,11 @@ std_beds_sus_dupla = amb.std_by_management(data_management, "D", "LEITOS_SUS")
 unique_beds_sus_municipal = amb.unique_by_management(data_management, "M", "LEITOS_SUS")
 unique_beds_sus_estadual = amb.unique_by_management(data_management, "E", "LEITOS_SUS")
 unique_beds_sus_dupla = amb.unique_by_management(data_management, "D", "LEITOS_SUS")
+
+# Gerando o gráfico de barras 
+data_management = gbm.replacement(data_management, "TP_GESTAO", "M", "Municipal")
+data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
+data_management = gbm.replacement(data_management, "TP_GESTAO", "D", "Dupla Gestão")
+graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES", 
+                                     title ="Leitos existentes por tipo de gestão", x_label = "Tipo de gestão atuante",
+                                      y_label = "Quantidade de leitos existentes", image_graph_name = "graph_management_beds")
