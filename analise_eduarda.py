@@ -16,16 +16,14 @@ def calculate_statistics(df):
     """
     # Calcula as estatísticas
     statistics = {
-        'Média': np.mean(df),
-        'Mediana': np.median(df),
-        'Desvio Padrão': np.std(df),
-        'Máximo': np.max(df),
-        'Mínimo': np.min(df),
-        'Moda': df.mode()[0],  # A moda pode ter múltiplos valores, pegamos o primeiro
-        'Variância': np.var(df)
+        'Média': np.mean(df[1]),
+        'Mediana': np.median(df[1]),
+        'Desvio Padrão': np.std(df[1]),
+        'Máximo': np.max(df[1]),
+        'Mínimo': np.min(df[1]),
+        'Variância': np.var(df[1])
     }
     
     return statistics
 
 statistics = calculate_statistics(data_ped)
-print(statistics)

@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib import ticker
 from df_generator import data_ped
 
-def plot_bar_chart_from_tuples(labels, values, color='pink'):
+def plot_bar_chart_from_tuples(labels, values):
     """
     Cria um gráfico de barras a partir de tuplas de rótulos e valores.
 
@@ -20,7 +20,7 @@ def plot_bar_chart_from_tuples(labels, values, color='pink'):
     :type color: str
     """
     plt.figure(figsize=(10, 6))
-    plt.bar(labels, values, color=color)
+    plt.bar(labels, values, color='skyblue')
     plt.title('Quantidade de leitos pediátricos existentes X Região brasileira')
     plt.xlabel('Região')
     plt.ylabel('Quantidade de leitos')
@@ -28,4 +28,4 @@ def plot_bar_chart_from_tuples(labels, values, color='pink'):
     plt.show()
 
 
-plot_bar_chart_from_tuples(data_ped[0], data_ped[1], color='skyblue')
+plot_bar_chart_from_tuples(data_ped[0], data_ped[1])
