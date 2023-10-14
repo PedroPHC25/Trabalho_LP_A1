@@ -94,8 +94,6 @@ def median_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
         df = df[df["TP_GESTAO"] == tipo_gestao]
         median = df[tipo_leito].median()
         return median
-    except AttributeError:
-        return "Argumento 'df' não é um dataframe"
     except TypeError:
         print("Argumentos inadequados")
     except KeyError:
@@ -144,6 +142,7 @@ def std_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> flo
         df = df[df["TP_GESTAO"] == tipo_gestao]
         desvio_padrao = df[tipo_leito].std()
         return desvio_padrao
+    
     except AttributeError:
         return "Argumento 'df' não é um dataframe"
     except TypeError:

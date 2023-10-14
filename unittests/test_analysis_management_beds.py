@@ -25,14 +25,11 @@ class TestAnalysisManagementBeds(unittest.TestCase):
         # Teste normal
         self.assertEqual(mean_by_management(df_test, "M", "LEITOS_SUS"), ((2+2+4)/3))
         
-        # #Teste de argumento "df" não dataframe
-        # self.assertEqual(mean_by_management("a", "M", "LEITOS_SUS"),
-        #                 "Argumentos inadequados")
-        # Teste de coluna inexistente
-        # self.assertEqual(mean_by_management(df_test, "p", "b"), "Chave fora da formatação necessária")
-        # Teste de argumento inválido
-        # self.assertEqual(group_and_sum(df_test, ["Nome"], {"A": 1}), "Argumento inadequado")
-
+        #Teste de argumento inadequado
+        # self.assertEqual(mean_by_management(1, "M", "LEITOS_SUS"),"Argumentos inadequados")
+        # Teste chave fora da formatação
+        # self.assertEqual(mean_by_management(1, 1, 2), "Chave fora da formatação necessária")
+       
 
     def median_by_management(self):
 
@@ -65,6 +62,26 @@ class TestAnalysisManagementBeds(unittest.TestCase):
 
         # Teste normal
         self.assertEqual(std_by_management(df_test, "M", "LEITOS_SUS"), 1)
+        
+        # #Teste de argumento "df" não dataframe
+        # self.assertEqual(mean_by_management("a", "M", "LEITOS_SUS"),
+        #                 "Argumentos inadequados")
+        # Teste de coluna inexistente
+        # self.assertEqual(mean_by_management(df_test, "p", "b"), "Chave fora da formatação necessária")
+        # Teste de argumento inválido
+        # self.assertEqual(group_and_sum(df_test, ["Nome"], {"A": 1}), "Argumento inadequado")
+
+    def unique_by_management(self):
+
+        # Criando um dataframe para os testes
+        test_data = {"TP_GESTAO":["M", "E", "D", "S", "M", "M", "E", "E"],
+                     "LEITOS_SUS":[2, 3, 6, 4, 1, 3, 3, 1],
+                     "LEITOS_EXISTENTES":[4, 5, 7, 5, 3, 6, 2, 1]}
+        df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
+        
+
+        # Teste normal
+        self.assertEqual(unique_by_management(df_test, "M", "LEITOS_SUS"), 3)
         
         # #Teste de argumento "df" não dataframe
         # self.assertEqual(mean_by_management("a", "M", "LEITOS_SUS"),
