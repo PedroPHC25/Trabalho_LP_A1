@@ -49,3 +49,9 @@ useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO"
 data_SUS = dfgf.not_necessary_columns(data, useless)
 data_SUS = dfgf.delete_columns_na(data_SUS)
 data_SUS = dfgf.formatar_df(data_SUS,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")
+
+### GERAÇÃO DO DATAFRAME PARA ANÁLISE "BEDS X MANAGEMENT"
+
+data_management = dfgf.select_columns(data, ["LEITOS_EXISTENTES", "LEITOS_SUS", "TP_GESTAO", "NOME_ESTABELECIMENTO"])
+data_management = dfgf.reset_index(data_management)
+data_management = dfgf.not_necessary_columns(data_management, ["CNES", "COMP"])
