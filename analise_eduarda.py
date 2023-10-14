@@ -1,12 +1,11 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import ticker
 from df_generator import data
-import numpy as np
 
-import numpy as np
-import matplotlib.pyplot as plt
-from df_generator import data
+data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
+print(data_ped)
 
 def calculate_statistics(df, y_column):
     """
@@ -38,6 +37,7 @@ def calculate_statistics(df, y_column):
     
     return statistics
 
+
 def plot_statistics(statistics):
     """
     Plota as estatísticas calculadas.
@@ -58,35 +58,12 @@ def plot_statistics(statistics):
     plt.ylabel('Valor')
     plt.show()
 
-data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
-
-# Teste das funções
-statistics = calculate_statistics(data_ped, 'UTI_PEDIATRICO_EXIST')
-plot_statistics(statistics)
-
-# Teste do exemplo de uso
-#graph_bar(data_ped, 'REGIAO', 'UTI_PEDIATRICO_EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.png')
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#ANÁLISE
 
 data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
 print(data_ped)
