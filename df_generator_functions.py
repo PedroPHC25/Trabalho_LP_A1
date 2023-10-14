@@ -24,6 +24,7 @@ def select_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
 
     Teste normal
+
     >>> select_columns(df_test, ["Nome", "Estado natal"])
           Nome       Estado natal
     A      Ana     Rio de Janeiro
@@ -31,12 +32,14 @@ def select_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     C   Carlos  Rio Grande do Sul
 
     Testes de argumento inválido
+
     >>> select_columns(1, ["Nome", "Estado natal"])
     'Argumento(s) inadequado(s)'
     >>> select_columns("A", ["Nome", "Estado natal"])
     'Argumento(s) inadequado(s)'
     
     Teste de coluna inexistente
+
     >>> select_columns(df_test, ["Nome", "Cidade"])
     'Coluna(s) não encontrada(s)'
     """
@@ -67,6 +70,7 @@ def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
 
     Teste normal
+
     >>> reset_index(df_test)
       index     Nome  Idade       Estado natal
     0     A      Ana     33     Rio de Janeiro
@@ -74,6 +78,7 @@ def reset_index(df: pd.DataFrame) -> pd.DataFrame:
     2     C   Carlos     19  Rio Grande do Sul
 
     Teste de argumento não dataframe
+    
     >>> reset_index(1)
     'Argumento não é um dataframe'
     """
@@ -105,6 +110,7 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C"])
 
     Teste normal
+
     >>> not_necessary_columns(df_test, ["Estado natal"])
           Nome  Idade
     A      Ana     33
@@ -112,10 +118,12 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     C   Carlos     19
 
     Teste de argumento 'df' não dataframe
+
     >>> not_necessary_columns("A", ["Estado natal"])
     "Argumento 'df' não é um dataframe"
 
     Teste de coluna inexistente
+    
     >>> not_necessary_columns(df_test, ["Cidade"])
     'Coluna(s) não encontrada(s)'
     """
@@ -206,7 +214,15 @@ def formatar_df(df_original: pd.DataFrame,
     para análise e plotagem do gráfico.
 
     .. warning::
-       O paramêtro date precisa estar no formato 202001, anomês.
+    O paramêtro date precisa estar no formato 202001, anomês.
+    
+    >>> data = {'Data': [202301, 202301, 202301, 202301, 202301, 202301],'Estado': ['SP', 'RJ', 'SP', 'RJ','SP', 'RJ'], 'Tipo_Hospital': ['HOSPITAL_FILANTROPICO', 'HOSPITAL_FILANTROPICO', 'HOSPITAL_PRIVADO', 'HOSPITAL_PRIVADO','HOSPITAL_PUBLICO', 'HOSPITAL_PUBLICO'], 'Valor': [100, 200, 150, 50, 202, 154],"Nome" : ["Hospital Santa Esperança", "Instituto Médico Vital", "Centro Hospitalar Estrela da Manhã", "Hospital São Lucas", "Clínica Médica da Esperança", "Hospital das Crianças Felizes"]}
+    >>> example = pd.DataFrame(data)
+    >>> example.set_index(["Data", "Nome"], inplace=True)
+    >>> formatar_df(example, 202301, 'Estado', 'Tipo_Hospital', 'Valor')
+      Estado  Hospital Filantrópico  Hospital Privado  Hospital Público
+    0     SP                    100               150               202
+    1     RJ                    200                50               154
    """
     # Seleciona os dados na data requerida
     df_original = df_original.loc[date]
@@ -240,8 +256,6 @@ def formatar_df(df_original: pd.DataFrame,
 
 
 
-if __name__ == "__main__":
-    doctest.testmod(verbose = True)
 
 
 #GRÁFICO DE BARRAS - LEITOS PEDIÁTRICOS
@@ -336,3 +350,5 @@ if __name__ == "__main__":
 
     unittest.main()
     
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)

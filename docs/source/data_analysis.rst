@@ -28,3 +28,8 @@ Módulo `analysis_management_beds`
 .. autofunction:: data_analysis_functions.analysis_management_beds.median_by_management
 .. autofunction:: data_analysis_functions.analysis_management_beds.std_by_management
 .. autofunction:: data_analysis_functions.analysis_management_beds.unique_by_management
+
+Módulo `analysis_pediatric_regions`
+-----------------------------------
+
+.. autofunction:: data_analysis_functions.analysis_pediatric_regions.calcular_estatisticas
