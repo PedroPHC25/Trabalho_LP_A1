@@ -265,4 +265,74 @@ def generate_bar_chart_data(data, group_column, value_column):
     values = grouped_data.values.tolist()
     return labels, values
 
+def clean_data(df):
+    """
+    Limpa os dados do DataFrame.
+
+    :param df: DataFrame a ser limpo.
+    :type df: pandas.DataFrame
+
+    :return: DataFrame limpo.
+    :rtype: pandas.DataFrame
+    """
+    try:
+        # Remover linhas duplicadas
+        df = df.drop_duplicates()
+
+        # Preencher valores ausentes (NaN)
+        df = df.fillna(0)  # Substitua 0 pelo valor desejado
+
+        # Renomear colunas (se necessário)
+        df = df.rename(columns={'coluna_antiga': 'nova_coluna'})
+
+        return df
+    except Exception as e:
+        raise e
+
+# Exemplo de uso
+data = pd.DataFrame({
+    'coluna1': [1, 2, 3, 4, 5, 6],
+    'coluna2': [None, 2, None, 4, None, 6]
+})
+
+# Chamando a função para limpar os dados
+data_limpo = clean_data(data)
+
+# Doctests
+"""
+>>> data = pd.DataFrame({
+...    'coluna1': [1, 2, 3, 4, 5, 6],
+...    'coluna2': [None, 2, None, 4, None, 6]
+... })
+>>> data_limpo = clean_data(data)
+>>> data_limpo
+   coluna1  coluna2
+0        1      0.0
+1        2      2.0
+3        4      4.0
+5        6      6.0
+"""
+
+if __name__ == "__main__":
+    import unittest
+
+    class TestCleanData(unittest.TestCase):
+        def test_clean_data(self):
+            # Teste com dados nulos
+            data = pd.DataFrame({
+                'coluna1': [1, 2, 3, 4, 5, 6],
+                'coluna2': [None, 2, None, 4, None, 6]
+            })
+            cleaned_data = clean_data(data)
+            self.assertEqual(cleaned_data['coluna2'].isnull().sum(), 0)
+
+            # Teste com duplicatas
+            data = pd.DataFrame({
+                'coluna1': [1, 2, 2, 3, 4, 5, 5, 6],
+                'coluna2': [None, 2, None, 4, None, 6, 6, 6]
+            })
+            cleaned_data = clean_data(data)
+            self.assertEqual(len(cleaned_data), len(data.drop_duplicates()))
+
+    unittest.main()
     

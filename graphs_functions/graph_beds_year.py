@@ -47,13 +47,16 @@ def graph_line(df: pd.DataFrame, x_column: str, y_column: str,
     >>> df_test["Data"] = pd.to_datetime(df_test["Data"], format = "%Y%m%d")
 
     Teste normal
+
     >>> graph_line(df_test, "Data", "Valor", title = "Teste", x_label = "Rótulo x", y_label = "Rótulo y", image_graph_name = "Teste")
 
     Teste de coluna inexistente
+
     >>> graph_line(df_test, "Data", "Quantia")
     'Coluna(s) não encontrada(s)'
 
     Teste de argumento inválido
+    
     >>> graph_line(1, "Data", "Valor")
     'Argumento inadequado'
     """
