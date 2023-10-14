@@ -9,11 +9,38 @@ import pandas as pd
 import sys
 sys.path.append('..\Trabalho_LP_A1')
 
-from df_generator import data
-from data_analysis_functions.analysis_functions_SUS import formatar_df
-from graphs_functions.graph_bar_SUS import graph_SUS
 
-df_formatado = formatar_df(data,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")
+#Colocar na main
+from data_analysis_functions import analysis_functions_SUS as afs
+from graphs_functions import graph_bar_SUS as gbs
+import df_generator as dfg
 
-# print(df_formatado)
-graph_SUS(df_formatado, "Hospital Público", "Hospital Filantrópico", "Hospital Privado")
+# importando os dados manipulados para análise
+data_SUS = dfg.data_SUS
+
+# Mediana de cada tipo de hospital nos estados brasileiros
+median_hosp_pub = afs.median_SUS(data_SUS, "Hospital Público")
+median_hosp_priv = afs.median_SUS(data_SUS, "Hospital Privado")
+median_hosp_fil = afs.median_SUS(data_SUS, "Hospital Filantrópico")
+
+# Média de cada tipo de hospital nos estados brasileiros
+mean_hosp_pub = afs.mean_SUS(data_SUS, "Hospital Público")
+mean_hosp_priv = afs.mean_SUS(data_SUS, "Hospital Privado")
+mean_hosp_fil = afs.mean_SUS(data_SUS, "Hospital Filantrópico")
+
+# Desvio padrão de cada tipo de hospital nos estados brasileiros
+std_hosp_pub = afs.std_SUS(data_SUS, "Hospital Público")
+std_hosp_priv = afs.std_SUS(data_SUS, "Hospital Privado")
+std_hosp_fil = afs.std_SUS(data_SUS, "Hospital Filantrópico")
+
+# Mínimo e máximo de cada tipo de hospital nos estados brasileiros
+min_max_hosp_pub = afs.max_min_SUS(data_SUS, "Hospital Público")
+min_max_hosp_priv = afs.max_min_SUS(data_SUS, "Hospital Privado")
+min_max_hosp_fil = afs.max_min_SUS(data_SUS, "Hospital Filantrópico")
+
+graphbar_SUS = gbs.graph_SUS(data_SUS, "Hospital Público", "Hospital Privado", "Hospital Filantrópico")
+
+# mudar no df generator
+import df_generator_functions as dfgf
+useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO", "NO_BAIRRO", "CO_CEP", "NU_TELEFONE", "NO_EMAIL"]
+data_SUS = dfgf.not_necessary_columns(data, useless)

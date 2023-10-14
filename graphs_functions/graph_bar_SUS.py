@@ -56,7 +56,7 @@ def graph_SUS(df: pd.DataFrame,
     """
     
     try:
-        # Definido o eixo x como os registros da tabela   
+        # Definindo o eixo x como os registros da tabela   
         x = np.arange(len(df))
 
         # Atribuindo as colunas as suas respectivas barras
