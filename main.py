@@ -2,11 +2,11 @@ import df_generator as dfg
 from data_analysis_functions import analysis_beds_year as aby
 from data_analysis_functions import analysis_functions_SUS as afs
 from data_analysis_functions import analysis_management_beds as amb
-from data_analysis_functions import analysis_pediatric_regions as apr
+# from data_analysis_functions import analysis_pediatric_regions as apr
 from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 from graphs_functions import graph_bar_management_beds as gbm
-from graphs_functions import graph_bar_pediatric_region as gbpr
+# from graphs_functions import graph_bar_pediatric_region as gbpr
 '''
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 
@@ -63,6 +63,7 @@ min_max_hosp_fil = afs.max_min_SUS(data_SUS, "Hospital Filantrópico")
 
 # Gerando o gráfico de barras agrupadas
 graphbar_SUS = gbs.graph_SUS(data_SUS, "Hospital Público", "Hospital Privado", "Hospital Filantrópico")
+'''
 
 ### DADOS DA ANÁLISE "BEDS X MANAGEMENT" ###
 
@@ -97,7 +98,7 @@ mean_beds_sus_municipal = amb.mean_by_management(data_management, "M", "LEITOS_S
 mean_beds_sus_estadual = amb.mean_by_management(data_management, "E", "LEITOS_SUS")
 mean_beds_sus_dupla = amb.mean_by_management(data_management, "D", "LEITOS_SUS")
 mean_beds_sus_sem_gestao = amb.mean_by_management(data_management, "S", "LEITOS_SUS")
-
+print("média:", mean_beds_sus_dupla, mean_beds_sus_estadual, mean_beds_sus_municipal)
 # Mediana dos leitos existentes de cada gestão
 median_beds_sus_municipal = amb.median_by_management(data_management, "M", "LEITOS_SUS")
 median_beds_sus_estadual = amb.median_by_management(data_management, "E", "LEITOS_SUS")
@@ -114,13 +115,15 @@ unique_beds_sus_estadual = amb.unique_by_management(data_management, "E", "LEITO
 unique_beds_sus_dupla = amb.unique_by_management(data_management, "D", "LEITOS_SUS")
 
 # Gerando o gráfico de barras 
+data_management = gbm.replacement(data_management, "TP_GESTAO", "D", "Dupla")
 data_management = gbm.replacement(data_management, "TP_GESTAO", "M", "Municipal")
 data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
-data_management = gbm.replacement(data_management, "TP_GESTAO", "D", "Dupla Gestão")
-graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES", 
-                                     title ="Leitos existentes por tipo de gestão", x_label = "Tipo de gestão atuante",
-                                      y_label = "Quantidade de leitos existentes", image_graph_name = "graph_management_beds")
-'''
+graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_SUS", 
+                                     title ="Leitos existentes por tipo de gestão (Julho de 2019)", y_label = "Tipo de gestão atuante",
+                                     x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
+
+print("a")
+"""
 ### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
 
 #importanto os dados
@@ -131,3 +134,4 @@ analysis_pediatric_regions_text = apr.calcular_estatisticas(data_pediatric_regio
 
 #mostrando os dados graficamente no formato de barras
 graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
+"""

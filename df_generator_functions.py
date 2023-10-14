@@ -254,6 +254,15 @@ def formatar_df(df_original: pd.DataFrame,
     return df_formatado
 
 
+def filtra_year(df: pd.DataFrame, período: int )-> pd.DataFrame:
+    df_filtrado = df[df["COMP"]== período]
+    return  df_filtrado
+
+
+
+
+
+
 
 
 
@@ -352,3 +361,4 @@ if __name__ == "__main__":
     
 if __name__ == "__main__":
     doctest.testmod(verbose = True)
+
