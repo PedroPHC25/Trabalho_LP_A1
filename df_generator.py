@@ -42,3 +42,7 @@ data.set_index(["COMP", "CNES"], inplace = True)
 data_beds_year = dfgf.select_columns(data, ["LEITOS_EXISTENTES"])
 data_beds_year = dfgf.reset_index(data_beds_year)
 data_beds_year = dfgf.not_necessary_columns(data_beds_year, ["CNES"])
+
+### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS SUS"
+
+data_SUS = dfgf.formatar_df(data,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")

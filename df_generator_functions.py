@@ -131,9 +131,6 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
         return "Erro desconhecido"
     
 
-if __name__ == "__main__":
-    doctest.testmod(verbose = True)
-
 
 
 #____________________________PAULA______________________________________________________
@@ -181,7 +178,72 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     except:
         return "Erro desconhecido"
     
-#__________________________________________________________________________________________________
+#______________________________________________________________________________________________
+
+# Função que coloca as colunas explícitas para análise sobre hospitais públicos, privados e filantrópicos
+def formatar_df(df_original: pd.DataFrame, 
+                date: int, 
+                coluna_group1: str, coluna_group2: str, 
+                coluna_num: str) -> pd.DataFrame:
+    
+    """
+    Formatação para extração das informações necesssárias.
+
+    :param df_original: DataFrame original.
+    :type df_original: pd.DataFrame
+
+    :param date: Competência das análises, em formato anomês, 202001. 
+    :type date: int
+
+    :param coluna_group1: Primeira coluna para o agrupamento.  
+    :type date: str
+
+    :param coluna_group2: Segunda coluna para o agrupamento.  
+    :type date: str
+
+    :param coluna_group1: Coluna numérica.  
+    :type date: str
+
+    :return: Retorna um DataFrame com as colunas formatadas.
+    :rtype: pd.DataFrame
+
+    A função deixa explícita as colunas com as informações 
+    para análise e plotagem do gráfico.
+
+    .. warning::
+       O paramêtro date precisa estar no formato 202001, anomês.
+   """
+    # Seleciona os dados na data requerida
+    df_original = df_original.loc[date]
+    # Armazena os estados presentes na tabela
+    estados = df_original[coluna_group1].unique()
+    # Agrupando por duas colunas e somando uma coluna numérica
+    df_original = df_original.groupby([coluna_group1, coluna_group2])[coluna_num].sum()
+    
+    # Criando o novo df com as colunas desejadas
+    df_formatado = pd.DataFrame(columns=["Estado", "Hospital Filantrópico", "Hospital Privado", "Hospital Público"])
+    # Iterando para adicionar cada estado e suas estatísticas
+    for estado in estados:
+            try:    
+                # Localizando as informações e organizando em colunas
+                nova_linha = [estado, 
+                            df_original.loc[estado].loc["HOSPITAL_FILANTROPICO"],
+                            df_original.loc[estado].loc["HOSPITAL_PRIVADO"],
+                            df_original.loc[estado].loc["HOSPITAL_PUBLICO"]]
+                # Adicionando a linha criada
+                df_formatado.loc[len(df_formatado)] = nova_linha 
+            
+            # O estado de Roraima não possui a coluna "Hospital Filatrópico"
+            except KeyError:
+                nova_linha = [estado, 
+                            0,
+                            df_original.loc[estado].loc["HOSPITAL_PRIVADO"],
+                            df_original.loc[estado].loc["HOSPITAL_PUBLICO"]]
+                df_formatado.loc[len(df_formatado)] = nova_linha
+    return df_formatado
 
 
 
+
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)
