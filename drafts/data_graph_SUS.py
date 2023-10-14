@@ -10,10 +10,11 @@ import sys
 sys.path.append('..\Trabalho_LP_A1')
 
 
-#Colocar na main
+#Colocar na main ########################
 from data_analysis_functions import analysis_functions_SUS as afs
 from graphs_functions import graph_bar_SUS as gbs
 import df_generator as dfg
+from df_generator import data
 
 # importando os dados manipulados para análise
 data_SUS = dfg.data_SUS
@@ -39,8 +40,43 @@ min_max_hosp_priv = afs.max_min_SUS(data_SUS, "Hospital Privado")
 min_max_hosp_fil = afs.max_min_SUS(data_SUS, "Hospital Filantrópico")
 
 graphbar_SUS = gbs.graph_SUS(data_SUS, "Hospital Público", "Hospital Privado", "Hospital Filantrópico")
+#####################################################################
 
-# mudar no df generator
+
+# mudar no df generator######################################3
 import df_generator_functions as dfgf
 useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO", "NO_BAIRRO", "CO_CEP", "NU_TELEFONE", "NO_EMAIL"]
 data_SUS = dfgf.not_necessary_columns(data, useless)
+data_SUS = dfgf.delete_columns_na(data_SUS)
+################################################################3
+
+# DUDA 
+data_ped = data.groupby("REGIAO")["TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO"].sum()
+
+# Código html, inserir as observações
+'''
+<h2>Presença de Leitos SUS em Hospitais públicos, privados e filantrópicos</h2>
+        <p style="font-size: 12px;">Mariana Fernandes Rocha</p>
+        
+        <p style="text-align:justify"> TEXTO TEXTO TEXTO</p>
+
+        <center>
+            <figure class = "html5">
+                <img src = "graphs/COLOCAR A MEDIDA DE RESUMO">
+                <figcaption style="font-size: 12px;">Tabela 1. Medidas de resumo dos hospitais</figcaption>
+            </figure>
+        </center>
+
+        <p style="text-align:justify">TEXTO TEXTO TEXTO</p>
+        <p style="text-align:justify">TEXTO TEXTO TEXTO</p>
+        <p style="text-align:justify">TEXTO TEXTO TEXTO</p>
+
+        <center>
+            <figure class = "html5">
+                <img src = "graphs/graph_SUS.png">
+                <figcaption style="font-size: 12px;">Gráfico 1. Leitos SUS</figcaption>
+            </figure>
+        </center>
+
+        <p style="text-align:justify">CONCLUSÃO</p>
+'''
