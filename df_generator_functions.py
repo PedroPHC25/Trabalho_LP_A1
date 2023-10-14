@@ -244,7 +244,6 @@ if __name__ == "__main__":
     doctest.testmod(verbose = True)
 
 
-
 #GRÁFICO DE BARRAS - LEITOS PEDIÁTRICOS
 # Gerando um novo data frame a partir do data
 def generate_bar_chart_data(data, group_column, value_column):

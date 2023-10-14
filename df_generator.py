@@ -58,4 +58,4 @@ data_management = dfgf.not_necessary_columns(data_management, ["CNES", "COMP"])
 
 ### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS PEDIÁTRICOS POR REGIÃO"
 
-data_ped = generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
+data_ped = dfgf.generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
