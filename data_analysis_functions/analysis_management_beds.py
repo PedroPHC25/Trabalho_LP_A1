@@ -4,7 +4,6 @@ dos dados sobre o total de leitos nos hospitais do Brasil
 e os tipos de gestão dos hospitais.
 """
 import pandas as pd
-from df_concatenator import data
 
 # Função recebe o df e retorna a média do número de leitos correspondente ao tipo de gestão recebido
 def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> float:
@@ -29,6 +28,8 @@ def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> fl
         df = df[df["TP_GESTAO"] == tipo_gestao]
         mean = df[tipo_leito].mean()
         return mean
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
     except TypeError:
         print("Argumentos inadequados")
     except KeyError:
@@ -59,6 +60,8 @@ def median_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
         df = df[df["TP_GESTAO"] == tipo_gestao]
         median = df[tipo_leito].median()
         return median
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
     except TypeError:
         print("Argumentos inadequados")
     except KeyError:
@@ -90,6 +93,8 @@ def std_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> flo
         df = df[df["TP_GESTAO"] == tipo_gestao]
         desvio_padrao = df[tipo_leito].std()
         return desvio_padrao
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
     except TypeError:
         print("Argumentos inadequados")
     except KeyError:
@@ -121,12 +126,17 @@ def unique_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
         df = df[df["TP_GESTAO"] == tipo_gestao]
         nu_distintos = df[tipo_leito].nunique()
         return nu_distintos
+    
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
     except TypeError:
         print("Argumentos inadequados")
     except KeyError:
         print("Chave fora da formatação necessária")
     except:
         print("Erro desconhecido")
+
+mean_by_management("A", "M", "LEITOS_SUS")
 
 
 

@@ -1,13 +1,13 @@
 """Módulo do gráfico de barras "Total de leitos pediátricos X Região do Brasil"
 
-Este módulo contém a  função que gera o gráfico de barras que permite uma
+Este módulo contém a função que gera o gráfico de barras que permite uma
 análise comparativa da quantidade total de leitos pediátricos por região 
-do Brasil.
+do Brasil."""
 
-"""
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import ticker
+from df_generator import data
 
 def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name):
     """
@@ -66,10 +66,6 @@ def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name)
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
-# Exemplo de DataFrame (substituindo com os dados da base)
-data = pd.DataFrame({dat
-    
-})
-
 # Teste do exemplo de uso
-graph_bar(data, 'REGIAO', 'UTI_PEDIATRICO_EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.jpg')
+graph_bar(data, 'REGIAO', 'UTI_PEDIATRICO_EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.png')
+
