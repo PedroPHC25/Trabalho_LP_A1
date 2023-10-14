@@ -206,7 +206,15 @@ def formatar_df(df_original: pd.DataFrame,
     para análise e plotagem do gráfico.
 
     .. warning::
-       O paramêtro date precisa estar no formato 202001, anomês.
+    O paramêtro date precisa estar no formato 202001, anomês.
+    
+    >>> data = {'Data': [202301, 202301, 202301, 202301, 202301, 202301],'Estado': ['SP', 'RJ', 'SP', 'RJ','SP', 'RJ'], 'Tipo_Hospital': ['HOSPITAL_FILANTROPICO', 'HOSPITAL_FILANTROPICO', 'HOSPITAL_PRIVADO', 'HOSPITAL_PRIVADO','HOSPITAL_PUBLICO', 'HOSPITAL_PUBLICO'], 'Valor': [100, 200, 150, 50, 202, 154],"Nome" : ["Hospital Santa Esperança", "Instituto Médico Vital", "Centro Hospitalar Estrela da Manhã", "Hospital São Lucas", "Clínica Médica da Esperança", "Hospital das Crianças Felizes"]}
+    >>> example = pd.DataFrame(data)
+    >>> example.set_index(["Data", "Nome"], inplace=True)
+    >>> formatar_df(example, 202301, 'Estado', 'Tipo_Hospital', 'Valor')
+      Estado  Hospital Filantrópico  Hospital Privado  Hospital Público
+    0     SP                    100               150               202
+    1     RJ                    200                50               154
    """
     # Seleciona os dados na data requerida
     df_original = df_original.loc[date]
@@ -240,8 +248,6 @@ def formatar_df(df_original: pd.DataFrame,
 
 
 
-if __name__ == "__main__":
-    doctest.testmod(verbose = True)
 
 
 #GRÁFICO DE BARRAS - LEITOS PEDIÁTRICOS
@@ -336,3 +342,5 @@ if __name__ == "__main__":
 
     unittest.main()
     
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)
