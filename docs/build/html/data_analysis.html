@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análise de dados &#8212; Trabalho_LP_A1  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=94a554c0" />
+    <script src="_static/documentation_options.js?v=5ffef437"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Bem-vindo(a) à documentação do projeto Trabalho_LP_A1" href="index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">Trabalho_LP_A1  documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Análise de dados</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="analise-de-dados">
+<h1>Análise de dados<a class="headerlink" href="#analise-de-dados" title="Link to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Os seguintes módulos estão todos dentro da pasta <cite>data_analysis_functions</cite>.</p>
+</div>
+<section id="modulo-analysis-beds-year">
+<h2>Módulo <cite>analysis_beds_year</cite><a class="headerlink" href="#modulo-analysis-beds-year" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_beds_year.group_and_sum">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_beds_year.</span></span><span class="sig-name descname"><span class="pre">group_and_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_sum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_beds_year.group_and_sum" title="Link to this definition">¶</a></dt>
+<dd><p>Soma os dados de uma ou mais colunas do dataframe com base no agrupamento de outra(s) coluna(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – DataFrame a ser manipulado</p></li>
+<li><p><strong>column_group</strong> (<em>list</em>) – Coluna(s) a ser(em) agrupada(s)</p></li>
+<li><p><strong>column_sum</strong> (<em>list</em>) – Coluna(s) que terá(ão) os elementos somados.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame alterado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Nome&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">],</span> <span class="s2">&quot;N° de produtos comprados&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;001&quot;</span><span class="p">,</span> <span class="s2">&quot;002&quot;</span><span class="p">,</span> <span class="s2">&quot;003&quot;</span><span class="p">,</span> <span class="s2">&quot;004&quot;</span><span class="p">,</span> <span class="s2">&quot;005&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">group_and_sum</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Nome&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;N° de produtos comprados&quot;</span><span class="p">])</span>
+<span class="go">    Nome  N° de produtos comprados</span>
+<span class="go">0    Ana                         9</span>
+<span class="go">1  Bruno                         5</span>
+</pre></div>
+</div>
+<p>Teste de argumento ‘df’ não dataframe</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">group_and_sum</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Nome&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;N° de produtos comprados&quot;</span><span class="p">])</span>
+<span class="go">&quot;Argumento &#39;df&#39; não é um dataframe&quot;</span>
+</pre></div>
+</div>
+<p>Teste de coluna inexistente</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">group_and_sum</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Nome&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Idade&quot;</span><span class="p">])</span>
+<span class="go">&#39;Coluna(s) não encontrada(s)&#39;</span>
+</pre></div>
+</div>
+<p>Teste de argumento inadequado</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">group_and_sum</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Nome&quot;</span><span class="p">],</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="go">&#39;Argumento inadequado&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_beds_year.date_conversor">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_beds_year.</span></span><span class="sig-name descname"><span class="pre">date_conversor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_beds_year.date_conversor" title="Link to this definition">¶</a></dt>
+<dd><p>Converte os dados de uma coluna do dataframe para o tipo datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – DataFrame a ser manipulado</p></li>
+<li><p><strong>column</strong> (<em>str</em>) – Coluna cujos dados serão convertidos</p></li>
+<li><p><strong>date_format</strong> (<em>str</em>) – Formato da informação de data na coluna original</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame alterado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ID_Compra&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">],</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20230127</span><span class="p">,</span> <span class="mi">20220812</span><span class="p">,</span> <span class="mi">20200417</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date_conversor</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">   ID_Compra       Data</span>
+<span class="go">0        111 2023-01-27</span>
+<span class="go">1        222 2022-08-12</span>
+<span class="go">2        333 2020-04-17</span>
+</pre></div>
+</div>
+<p>Teste de coluna inexistente</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date_conversor</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Mês&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">&#39;Coluna(s) não encontrada(s)&#39;</span>
+</pre></div>
+</div>
+<p>Teste de argumento inválido</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date_conversor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">&#39;Argumento inadequado&#39;</span>
+</pre></div>
+</div>
+<p>Teste de coluna inadequada</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date_conversor</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;ID_Compra&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">&#39;Coluna não adequada ao formato passado&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_beds_year.mean_per_year">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_beds_year.</span></span><span class="sig-name descname"><span class="pre">mean_per_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_to_calculate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">years</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_beds_year.mean_per_year" title="Link to this definition">¶</a></dt>
+<dd><p>Calcula a média dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – DataFrame a ser manipulado</p></li>
+<li><p><strong>column_date</strong> (<em>str</em>) – Coluna com a informação de data no formato datetime</p></li>
+<li><p><strong>column_to_calculate</strong> (<em>str</em>) – Coluna que terá as médias dos dados calculadas</p></li>
+<li><p><strong>years</strong> (<em>list</em>) – Lista com os anos a serem considerados para o cálculo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Média dos dados de cada ano especificado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ID_Doação&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">444</span><span class="p">],</span> <span class="s2">&quot;Nome&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;Daniela&quot;</span><span class="p">],</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20210523</span><span class="p">,</span> <span class="mi">20210810</span><span class="p">,</span> <span class="mi">20220217</span><span class="p">,</span> <span class="mi">20221204</span><span class="p">],</span> <span class="s2">&quot;Valor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">{2021: 150.0, 2022: 350.0}</span>
+</pre></div>
+</div>
+<p>Teste de coluna de data inadequada</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;&#39;column_date&#39; não é do formato datetime&quot;</span>
+</pre></div>
+</div>
+<p>Teste de coluna inexistente</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantia&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&#39;Coluna(s) não encontrada(s)&#39;</span>
+</pre></div>
+</div>
+<p>Testes de erro de tipo</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&quot;Argumento inadequado ou &#39;column_to_calculate&#39; não numérica&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mean_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Nome&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;Argumento inadequado ou &#39;column_to_calculate&#39; não numérica&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_beds_year.median_per_year">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_beds_year.</span></span><span class="sig-name descname"><span class="pre">median_per_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_to_calculate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">years</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_beds_year.median_per_year" title="Link to this definition">¶</a></dt>
+<dd><p>Calcula a mediana dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – DataFrame a ser manipulado</p></li>
+<li><p><strong>column_date</strong> (<em>str</em>) – Coluna com a informação de data no formato datetime</p></li>
+<li><p><strong>column_to_calculate</strong> (<em>str</em>) – Coluna que terá as medianas dos dados calculadas</p></li>
+<li><p><strong>years</strong> (<em>list</em>) – Lista com os anos a serem considerados para o cálculo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mediana dos dados de cada ano especificado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ID_Doação&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">444</span><span class="p">],</span> <span class="s2">&quot;Nome&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;Daniela&quot;</span><span class="p">],</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20210523</span><span class="p">,</span> <span class="mi">20210810</span><span class="p">,</span> <span class="mi">20220217</span><span class="p">,</span> <span class="mi">20221204</span><span class="p">],</span> <span class="s2">&quot;Valor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">{2021: 150.0, 2022: 350.0}</span>
+</pre></div>
+</div>
+<p>Teste de coluna de data inadequada</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;&#39;column_date&#39; não é do formato datetime&quot;</span>
+</pre></div>
+</div>
+<p>Teste de coluna inexistente</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantia&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&#39;Coluna(s) não encontrada(s)&#39;</span>
+</pre></div>
+</div>
+<p>Testes de erro de tipo</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&quot;Argumento inadequado ou &#39;column_to_calculate&#39; não numérica&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">median_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Nome&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;Argumento inadequado ou &#39;column_to_calculate&#39; não numérica&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_beds_year.std_per_year">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_beds_year.</span></span><span class="sig-name descname"><span class="pre">std_per_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_to_calculate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">years</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_beds_year.std_per_year" title="Link to this definition">¶</a></dt>
+<dd><p>Calcula o desvio padrão dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – DataFrame a ser manipulado</p></li>
+<li><p><strong>column_date</strong> (<em>str</em>) – Coluna com a informação de data no formato datetime</p></li>
+<li><p><strong>column_to_calculate</strong> (<em>str</em>) – Coluna que terá os desvios padrão dos dados calculados</p></li>
+<li><p><strong>years</strong> (<em>list</em>) – Lista com os anos a serem considerados para o cálculo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Desvios padrão dos dados de cada ano especificado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ID_Doação&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">444</span><span class="p">],</span> <span class="s2">&quot;Nome&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;Daniela&quot;</span><span class="p">],</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20210523</span><span class="p">,</span> <span class="mi">20210810</span><span class="p">,</span> <span class="mi">20220217</span><span class="p">,</span> <span class="mi">20221204</span><span class="p">],</span> <span class="s2">&quot;Valor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">{2021: 70.71067811865476, 2022: 212.13203435596427}</span>
+</pre></div>
+</div>
+<p>Teste de coluna de data inadequada</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;&#39;column_date&#39; não é do formato datetime&quot;</span>
+</pre></div>
+</div>
+<p>Teste de coluna inexistente</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantia&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&#39;Coluna(s) não encontrada(s)&#39;</span>
+</pre></div>
+</div>
+<p>Testes de erro de tipo</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&quot;Argumento inadequado ou &#39;column_to_calculate&#39; não numérica&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">std_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Nome&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;Argumento inadequado ou &#39;column_to_calculate&#39; não numérica&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_beds_year.max_and_min_per_year">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_beds_year.</span></span><span class="sig-name descname"><span class="pre">max_and_min_per_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_to_calculate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">years</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_beds_year.max_and_min_per_year" title="Link to this definition">¶</a></dt>
+<dd><p>Entrega o máximo e o mínimo dos dados da coluna de um dataframe segmentando-os por ano com base em uma coluna com formato datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – DataFrame a ser manipulado</p></li>
+<li><p><strong>column_date</strong> (<em>str</em>) – Coluna com a informação de data no formato datetime</p></li>
+<li><p><strong>column_to_calculate</strong> (<em>str</em>) – Coluna que terá os máximos e os mínimos procurados</p></li>
+<li><p><strong>years</strong> (<em>list</em>) – Lista com os anos a serem considerados para o cálculo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Máximos e mínimos em forma de uma tupla dos dados de cada ano especificado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ID_Doação&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">444</span><span class="p">],</span> <span class="s2">&quot;Nome&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;Daniela&quot;</span><span class="p">],</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20210523</span><span class="p">,</span> <span class="mi">20210810</span><span class="p">,</span> <span class="mi">20220217</span><span class="p">,</span> <span class="mi">20221204</span><span class="p">],</span> <span class="s2">&quot;Valor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_and_min_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">{2021: (100, 200), 2022: (200, 500)}</span>
+</pre></div>
+</div>
+<p>Teste de coluna de data inadequada</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_and_min_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&quot;&#39;column_date&#39; não é do formato datetime&quot;</span>
+</pre></div>
+</div>
+<p>Teste de coluna inexistente</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_and_min_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantia&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">])</span>
+<span class="go">&#39;Coluna(s) não encontrada(s)&#39;</span>
+</pre></div>
+</div>
+<p>Teste de argumento inadequado</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_and_min_per_year</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Valor&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;Argumento inadequado&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="modulo-analysis-functions-sus">
+<h2>Módulo <cite>analysis_functions_SUS</cite><a class="headerlink" href="#modulo-analysis-functions-sus" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_functions_SUS.median_SUS">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_functions_SUS.</span></span><span class="sig-name descname"><span class="pre">median_SUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_hospital</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_functions_SUS.median_SUS" title="Link to this definition">¶</a></dt>
+<dd><p>Mediana do número de leitos SUS presentes em hospitais de diversas naturezas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame com colunas explícitas.</p></li>
+<li><p><strong>tipo_hospital</strong> (<em>str</em>) – Natureza do hospital que deseja calcular a mediana.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna a mediana calculada em float.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>A função precisa de um DataFrame formatado com as informações necessárias
+expicitamente como colunas, assim é possível calcular a sua respectiva mediana.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_hospital deve estar na formatação correta
+para encontrar a coluna dentro do df inserido.</p>
+</div>
+<p>Teste de mediana
+&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [5,6,8], [14,12,23]])</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">5.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="go">6.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="go">&#39;Chave fora da formatação necessária&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_SUS</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
+<span class="go">&#39;Argumentos inadequados&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_functions_SUS.mean_SUS">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_functions_SUS.</span></span><span class="sig-name descname"><span class="pre">mean_SUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_hospital</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_functions_SUS.mean_SUS" title="Link to this definition">¶</a></dt>
+<dd><p>Média do número de leitos SUS presentes em hospitais de diversas naturezas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame com colunas explícitas.</p></li>
+<li><p><strong>tipo_hospital</strong> (<em>str</em>) – Natureza do hospital que deseja calcular a média.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna a média calculada em float.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>A função precisa de um DataFrame formatado com as informações necessárias
+expicitamente como colunas, assim é possível calcular a sua respectiva média.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_hospital deve estar na formatação correta
+para encontrar a coluna dentro do df inserido.</p>
+</div>
+<p>Teste de média
+&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [7,6,8], [13,7,23]])</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">7.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="go">5.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="go">&#39;Chave fora da formatação necessária&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_SUS</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
+<span class="go">&#39;Argumentos inadequados&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_functions_SUS.std_SUS">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_functions_SUS.</span></span><span class="sig-name descname"><span class="pre">std_SUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_hospital</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_functions_SUS.std_SUS" title="Link to this definition">¶</a></dt>
+<dd><p>Desvio padrão do número de leitos SUS presentes em hospitais de diversas naturezas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame com colunas explícitas.</p></li>
+<li><p><strong>tipo_hospital</strong> (<em>str</em>) – Natureza do hospital que deseja calcular o desvio padrão.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna o desvio padrão calculado em float.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>A função precisa de um DataFrame formatado com as informações necessárias
+expicitamente como colunas, assim é possível calcular seu respectivo desvio padrão.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_hospital deve estar na formatação correta
+para encontrar a coluna dentro do df inserido.</p>
+</div>
+<p>Teste de desvio padrão
+&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [7,6,8], [13,7,23]])</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">6.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="go">2.6457513110645907</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="go">&#39;Chave fora da formatação necessária&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_SUS</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
+<span class="go">&#39;Argumentos inadequados&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_functions_SUS.max_min_SUS">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_functions_SUS.</span></span><span class="sig-name descname"><span class="pre">max_min_SUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_hospital</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_functions_SUS.max_min_SUS" title="Link to this definition">¶</a></dt>
+<dd><p>Máximo e mínimo do número de leitos SUS presentes em hospitais de diversas naturezas</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame com colunas explícitas.</p></li>
+<li><p><strong>tipo_hospital</strong> (<em>str</em>) – Natureza do hospital que deseja calcular o máximo e mínimo.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna uma tupla com o mínimo e máximo da coluna.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p>A função precisa de um DataFrame formatado com as informações necessárias
+expicitamente como colunas, assim é possível calcular os respectivos máximos e mínimos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_hospital deve estar na formatação correta
+para encontrar a coluna dentro do df inserido.</p>
+</div>
+<p>Teste de máximo e mínimo
+&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [7,6,8], [13,7,23]])</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_min_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">(1, 13)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_min_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="go">(3, 23)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_min_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="go">&#39;Chave fora da formatação necessária&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_min_SUS</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
+<span class="go">&#39;Argumentos inadequados&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="modulo-analysis-management-beds">
+<h2>Módulo <cite>analysis_management_beds</cite><a class="headerlink" href="#modulo-analysis-management-beds" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_management_beds.mean_by_management">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_management_beds.</span></span><span class="sig-name descname"><span class="pre">mean_by_management</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_gestao</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_leito</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_management_beds.mean_by_management" title="Link to this definition">¶</a></dt>
+<dd><p>Média do número de leitos, que pode ser LEITOS_SUS ou LEITOS_EXISTENTES, presentes em hospitais de diferentes tipos de gestão.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame.</p></li>
+<li><p><strong>tipo_gestao</strong> (<em>str</em>) – especiicação do tipo de gestão a ser calculada a média (Municipal, Estadual, Dupla, Sem Gestã).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna a média em float.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
+para encontrar a coluna dentro do df inserido.</p>
+<p>Teste média</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
+</pre></div>
+</div>
+<p>Teste normal
+&gt;&gt;&gt; mean_by_management(df_test, “M”, “LEITOS_SUS”)
+2.6666666666666665</p>
+<p>Teste argumentos inadequados
+&gt;&gt;&gt; mean_by_management(1, “M”, “LEITOS_SUS”)
+Argumentos inadequados</p>
+<p>Teste chave fora da formação
+&gt;&gt;&gt; mean_by_management(df_test, 1, 2)
+Chave fora da formatação necessária</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_management_beds.median_by_management">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_management_beds.</span></span><span class="sig-name descname"><span class="pre">median_by_management</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_gestao</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_leito</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_management_beds.median_by_management" title="Link to this definition">¶</a></dt>
+<dd><p>Mediana do número de leitos, que podem ser LEITOS_SUS ou LEITOS_EXISTENTES, presentes em hospitais de diferentes tipos de gestão.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame.</p></li>
+<li><p><strong>tipo_gestao</strong> (<em>str</em>) – especiicação do tipo de gestão a ser calculada a mediana (Municipal, Estadual, Dupla, Sem Gestã).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna a mediana em float.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
+para encontrar a coluna dentro do df inserido.</p>
+<p>Teste mediana</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
+</pre></div>
+</div>
+<p>Teste normal
+&gt;&gt;&gt; median_by_management(df_test, “M”, “LEITOS_SUS”)
+2.0</p>
+<p>Teste argumentos inadequados
+&gt;&gt;&gt; median_by_management(1, “M”, “LEITOS_SUS”)
+Argumentos inadequados</p>
+<p>Teste chave fora da formação
+&gt;&gt;&gt; median_by_management(df_test, 1, 2)
+Chave fora da formatação necessária</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_management_beds.std_by_management">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_management_beds.</span></span><span class="sig-name descname"><span class="pre">std_by_management</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_gestao</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_leito</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_management_beds.std_by_management" title="Link to this definition">¶</a></dt>
+<dd><p>Desvio padrão do número de leitos, que podem ser LEITOS_SUS ou LEITOS_EXISTENTES, presentes em hospitais de diferentes tipos de gestão.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame.</p></li>
+<li><p><strong>tipo_gestao</strong> (<em>str</em>) – especiicação do tipo de gestão a ser calculada o desvio padrão (Municipal, Estadual, Dupla, Sem Gestã).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna o desvio padrão em float.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
+para encontrar a coluna dentro do df inserido.</p>
+<p>Teste desvio padrão</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
+</pre></div>
+</div>
+<p>Teste normal
+&gt;&gt;&gt; std_by_management(df_test, “M”, “LEITOS_SUS”)
+1.0</p>
+<p>Teste argumentos inadequados
+&gt;&gt;&gt; std_by_management(1, “M”, “LEITOS_SUS”)
+Argumentos inadequados</p>
+<p>Teste chave fora da formação
+&gt;&gt;&gt; std_by_management(df_test, 1, 2)
+Chave fora da formatação necessária</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data_analysis_functions.analysis_management_beds.unique_by_management">
+<span class="sig-prename descclassname"><span class="pre">data_analysis_functions.analysis_management_beds.</span></span><span class="sig-name descname"><span class="pre">unique_by_management</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_gestao</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo_leito</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#data_analysis_functions.analysis_management_beds.unique_by_management" title="Link to this definition">¶</a></dt>
+<dd><p>Quantidade de elementos distintos do número de leitos, que podem ser LEITOS_SUS ou LEITOS_EXISTENTES, presentes em hospitais de
+diferentes tipos de gestão.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame.</p></li>
+<li><p><strong>tipo_gestao</strong> (<em>str</em>) – especiicação do tipo de gestão a ser calculada os valores únicos (Municipal, Estadual, Dupla, Sem Gestã).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna os valores único.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
+para encontrar a coluna dentro do df inserido.</p>
+<p>Teste valores únicos</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
+</pre></div>
+</div>
+<p>Teste normal
+&gt;&gt;&gt; unique_by_management(df_test, “M”, “LEITOS_SUS”)
+3</p>
+<p>Teste argumentos inadequados
+&gt;&gt;&gt; unique_by_management(1, “M”, “LEITOS_SUS”)
+Argumentos inadequados</p>
+<p>Teste chave fora da formação
+&gt;&gt;&gt; unique_by_management(df_test, 1, 2)
+Chave fora da formatação necessária</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Análise de dados</a><ul>
+<li><a class="reference internal" href="#modulo-analysis-beds-year">Módulo <cite>analysis_beds_year</cite></a><ul>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_beds_year.group_and_sum"><code class="docutils literal notranslate"><span class="pre">group_and_sum()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_beds_year.date_conversor"><code class="docutils literal notranslate"><span class="pre">date_conversor()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_beds_year.mean_per_year"><code class="docutils literal notranslate"><span class="pre">mean_per_year()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_beds_year.median_per_year"><code class="docutils literal notranslate"><span class="pre">median_per_year()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_beds_year.std_per_year"><code class="docutils literal notranslate"><span class="pre">std_per_year()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_beds_year.max_and_min_per_year"><code class="docutils literal notranslate"><span class="pre">max_and_min_per_year()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modulo-analysis-functions-sus">Módulo <cite>analysis_functions_SUS</cite></a><ul>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_functions_SUS.median_SUS"><code class="docutils literal notranslate"><span class="pre">median_SUS()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_functions_SUS.mean_SUS"><code class="docutils literal notranslate"><span class="pre">mean_SUS()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_functions_SUS.std_SUS"><code class="docutils literal notranslate"><span class="pre">std_SUS()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_functions_SUS.max_min_SUS"><code class="docutils literal notranslate"><span class="pre">max_min_SUS()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modulo-analysis-management-beds">Módulo <cite>analysis_management_beds</cite></a><ul>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_management_beds.mean_by_management"><code class="docutils literal notranslate"><span class="pre">mean_by_management()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_management_beds.median_by_management"><code class="docutils literal notranslate"><span class="pre">median_by_management()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_management_beds.std_by_management"><code class="docutils literal notranslate"><span class="pre">std_by_management()</span></code></a></li>
+<li><a class="reference internal" href="#data_analysis_functions.analysis_management_beds.unique_by_management"><code class="docutils literal notranslate"><span class="pre">unique_by_management()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="index.html">
+                    <span class="icon">&lt;</span><span>Bem-vindo(a) à documentação do projeto Trabalho_LP_A1</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, Maria Eduarda Mesquita Magalhães, Mariana Fernandes Rocha, Paula Eduarda de Lima, Pedro Henrique Coterli.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
