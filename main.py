@@ -2,11 +2,12 @@ import df_generator as dfg
 from data_analysis_functions import analysis_beds_year as aby
 from data_analysis_functions import analysis_functions_SUS as afs
 from data_analysis_functions import analysis_management_beds as amb
+from data_analysis_functions import analysis_pediatric_regions as apr
 from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 from graphs_functions import graph_bar_management_beds as gbm
-
-
+from graphs_functions import graph_bar_pediatric_region as gbpr
+'''
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 
 # Manipulando o dataframe data_beds_year para a análise
@@ -119,3 +120,14 @@ data_management = gbm.replacement(data_management, "TP_GESTAO", "D", "Dupla Gest
 graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES", 
                                      title ="Leitos existentes por tipo de gestão", x_label = "Tipo de gestão atuante",
                                       y_label = "Quantidade de leitos existentes", image_graph_name = "graph_management_beds")
+'''
+### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
+
+#importanto os dados
+data_pediatric_regions = dfg.data_ped
+
+#fazendo uma análise de estatística descritiva a partir desses dados
+analysis_pediatric_regions_text = apr.calcular_estatisticas(data_pediatric_regions)
+
+#mostrando os dados graficamente no formato de barras
+graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions)
