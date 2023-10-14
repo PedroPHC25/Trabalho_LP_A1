@@ -75,7 +75,7 @@ data_ped = data.groupby("REGIAO")["TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGI�
 <h2>Presença de Leitos SUS em Hospitais públicos, privados e filantrópicos</h2>
         <p style="font-size: 12px;">Mariana Fernandes Rocha</p>
         
-        <p style="text-align:justify">Nesta análise observaremos a presença de Leitos SUS em hospitais privados, públicos e finatrópicos, as métricas estatísticas exibidas estão de acordo com a distribuição dos leitos nas respectivas naturezas jurídicas pelos estados brasileiros</p>
+        <p style="text-align:justify">Nesta análise observaremos a presença de Leitos SUS em hospitais privados, públicos e finatrópicos, as métricas estatísticas exibidas estão de acordo com a distribuição dos leitos nas respectivas naturezas jurídicas pelos estados brasileiros.</p>
 
         <center>
             <figure class = "html5">
@@ -85,8 +85,8 @@ data_ped = data.groupby("REGIAO")["TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGI�
         </center>
 
         <p style="text-align:justify"> <strong>Hospitais filantrópicos</strong>: São instituições privadas, porém sem fins lucrativos, que possuem contrato com o sistema público para prestar atendimento aos pacientes do SUS. Pelo menos 60% dos atendimentos oferecidos pelos hospitais filantrópicos são destinados, obrigatoriamente, ao SUS. As organizações filantrópicas são mantidas com doações de pessoas físicas e de empresas, além de parcerias, convênios e políticas públicas pactuadas com os governos municipais, estaduais e federal.</p>
-        <p style="text-align:justify"> <strong>Hospitais públicos</strong>: podem ser regionais e locais de acordo com a área de abrangência da população a ser assistida, são financiados e mantidos pelo Estado. No Brasil graças à concepção do Sistema Único de Saúde (SUS) é completamente gratuito.</p>
-        <p style="text-align:justify"> <strong>Hospitais privados</strong>: tem fins lucrativos. Isso significa que, é preciso o pagamento direto ou ser cliente de um plano de saúde para conseguir atendimento. Apesar de ser um desejo da população, 70% alegam não ter convênio médico, fazendo do SUS a única saída.</p>
+        <p style="text-align:justify"> <strong>Hospitais públicos</strong>: Todem ser regionais e locais de acordo com a área de abrangência da população a ser assistida, são financiados e mantidos pelo Estado. No Brasil graças à concepção do Sistema Único de Saúde (SUS) é completamente gratuito.</p>
+        <p style="text-align:justify"> <strong>Hospitais privados</strong>: Pertencentes a iniciatica privada, essas instituições possuem fins lucrativos. Isso significa que, é preciso o pagamento direto ou ser cliente de um plano de saúde para conseguir atendimento. Apesar de ser um desejo da população, 70% alegam não ter convênio médico, fazendo do SUS a única saída.</p>
 
         <center>
             <figure class = "html5">
@@ -95,5 +95,7 @@ data_ped = data.groupby("REGIAO")["TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGI�
             </figure>
         </center>
 
-        <p style="text-align:justify">CONCLUSÃO</p>
+        <p style="text-align:justify">O Sistema Único de Saúde (SUS) foi uma grande conquista da população brasileira, sendo reconhecido como um dos maiores do mundo e usado como modelo em muitos outros países.
+        Entretanto, a saúde pública no Brasil sofre desafios do mau gerenciamento e de falta de investimentos financeiros. Como resultado, temos um sistema em colapso, na maioria das vezes insuficiente e com pouca qualidade para atender a população.
+        Um alívio para essa sobrecarga na saude pública são os hospitais sem fins lucrativos, há cerca de 2,6 mil instituições filantrópicas no Brasil, de acordo com dados do Cadastro Nacional de Estabelecimentos de Saúde (CNES). Essas entidades, de direito privado e sem fins lucrativos, prestam diversos serviços a 900 municípios brasileiros que não são atendidos por nenhuma esfera governamental na saúde, o que explica o número significativo dessas instituições presentes nos estados com grandes concentrações urbanas, como São Paulo, Minas Gerais e Rio Grande do Sul.</p>
 '''
