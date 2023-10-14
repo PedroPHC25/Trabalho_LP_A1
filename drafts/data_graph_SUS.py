@@ -39,6 +39,7 @@ min_max_hosp_pub = afs.max_min_SUS(data_SUS, "Hospital Público")
 min_max_hosp_priv = afs.max_min_SUS(data_SUS, "Hospital Privado")
 min_max_hosp_fil = afs.max_min_SUS(data_SUS, "Hospital Filantrópico")
 
+# Gerando o gráfico de barras agrupadas
 graphbar_SUS = gbs.graph_SUS(data_SUS, "Hospital Público", "Hospital Privado", "Hospital Filantrópico")
 #####################################################################
 
