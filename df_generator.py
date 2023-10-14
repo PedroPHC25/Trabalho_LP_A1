@@ -45,4 +45,7 @@ data_beds_year = dfgf.not_necessary_columns(data_beds_year, ["CNES"])
 
 ### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS SUS"
 
-data_SUS = dfgf.formatar_df(data,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")
+useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO", "NO_BAIRRO", "CO_CEP", "NU_TELEFONE", "NO_EMAIL"]
+data_SUS = dfgf.not_necessary_columns(data, useless)
+data_SUS = dfgf.delete_columns_na(data_SUS)
+data_SUS = dfgf.formatar_df(data_SUS,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")

@@ -79,7 +79,7 @@ data_ped = data.groupby("REGIAO")["TOTAL DE LEITOS PEDI√ÅTRICOS DE UTI POR REGI√
 
         <center>
             <figure class = "html5">
-                <img src = "graphs/COLOCAR A MEDIDA DE RESUMO">
+                <img src = "graphs/table_analysis_SUS.png">
                 <figcaption style="font-size: 12px;">Tabela 1. Medidas de resumo dos hospitais</figcaption>
             </figure>
         </center>
