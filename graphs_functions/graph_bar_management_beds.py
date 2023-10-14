@@ -8,6 +8,8 @@ import pandas as pd
 import  matplotlib.pyplot as plt
 from typing import Optional
 
+from df_generator import data_management
+
 #Função que substitui os códigos de domínio pelo nome extenso
 def replacement(df: pd.DataFrame,
                 column:str, 
@@ -48,7 +50,7 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
                title: Optional[str] = "", 
                x_label: Optional[str] = "", 
                y_label: Optional[str] = "", 
-               image_graph_name: Optional[str] = "graph_line") -> None:
+               image_graph_name: Optional[str] = "graph_bar") -> None:
     """
     Plota um gráfico de barras com base em um dataframe e nos parâmetros especificados.
 
@@ -88,4 +90,5 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     plt.savefig(f"graphs/{image_graph_name}")
     plt.show()
 
+graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES")
 
