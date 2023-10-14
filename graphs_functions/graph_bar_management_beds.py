@@ -88,7 +88,7 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     plt.tick_params(axis = "y", labelsize = 10)
 
     plt.savefig(f"graphs/{image_graph_name}")
-    plt.show()
+    # plt.show()
 
 graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES")
 
