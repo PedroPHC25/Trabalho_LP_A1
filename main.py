@@ -131,6 +131,3 @@ analysis_pediatric_regions_text = apr.calcular_estatisticas(data_pediatric_regio
 
 #mostrando os dados graficamente no formato de barras
 graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
-
-print(data_pediatric_regions)
-print(analysis_pediatric_regions_text)
