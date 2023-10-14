@@ -54,3 +54,9 @@ def plot_statistics(statistics):
 # Teste das funções
 statistics = calculate_statistics(data, 'UTI_PEDIATRICO_EXIST')
 plot_statistics(statistics)
+
+data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
+print(data_ped)
+# Teste do exemplo de uso
+#graph_bar(data_ped, 'REGIAO', 'UTI_PEDIATRICO_EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.png')
+
