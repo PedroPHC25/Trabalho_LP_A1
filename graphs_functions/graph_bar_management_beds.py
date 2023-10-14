@@ -6,7 +6,6 @@ leitos nos hospitais do Brasil e os tipos de gestão dos hospitais.
 
 import pandas as pd
 import  matplotlib.pyplot as plt
-from df_concatenator import data
 from typing import Optional
 
 #Função que substitui os códigos de domínio pelo nome extenso
