@@ -33,3 +33,16 @@ print(f'Desvio Padrão: {desvio_padrao}')
 print(f'Variância: {variancia}')
 print(f'Valor Mínimo: {minimo}')
 print(f'Valor Máximo: {maximo}')
+
+import matplotlib.pyplot as plt
+
+# Supondo que 'data_ped' seja uma Series do Pandas
+
+# Criar um gráfico de barras
+plt.figure(figsize=(10, 6))
+plt.bar(data_ped.index, data_ped.values, color='pink')
+plt.title('UTI Pediátrica Existente por Região')
+plt.xlabel('Região')
+plt.ylabel('UTI Pediátrica Existente')
+plt.xticks(rotation=45)  # Rotacionar os rótulos do eixo x para melhor legibilidade
+plt.show()
