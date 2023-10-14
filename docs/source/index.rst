@@ -27,7 +27,8 @@ Além disso, na pasta raiz, existem os seguintes arquivos:
    :caption: Contents:
 
    data_analysis
-
+   df_generator
+   .. graphs
 
 Indices and tables
 ==================
