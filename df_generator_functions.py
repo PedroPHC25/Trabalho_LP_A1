@@ -131,11 +131,7 @@ def not_necessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
         return "Erro desconhecido"
     
 
-
-
-#____________________________PAULA______________________________________________________
-
-#Elimina coluna em que todas as células são NA
+# Função que elimina coluna em que todas as células são NA
 def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     """
     Recebe um dataframe e elimina as colunas em que todos
@@ -178,7 +174,6 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     except:
         return "Erro desconhecido"
     
-#______________________________________________________________________________________________
 
 # Função que coloca as colunas explícitas para análise sobre hospitais públicos, privados e filantrópicos
 def formatar_df(df_original: pd.DataFrame, 
