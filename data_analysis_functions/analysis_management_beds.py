@@ -22,8 +22,19 @@ def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> fl
     .. warning::
     O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
     para encontrar a coluna dentro do df inserido.
+
+    >>> test_data ={"TP_GESTAO":["M", "E", "D", "S", "M", "M", "E", "E"],
+                     "LEITOS_SUS":[2, 3, 6, 4, 2, 4, 3, 1],
+                     "LEITOS_EXISTENTES":[4, 5, 7, 5, 3, 6, 2, 1]}
+    >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
+
+    Teste normal
+    >>> mean_by_management(df_test, "M", "LEITOS_SUS")
+    (2+2+4)/3
+
     
     """
+    
     try:
         df = df[df["TP_GESTAO"] == tipo_gestao]
         mean = df[tipo_leito].mean()
@@ -55,6 +66,16 @@ def median_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
     O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
     para encontrar a coluna dentro do df inserido.
     
+    >>> test_data ={"TP_GESTAO":["M", "E", "D", "S", "M", "M", "E", "E"],
+                     "LEITOS_SUS":[2, 3, 6, 4, 2, 4, 3, 1],
+                     "LEITOS_EXISTENTES":[4, 5, 7, 5, 3, 6, 2, 1]}
+    >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
+
+    Teste normal
+    >>> median_by_management(df_test, "M", "LEITOS_SUS")
+    2
+
+
     """
     try:
         df = df[df["TP_GESTAO"] == tipo_gestao]
@@ -87,6 +108,16 @@ def std_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> flo
     .. warning::
     O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
     para encontrar a coluna dentro do df inserido.
+
+     >>> test_data ={"TP_GESTAO":["M", "E", "D", "S", "M", "M", "E", "E"],
+                     "LEITOS_SUS":[2, 3, 6, 1, 3, 1, 3, 1],
+                     "LEITOS_EXISTENTES":[4, 5, 7, 5, 3, 6, 2, 1]}
+    >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
+
+    Teste normal
+    >>> std_by_management(df_test, "M", "LEITOS_SUS")
+    1
+
     
     """
     try:
@@ -136,7 +167,7 @@ def unique_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
     except:
         print("Erro desconhecido")
 
-mean_by_management("A", "M", "LEITOS_SUS")
+# mean_by_management("A", "M", "LEITOS_SUS")
 
 
 
