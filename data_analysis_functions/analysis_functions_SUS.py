@@ -1,3 +1,10 @@
+"""Módulo para análise sobre presença a de Leitos SUS
+
+Este módulo define as funções que extraem as métricas
+estatísticas sobre a presença de leitos SUS em hospitais
+de diversas natureza.
+"""
+
 import pandas as pd
 import doctest
 
@@ -157,6 +164,21 @@ def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
     .. warning::
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
+    
+    Teste de máximo e mínimo
+    >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
+    
+    >>> max_min_SUS(example, "a")
+    (1, 13)
+
+    >>> max_min_SUS(example, "c")
+    (3, 23)
+
+    >>> max_min_SUS(example, "d")
+    'Chave fora da formatação necessária'
+
+    >>> max_min_SUS("d", example)
+    'Argumentos inadequados'
     """
     try:
         min = df[tipo_hospital].min()

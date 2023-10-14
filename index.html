@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style>
+            figure {
+            display: inline-block;
+            text-align: center;
+            }
+            figure img {
+            vertical-align: top;
+            }
+            body {
+            font-size: 16px;
+            font-family: Arial;
+            }
+          </style>
+        <title> Linguagens de Programação - Avaliação 1 </title>
+    </head>
+
+    <body>
+        <h1> Linguagens de Programação - Avaliação 1 </h1>
+
+        <h2> Alunos: </h2> 
+        <h4>
+            <ul>
+                <li>Maria Eduarda Mesquita Magalhães
+                    <span style="font-weight:normal">
+                        <ul>
+                            <li>Código: 231708018</li>
+                            <li>Email: B51085@fgv.edu.br</li>
+                        </ul>
+                    </span></li> </br>
+
+                <li>Mariana Fernandes Rocha &emsp; &emsp; 
+                    <span style="font-weight:normal">
+                        <ul>
+                            <li>Código: 231708025</li>
+                            <li>Email: mariana.rocha@fgv.edu.br</li>
+                        </ul>
+                    </span></li> </br>
+
+                <li>Paula Eduarda de Lima &emsp; &emsp; 
+                    <span style="font-weight:normal">
+                        <ul>
+                            <li>Código: 231708024</li>
+                            <li>Email: B51097@fgv.edu.br</li>
+                        </ul>
+                    </span></li> </br>
+
+                <li>Pedro Henrique Coterli &emsp; &emsp; 
+                    <span style="font-weight:normal">
+                        <ul>
+                            <li>Código: 231708009</li>
+                            <li>Email: B51063@fgv.edu.br</li>
+                        </ul>
+                    </span></li>
+            </ul>
+        </h4>
+
+        <p style="text-align:justify">Para o presente trabalho, selecionamos uma base de dados governamental disponibilizada pelo Ministério da Saúde que contém informações sobre os hospitais e os leitos do Brasil. Decidimos analisar os dados dos anos de 2019 a 2023. Essa base pode ser encontrada <a href = "https://dados.gov.br/dados/conjuntos-dados/hospitais-e-leitos">aqui</a>.</p>
+
+        <p style="text-align:justify">Feito isso, cada componente do grupo fez uma análise estatística de algumas das informações dessa base, levando a hipóteses que posteriormente puderam ser comprovadas ou refutadas pela plotagem desses dados. Vale destacar que todo o processamento da base, o cálculo das medidas estatísticas e a geração dos gráficos podem ser encontrados no arquivo <b>main.py</b>.</p>
+
+        <p style="text-align:justify">Realizada a introdução, abaixo estão as análises e os respectivos gráficos.</p> </br>
+
+        <h2>Análise "Leitos x Ano"</h2>
+        <p style="font-size: 12px;">Pedro Henrique Coterli</p>
+        
+        <p style="text-align:justify">Primeiramente, vamos analisar a evolução do número de leitos nos hospitais do Brasil ao longo do período de tempo considerado. Para isso, vamos dar uma olhada nos seguintes números obtidos por meio da análise efetuada no código do presente trabalho. Lembrando que esses valores correspondem às medidas calculadas considerando a evolução desse número ao longo dos meses de cada ano (a média de 2020 é a média do número de leitos no Brasil levando em conta os meses de 2020).</p>
+
+        <center>
+            <figure class = "html5">
+                <img src = "graphs/table_analysis_bed_year.png">
+                <figcaption style="font-size: 12px;">Tabela 1. Medidas de resumo "Leitos x Ano"</figcaption>
+            </figure>
+        </center>
+
+        <p style="text-align:justify">Por meio das informações de média, mediana e máximo, é possível observar um grande aumento do número de leitos nos anos de 2020 e 2021, o que é logicamente conectado à pandemia de Covid-19 que assolou todo o planeta ao longo desses anos. Além disso, é notável uma queda desses números em 2022, indicando que uma parcela dos leitos existentes durante a pandemia foi tirada de serviço, tendo sido esses possivelmente leitos específicos para atender vítimas do vírus.</p>
+        <p style="text-align:justify">Outra análise que pode ser feita é com relação ao desvio padrão. Percebe-se que o desvio padrão do ano de 2020 supera, e muito, o dos outros anos, sugerindo uma forte variação do número total de leitos ao longo desse ano, o que, novamente, é explicado pela emergencialidade da pandemia. Por fim, o mesmo dado de 2022 também é relativamente acentuado, o que é compatível com a informação da queda do número total após o fim do perigo do vírus.</p>
+        <p style="text-align:justify">Feita a análise estatística, vamos dar uma olhada no gráfico desses dados para conferir nossas hipóteses.</p>
+
+        <center>
+            <figure class = "html5">
+                <img src = "graphs/graph_beds_year.png">
+                <figcaption style="font-size: 12px;">Gráfico 1. Leitos x Ano</figcaption>
+            </figure>
+        </center>
+
+        <p style="text-align:justify">A forte alta em 2020 e a relativa queda em 2022 batem perfeitamente com nossa análise. Portanto, conlcui-se que houve realmente um aumento do número de leitos de hospital no Brasil em 2020 e uma queda desse valor em 2022</p>
+
+    </body>
+</html>

@@ -19,8 +19,6 @@ def clean_data(df):
     # Renomear colunas (se necessário)
     df = df.rename(columns={'coluna_antiga': 'nova_coluna'})
 
-    # Outras operações de limpeza podem ser adicionadas conforme necessário
-
     return df
 
 # Exemplo de uso

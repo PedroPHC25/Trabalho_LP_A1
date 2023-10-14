@@ -5,6 +5,7 @@ análise comparativa da quantidade total de leitos pediátricos por região
 do Brasil.
 
 """
+'''
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import ticker
@@ -67,9 +68,27 @@ def graph_bar(df, x_column, y_column, title, x_label, y_label, image_graph_name)
     plt.show()
 
 # Exemplo de DataFrame (substituindo com os dados da base)
-data = pd.DataFrame({dat
-    
-})
+data = pd.read_csv('Leitos_2019')
 
 # Teste do exemplo de uso
-graph_bar(data, 'REGIAO', 'UTI_PEDIATRICO_EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.jpg')
+graph_bar(data, 'REGIAO', 'UTI PEDIATRICO - EXIST', 'TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGIÃO', 'Região', 'Total de leitos pediátricos', 'uti_pediatrico_por_regiao.jpg')
+'''
+
+import matplotlib.pyplot as plt
+
+def scatter_plot(dataframe):
+    # Extrair os dados das colunas de interesse
+    leitos_queimados = dataframe['UTI_QUEIMADO_EXIST']
+    leitos_pediatria = dataframe['UTI_PEDIATRICO_EXIST']
+    
+    # Criar o gráfico de dispersão
+    plt.figure(figsize=(10, 6))
+    plt.scatter(leitos_pediatria, leitos_queimados, alpha=0.5)
+    
+    # Adicionar rótulos e título
+    plt.xlabel('Leitos Pediátricos')
+    plt.ylabel('Leitos de Queimados')
+    plt.title('Gráfico de Dispersão: Leitos Pediátricos vs Leitos de Queimados')
+    
+    # Mostrar o gráfico
+    plt.show()
