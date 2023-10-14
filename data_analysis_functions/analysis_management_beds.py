@@ -6,8 +6,6 @@ e os tipos de gestão dos hospitais.
 import pandas as pd
 import doctest
 
-#TODO Arrumar os doctests, que estão falhando.
-
 # Função recebe o df e retorna a média do número de leitos correspondente ao tipo de gestão recebido
 def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> float:
     """
