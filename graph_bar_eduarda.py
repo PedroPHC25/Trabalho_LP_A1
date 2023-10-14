@@ -28,7 +28,6 @@ def plot_bar_chart_from_series(data_series, color='pink'):
     plt.show()
 
 
-# Supondo que 'data_ped' seja a sua série de dados
 plot_bar_chart_from_series(data_ped, color='skyblue')
 
 
