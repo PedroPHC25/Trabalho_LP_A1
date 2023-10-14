@@ -79,7 +79,6 @@ def graph_SUS(df: pd.DataFrame,
         plt.legend(legend) 
             
         plt.savefig(f"graphs/{image_graph_name}")
-        plt.show()
         
     except KeyError:
         return "Chave fora da formatação necessária"

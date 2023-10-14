@@ -84,9 +84,9 @@ data_ped = data.groupby("REGIAO")["TOTAL DE LEITOS PEDIÁTRICOS DE UTI POR REGI�
             </figure>
         </center>
 
-        <p style="text-align:justify">Hospitais filantrópicos: São instituições privadas, porém sem fins lucrativos, que possuem contrato com o sistema público para prestar atendimento aos pacientes do SUS. Pelo menos 60% dos atendimentos oferecidos pelos hospitais filantrópicos são destinados, obrigatoriamente, ao SUS. As organizações filantrópicas são mantidas com doações de pessoas físicas e de empresas, além de parcerias, convênios e políticas públicas pactuadas com os governos municipais, estaduais e federal.</p>
-        <p style="text-align:justify">TEXTO TEXTO TEXTO</p>
-        <p style="text-align:justify">TEXTO TEXTO TEXTO</p>
+        <p style="text-align:justify"> <strong>Hospitais filantrópicos</strong>: São instituições privadas, porém sem fins lucrativos, que possuem contrato com o sistema público para prestar atendimento aos pacientes do SUS. Pelo menos 60% dos atendimentos oferecidos pelos hospitais filantrópicos são destinados, obrigatoriamente, ao SUS. As organizações filantrópicas são mantidas com doações de pessoas físicas e de empresas, além de parcerias, convênios e políticas públicas pactuadas com os governos municipais, estaduais e federal.</p>
+        <p style="text-align:justify"> <strong>Hospitais públicos</strong>: podem ser regionais e locais de acordo com a área de abrangência da população a ser assistida, são financiados e mantidos pelo Estado. No Brasil graças à concepção do Sistema Único de Saúde (SUS) é completamente gratuito.</p>
+        <p style="text-align:justify"> <strong>Hospitais privados</strong>: tem fins lucrativos. Isso significa que, é preciso o pagamento direto ou ser cliente de um plano de saúde para conseguir atendimento. Apesar de ser um desejo da população, 70% alegam não ter convênio médico, fazendo do SUS a única saída.</p>
 
         <center>
             <figure class = "html5">
