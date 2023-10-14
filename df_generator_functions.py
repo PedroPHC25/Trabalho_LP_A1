@@ -242,3 +242,27 @@ def formatar_df(df_original: pd.DataFrame,
 
 if __name__ == "__main__":
     doctest.testmod(verbose = True)
+
+
+#GRÁFICO DE BARRAS - LEITOS PEDIÁTRICOS
+# Gerando um novo data frame a partir do data
+def generate_bar_chart_data(data, group_column, value_column):
+    """
+    Gera os dados para um gráfico de barras a partir de um DataFrame agrupado.
+
+    :param data: DataFrame contendo os dados.
+    :type data: pandas.DataFrame
+    :param group_column: Nome da coluna para agrupamento.
+    :type group_column: str
+    :param value_column: Nome da coluna para os valores.
+    :type value_column: str
+    
+    :return: Rótulos e valores para o gráfico de barras.
+    :rtype: tuple
+    """
+    grouped_data = data.groupby(group_column)[value_column].sum()
+    labels = grouped_data.index.tolist()
+    values = grouped_data.values.tolist()
+    return labels, values
+
+    

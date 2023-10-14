@@ -55,3 +55,7 @@ data_SUS = dfgf.formatar_df(data_SUS,202201, "UF", "DESC_NATUREZA_JURIDICA", "LE
 data_management = dfgf.select_columns(data, ["LEITOS_EXISTENTES", "LEITOS_SUS", "TP_GESTAO", "NOME_ESTABELECIMENTO"])
 data_management = dfgf.reset_index(data_management)
 data_management = dfgf.not_necessary_columns(data_management, ["CNES", "COMP"])
+
+### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS PEDIÁTRICOS POR REGIÃO"
+
+data_ped = dfgf.generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
