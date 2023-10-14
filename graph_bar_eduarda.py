@@ -10,7 +10,7 @@ from df_generator import data
 
 data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
 
-def plot_bar_chart_from_series(data_series, color):
+def plot_bar_chart_from_series(data_series, color='pink'):
     """
     Cria um gráfico de barras a partir de uma série de dados.
 
