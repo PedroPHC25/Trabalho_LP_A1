@@ -10,7 +10,7 @@ from df_generator import data
 
 data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
 
-def plot_bar_chart_from_series(data_series, color='pink'):
+def plot_bar_chart_from_series(data_series, color):
     """
     Cria um gráfico de barras a partir de uma série de dados.
 
@@ -21,9 +21,9 @@ def plot_bar_chart_from_series(data_series, color='pink'):
     """
     plt.figure(figsize=(10, 6))
     plt.bar(data_series.index, data_series.values, color=color)
-    plt.title('UTI Pediátrica Existente por Região')
+    plt.title('Quantidade de leitos pediátricos existentes por Região brasileira')
     plt.xlabel('Região')
-    plt.ylabel('UTI Pediátrica Existente')
+    plt.ylabel('Quantidade de leitos')
     plt.xticks(rotation=45)
     plt.show()
 
