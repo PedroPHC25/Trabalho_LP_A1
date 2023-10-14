@@ -12,4 +12,5 @@ df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H
 #       , mean_by_management(1, 1, 1))
 df = 1[1["TP_GESTAO"] == "M"]
 desvio_padrao = df["LEITOS_SUS"].std()
+
 print(df)
