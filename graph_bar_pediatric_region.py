@@ -25,7 +25,6 @@ def plot_bar_chart_from_tuples(labels, values):
     plt.xlabel('Região')
     plt.ylabel('Quantidade de leitos')
     plt.xticks(rotation=45)
-    plt.show()
 
 
 plot_bar_chart_from_tuples(data_ped[0], data_ped[1])
