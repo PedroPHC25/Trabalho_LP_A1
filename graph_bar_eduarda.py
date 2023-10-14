@@ -6,9 +6,7 @@ do Brasil."""
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import ticker
-from df_generator import data
-
-data_ped = data.groupby("REGIAO")["UTI_PEDIATRICO_EXIST"].sum()
+from df_generator import data_ped
 
 def plot_bar_chart_from_series(data_series, color='pink'):
     """
