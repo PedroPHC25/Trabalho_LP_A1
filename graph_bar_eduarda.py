@@ -8,26 +8,24 @@ import matplotlib.pyplot as plt
 from matplotlib import ticker
 from df_generator import data_ped
 
-def plot_bar_chart_from_series(data_series, color='pink'):
+def plot_bar_chart_from_tuples(labels, values, color='pink'):
     """
-    Cria um gráfico de barras a partir de uma série de dados.
+    Cria um gráfico de barras a partir de tuplas de rótulos e valores.
 
-    :param data_series: A série de dados.
-    :type data_series: pandas.Series
+    :param labels: Os rótulos do eixo x.
+    :type labels: list
+    :param values: Os valores correspondentes no eixo y.
+    :type values: list
     :param color: A cor das barras (opcional, padrão é 'pink').
     :type color: str
     """
     plt.figure(figsize=(10, 6))
-    plt.bar(data_series.index, data_series.values, color=color)
-    plt.title('Quantidade de leitos pediátricos existentes por Região brasileira')
+    plt.bar(labels, values, color=color)
+    plt.title('Quantidade de leitos pediátricos existentes X Região brasileira')
     plt.xlabel('Região')
     plt.ylabel('Quantidade de leitos')
     plt.xticks(rotation=45)
     plt.show()
 
 
-plot_bar_chart_from_series(data_ped, color='skyblue')
-
-
-
-
+plot_bar_chart_from_tuples(data_ped[0], data_ped[1], color='skyblue')
