@@ -2,22 +2,27 @@ import unittest
 import pandas as pd
 import sys
 
-sys.path.append('..\Trabalho_LP_A1')
+sys.path.append('../Trabalho_LP_A1')
 from data_analysis_functions.analysis_pediatric_regions import calcular_estatisticas
 
-def test_calcular_estatisticas():
-    dados = (['CENTRO-OESTE', 'NORDESTE', 'NORTE', 'SUDESTE', 'SUL'], [30450, 55476, 22550, 150046, 35870])
-    estatisticas = calcular_estatisticas(dados)
-    
-    assert 'Média' in estatisticas
-    assert 'Mediana' in estatisticas
-    assert 'Desvio Padrão' in estatisticas
-    assert 'Variância' in estatisticas
-    
-    assert isinstance(estatisticas['Média'], float)
-    assert isinstance(estatisticas['Mediana'], (int, float))  # Aceita tanto inteiros quanto floats
-    assert isinstance(estatisticas['Desvio Padrão'], float)
-    assert isinstance(estatisticas['Variância'], float)
+class TestAnalysisPediatricRegions(unittest.TestCase):
+
+    def test_calcular_estatisticas(self):
+        dados = (['CENTRO-OESTE', 'NORDESTE', 'NORTE', 'SUDESTE', 'SUL'], [30450, 55476, 22550, 150046, 35870])
+        estatisticas = calcular_estatisticas(dados)
+        
+        self.assertIn('Média', estatisticas)
+        self.assertIn('Mediana', estatisticas)
+        self.assertIn('Desvio Padrão', estatisticas)
+        self.assertIn('Variância', estatisticas)
+        
+        self.assertIsInstance(estatisticas['Média'], float)
+        self.assertIsInstance(estatisticas['Mediana'], (int, float))  
+        self.assertIsInstance(estatisticas['Desvio Padrão'], float)
+        self.assertIsInstance(estatisticas['Variância'], float)
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 if __name__ == "__main__":
