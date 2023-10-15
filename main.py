@@ -126,10 +126,7 @@ data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
 #                                      x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
 '''
 
-<<<<<<< HEAD
 """
-=======
->>>>>>> 386949aea94da6af6444be99bb1f02cce9537465
 ### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
 
 #importanto os dados
