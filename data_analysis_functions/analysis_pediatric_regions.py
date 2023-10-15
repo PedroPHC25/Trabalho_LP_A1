@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 from matplotlib import ticker
 from df_generator import data_ped
 
-import numpy as np
-
 def calcular_estatisticas(tupla):
     """
     Calcula a média, mediana, desvio padrão e variância de uma lista de números.
