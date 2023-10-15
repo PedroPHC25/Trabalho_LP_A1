@@ -146,7 +146,28 @@
         </center>
 
 
+        <h2>Análise comparativa de leitos pediátricos existentes por macrorregiões brasileiras</h2>
+        <p style="font-size: 12px;">Maria Eduarda Mesquita Magalhães</p>
+        
+        <p style="text-align:justify">Nessa parte do trabalho, o foco foi analisar a quantidade de leitos pediátricos existentes (considerando os leitos públicos e privados) no Brasil, por macrorregião.</p>
 
+        <center>
+            <figure class = "html5">
+                <img src = "graphs/tabela_pediatric_regions.png">
+                <figcaption style="font-size: 12px;">Tabela 1. Medidas de resumo das quantidades de leitos </figcaption>
+            </figure>
+        </center>
+
+        <p style="text-align:justify">O primeiro passo, obviamente, foi a escolha da base de dados. Em seguida, fizemos uma limpeza da base de dados, ou seja, retiramos colunas duplicadas e substituímos as colunas sem nenhum dado numéricos pelo valor zero. Logo após esse processo, agrupamos a coluna por região, somando todas as unidades de leitos daquela região. Criamos uma função que gerasse, agrupasse e modificasse esse dataframe retornando um conjunto de tuplas com o conjunto de dados que será analisado. Criamos outra função para calcular as medidas de resumo como média, mediana, desvio padrão e variância.</p>
+        
+        <center>
+            <figure class = "html5">
+                <img src = "graphs/graph_bar_pediatric_regions.png">
+                <figcaption style="font-size: 12px;">Gráfico 1. Distribuição gráfica da quantidade de leitos pediátricos por região</figcaption>
+            </figure>
+        </center>
+
+        <p style="text-align:justify">Feito isso, seguimos para a criação de uma nova função que gerasse um gráfico de barras a partir dos dados gerados pela função feita anteriormente. Com isso, a partir das análises e do gráfico gerados, chegamos a conclusão de que a região Sudeste possui uma quantidade muito maior de leitos pediátricos do que as demais regiões do Brasil. Lembrem-se que nessa análise estamos contabilizando os leitos privados de hospitais particulares e leitos públicos fornecidos pelo Sistema Único de Saúde (SUS). Esse resultado era esperado, pois a região Sudeste que é composta pelos estados de São Paulo, Rio de Janeiro, Espírito Santo e Minas Gerais é a região mais populosa do Brasil atingindo, em 2022, 84,8 milhões de habitantes o que representa 41,8% da população brasileira. O Nordeste vem logo em seguida abrigando 54,6 milhões de pessoas, o que corresponde a porcentagem de 26,9% dos habitantes do país.</p>
 
 
 
