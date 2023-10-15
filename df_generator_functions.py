@@ -158,13 +158,13 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     A mudança ocorre 'inplace', ou seja, modifica o dataframe 
     original.
 
-    >>> test_data = {"Aluno": ["João", "Maria", "José"],"Curso": ["Economia", "Biologia", "Pedagogia"],"Trancamento do curso": ["", "" , "" ]}
+    >>> test_data = {"Aluno": ["João", "Maria", "José"],"Curso": ["Economia", "Biologia", "Pedagogia"],"Trancamento do curso": [None, None , None ]}
     >>> df_test = pd.DataFrame(test_data, index = ["1", "2", "3"])
 
     Teste normal
 
     >>> delete_columns_na(df_test)
-       Aluno      Curso Trancamento do curso
+       Aluno      Curso
     1   João   Economia
     2  Maria   Biologia
     3   José  Pedagogia
