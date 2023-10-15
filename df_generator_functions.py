@@ -259,8 +259,36 @@ def formatar_df(df_original: pd.DataFrame,
 
 
 def filtra_year(df: pd.DataFrame, período: int )-> pd.DataFrame:
-    df_filtrado = df[df["COMP"]== período]
-    return  df_filtrado
+    """
+    Formatação para extração das informações necesssárias.
+
+    :param df: DataFrame original.
+    :type df: pd.DataFrame
+
+    :param período: Competência das análises, em formato anomês, 202001. 
+    :type date: int
+
+    :return: Retorna um DataFrame com os dados filtrados pelo período especificado.
+    :rtype: pd.DataFrame
+
+    .. warning::
+    O paramêtro date precisa estar no formato 202001, anomês.
+    """
+    try:
+        df_filtrado = df[df["COMP"] == período]
+        return  df_filtrado
+    
+    except AttributeError:
+        return "Argumento 'df' não é um dataframe"
+    except KeyError:
+        return "Coluna não encontrada"
+    except:
+        return "Erro desconhecido"
+
+
+    
+
+
 
 
 
