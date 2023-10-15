@@ -128,6 +128,6 @@ data_pediatric_regions = dfg.data_ped
 
 #fazendo uma análise de estatística descritiva a partir desses dados
 analysis_pediatric_regions_text = apr.calcular_estatisticas(data_pediatric_regions)
-
+print(analysis_pediatric_regions_text)
 #mostrando os dados graficamente no formato de barras
-graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
+#graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
