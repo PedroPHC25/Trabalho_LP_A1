@@ -29,10 +29,10 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
        O parâmetro tipo_hospital deve estar na formatação correta
        para encontrar a coluna dentro do df inserido.
     
-    Teste de mediana
-
     
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [5,6,8], [14,12,23]])
+
+    Teste de mediana
     
     Resultado esperado
 
