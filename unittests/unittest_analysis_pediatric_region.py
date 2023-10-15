@@ -1,4 +1,9 @@
-from analysis_pediatric_regions import calcular_estatisticas
+import unittest
+import pandas as pd
+import sys
+
+sys.path.append('..\Trabalho_LP_A1')
+from data_analysis_functions.analysis_pediatric_regions import calcular_estatisticas
 
 def test_calcular_estatisticas():
     dados = (['CENTRO-OESTE', 'NORDESTE', 'NORTE', 'SUDESTE', 'SUL'], [30450, 55476, 22550, 150046, 35870])
