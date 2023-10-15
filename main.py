@@ -7,7 +7,7 @@ from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 from graphs_functions import graph_bar_management_beds as gbm
 # from graphs_functions import graph_bar_pediatric_region as gbpr
-'''
+
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 
 # Manipulando o dataframe data_beds_year para a análise
@@ -63,7 +63,7 @@ min_max_hosp_fil = afs.max_min_SUS(data_SUS, "Hospital Filantrópico")
 
 # Gerando o gráfico de barras agrupadas
 graphbar_SUS = gbs.graph_SUS(data_SUS, "Hospital Público", "Hospital Privado", "Hospital Filantrópico")
-'''
+
 
 ### DADOS DA ANÁLISE "BEDS X MANAGEMENT" ###
 
@@ -122,8 +122,6 @@ graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_SUS",
                                      title ="Leitos existentes por tipo de gestão (Julho de 2019)", y_label = "Tipo de gestão atuante",
                                      x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
 
-print("a")
-"""
 ### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
 
 #importanto os dados
@@ -131,11 +129,6 @@ data_pediatric_regions = dfg.data_ped
 
 #fazendo uma análise de estatística descritiva a partir desses dados
 analysis_pediatric_regions_text = apr.calcular_estatisticas(data_pediatric_regions)
-print(analysis_pediatric_regions_text)
+
 #mostrando os dados graficamente no formato de barras
-<<<<<<< HEAD
-#graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
-=======
 graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
-"""
->>>>>>> ea74c495e3a3590b52562fd52c228474539dced1
