@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import ticker
-from df_generator import data_ped
 
 def calcular_estatisticas(tupla):
     """
@@ -12,6 +11,10 @@ def calcular_estatisticas(tupla):
     :type tupla: tuple
     :return: Um dicionário contendo as estatísticas.
     :rtype: dict
+
+    Exemplo:
+    >>> calcular_estatisticas((['CENTRO-OESTE', 'NORDESTE', 'NORTE', 'SUDESTE', 'SUL'], [30450, 55476, 22550, 150046, 35870]))
+    {'Média': 63878.4, 'Mediana': 35870.0, 'Desvio Padrão': 44653.90232867641, 'Variância': 1995723475.2}
     """
     rotulos, numeros = tupla
     media = np.mean(numeros)
@@ -27,3 +30,4 @@ def calcular_estatisticas(tupla):
     }
     
     return estatisticas
+
