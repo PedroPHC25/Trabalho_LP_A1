@@ -2,11 +2,11 @@ import df_generator as dfg
 from data_analysis_functions import analysis_beds_year as aby
 from data_analysis_functions import analysis_functions_SUS as afs
 from data_analysis_functions import analysis_management_beds as amb
-# from data_analysis_functions import analysis_pediatric_regions as apr
+from data_analysis_functions import analysis_pediatric_regions as apr
 from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 from graphs_functions import graph_bar_management_beds as gbm
-# from graphs_functions import graph_bar_pediatric_region as gbpr
+from graphs_functions import graph_bar_pediatric_region as gbpr
 
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 

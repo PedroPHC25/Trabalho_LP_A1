@@ -11,9 +11,8 @@ class TestDataCleanerPaula (unittest.TestCase):
         # Criando um dataframe para os testes
         test_data = {"Alunos": ["João", "Maria", "José"],
                      "Curso": ["Economia", "Biologia", "Pedagogia"],
-                     "Trancamento do curso": [ "", "" , ""]}
+                     "Trancamento do curso": [None, None, None]}
         df_test = pd.DataFrame(test_data, index = ["1", "2", "3"])
-        print(df_test)
 
         # DataFrame esperado como retorno da função
         expected_result = pd.DataFrame({"Alunos": ["João", "Maria", "José"],
@@ -22,6 +21,7 @@ class TestDataCleanerPaula (unittest.TestCase):
         
         # Teste normal
         pd.testing.assert_frame_equal(delete_columns_na(df_test), expected_result)
+
         # Testes com argumentos inválidos
         self.assertEqual(delete_columns_na("A"), "Argumento 'df' não é um dataframe")
         self.assertEqual(delete_columns_na("Cursos"), "Argumento 'df' não é um dataframe")
@@ -29,5 +29,4 @@ class TestDataCleanerPaula (unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-print(df_test)
 

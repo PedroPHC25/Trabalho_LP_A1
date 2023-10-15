@@ -8,7 +8,7 @@ import unittest
 import pandas as pd
 sys.path.append('..\Trabalho_LP_A1')
 
-from df_generator_functions import select_columns, reset_index, not_necessary_columns
+from df_generator_functions import select_columns, reset_index, not_necessary_columns, delete_columns_na
 
 class TestDFGeneratorFunctions(unittest.TestCase):
 
@@ -73,10 +73,25 @@ class TestDFGeneratorFunctions(unittest.TestCase):
         self.assertEqual(not_necessary_columns(df_test, ["Cidade"]), "Coluna(s) não encontrada(s)")
 
 
+    def test_delete_columns_na(self):
+
+        # Criando um dataframe para os testes
+        test_data = {"Alunos": ["João", "Maria", "José"],
+                     "Curso": ["Economia", "Biologia", "Pedagogia"],
+                     "Trancamento do curso": [None, None, None]}
+        df_test = pd.DataFrame(test_data, index = ["1", "2", "3"])
+
+        # DataFrame esperado como retorno da função
+        expected_result = pd.DataFrame({"Alunos": ["João", "Maria", "José"],
+                    "Curso": ["Economia", "Biologia", "Pedagogia"]},
+                    index = ["1", "2", "3"])
+        
+        # Teste normal
+        pd.testing.assert_frame_equal(delete_columns_na(df_test), expected_result)
+
+        # Testes com argumentos inválidos
+        self.assertEqual(delete_columns_na("A"), "Argumento 'df' não é um dataframe")
+        self.assertEqual(delete_columns_na("Cursos"), "Argumento 'df' não é um dataframe")
+
 if __name__ == '__main__':
     unittest.main()
-
-#___________________________________________PAULA___________________________________________________________
-
-
-#______________________________________________________________________________________________________________
