@@ -31,6 +31,7 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     
     Teste de mediana
 
+    
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [5,6,8], [14,12,23]])
     
     Resultado esperado
@@ -82,6 +83,7 @@ def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
     
     Teste de média
 
+    
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
     
     Resultado esperado
@@ -132,6 +134,7 @@ def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
 
     Teste de desvio padrão
 
+    
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
     
     Resultado esperado
@@ -182,6 +185,7 @@ def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
     
     Teste de máximo e mínimo
 
+    
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
     
     Resultado esperado
