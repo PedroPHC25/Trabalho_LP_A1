@@ -7,7 +7,7 @@ from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 from graphs_functions import graph_bar_management_beds as gbm
 # from graphs_functions import graph_bar_pediatric_region as gbpr
-'''
+
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 
 # Manipulando o dataframe data_beds_year para a análise
@@ -126,7 +126,10 @@ data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
 #                                      x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
 '''
 
+<<<<<<< HEAD
 """
+=======
+>>>>>>> 386949aea94da6af6444be99bb1f02cce9537465
 ### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
 
 #importanto os dados
@@ -137,4 +140,3 @@ analysis_pediatric_regions_text = apr.calcular_estatisticas(data_pediatric_regio
 
 #mostrando os dados graficamente no formato de barras
 graph_bar_pediatric_region_image = gbpr.plot_bar_chart_from_tuples(data_pediatric_regions[0],data_pediatric_regions[1])
-"""
