@@ -32,6 +32,7 @@ def plot_bar_chart_from_tuples(labels, values, color='pink'):
     plt.xlabel('Região')
     plt.ylabel('Quantidade de leitos')
     plt.xticks(rotation=45)
+   
 
 if __name__ == "__main__":
     # Exemplo de uso
