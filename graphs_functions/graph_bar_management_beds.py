@@ -7,6 +7,7 @@ leitos nos hospitais do Brasil e os tipos de gestão dos hospitais.
 import pandas as pd
 import  matplotlib.pyplot as plt
 from typing import Optional
+import doctest
 
 # from df_generator import data_management
 
@@ -76,7 +77,24 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     :type image_graph_name: str
 
     :return: Salva o gráfico
+
+    >>> test_data = {"TP_GESTAO":["M", "E", "D", "S", "M", "M", "E", "E"], "LEITOS_SUS":[2, 3, 6, 4, 2, 4, 3, 1], "LEITOS_EXISTENTES":[4, 5, 7, 5, 3, 6, 2, 1]}
+    >>> df_test = pd.DataFrame(test_data)
+
+    Teste normal
     
+    >>> graph_bar(df_test, "TP_GESTAO", "LEITOS_SUS", title = "Teste gráfico barra", x_label = "Rótulo x", y_label = "Rótulo y", image_graph_name = "Teste")
+    
+    Teste com coluna inexistente
+
+    >>> graph_bar(df_test, "DATA", "NOME")
+    'Coluna(s) não encontrada(s)'
+
+    Teste de argumento inválido
+
+    >>> graph_bar(1, "TP_GESTAO", "LEITOS_SUS")
+    'Argumento inadequado'
+
     """
     try:
         plt.barh(df[x_column], df[y_column], color = "DarkSlateBlue")
@@ -98,4 +116,5 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     except:
         return "Erro desconhecido"
 
-
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)
