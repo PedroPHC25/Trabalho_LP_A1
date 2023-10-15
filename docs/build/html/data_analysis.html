@@ -15,6 +15,7 @@
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Limpeza, manipulação e geração de dataframes" href="df_generator.html" />
     <link rel="prev" title="Bem-vindo(a) à documentação do projeto Trabalho_LP_A1" href="index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
@@ -120,6 +121,8 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Análise de dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df_generator.html">Limpeza, manipulação e geração de dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphs.html">Geração de gráficos</a></li>
 </ul>
 
         </div>
@@ -456,8 +459,11 @@ expicitamente como colunas, assim é possível calcular a sua respectiva mediana
 <p>O parâmetro tipo_hospital deve estar na formatação correta
 para encontrar a coluna dentro do df inserido.</p>
 </div>
-<p>Teste de mediana
-&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [5,6,8], [14,12,23]])</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">23</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Teste de mediana</p>
+<p>Resultado esperado</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="go">5.0</span>
 </pre></div>
@@ -466,6 +472,7 @@ para encontrar a coluna dentro do df inserido.</p>
 <span class="go">6.0</span>
 </pre></div>
 </div>
+<p>Tratamento de exceção</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="go">&#39;Chave fora da formatação necessária&#39;</span>
 </pre></div>
@@ -501,8 +508,11 @@ expicitamente como colunas, assim é possível calcular a sua respectiva média.
 <p>O parâmetro tipo_hospital deve estar na formatação correta
 para encontrar a coluna dentro do df inserido.</p>
 </div>
-<p>Teste de média
-&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [7,6,8], [13,7,23]])</p>
+<p>Teste de média</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">23</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Resultado esperado</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="go">7.0</span>
 </pre></div>
@@ -511,6 +521,7 @@ para encontrar a coluna dentro do df inserido.</p>
 <span class="go">5.0</span>
 </pre></div>
 </div>
+<p>Tratamento de exceção</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="go">&#39;Chave fora da formatação necessária&#39;</span>
 </pre></div>
@@ -546,8 +557,11 @@ expicitamente como colunas, assim é possível calcular seu respectivo desvio pa
 <p>O parâmetro tipo_hospital deve estar na formatação correta
 para encontrar a coluna dentro do df inserido.</p>
 </div>
-<p>Teste de desvio padrão
-&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [7,6,8], [13,7,23]])</p>
+<p>Teste de desvio padrão</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">23</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Resultado esperado</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="go">6.0</span>
 </pre></div>
@@ -556,6 +570,7 @@ para encontrar a coluna dentro do df inserido.</p>
 <span class="go">2.6457513110645907</span>
 </pre></div>
 </div>
+<p>Tratamento de exceção</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="go">&#39;Chave fora da formatação necessária&#39;</span>
 </pre></div>
@@ -591,8 +606,11 @@ expicitamente como colunas, assim é possível calcular os respectivos máximos 
 <p>O parâmetro tipo_hospital deve estar na formatação correta
 para encontrar a coluna dentro do df inserido.</p>
 </div>
-<p>Teste de máximo e mínimo
-&gt;&gt;&gt; example = pd.DataFrame(columns=[“a”, “b”, “c”], data=[[1,2,3], [7,6,8], [13,7,23]])</p>
+<p>Teste de máximo e mínimo</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">23</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Resultado esperado</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_min_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="go">(1, 13)</span>
 </pre></div>
@@ -601,6 +619,7 @@ para encontrar a coluna dentro do df inserido.</p>
 <span class="go">(3, 23)</span>
 </pre></div>
 </div>
+<p>Tratamento de exceção</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">max_min_SUS</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="go">&#39;Chave fora da formatação necessária&#39;</span>
 </pre></div>
@@ -632,22 +651,30 @@ para encontrar a coluna dentro do df inserido.</p>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
-<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-para encontrar a coluna dentro do df inserido.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.</p>
+</div>
 <p>Teste média</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
 </pre></div>
 </div>
-<p>Teste normal
-&gt;&gt;&gt; mean_by_management(df_test, “M”, “LEITOS_SUS”)
-2.6666666666666665</p>
-<p>Teste argumentos inadequados
-&gt;&gt;&gt; mean_by_management(1, “M”, “LEITOS_SUS”)
-Argumentos inadequados</p>
-<p>Teste chave fora da formação
-&gt;&gt;&gt; mean_by_management(df_test, 1, 2)
-Chave fora da formatação necessária</p>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">2.6666666666666665</span>
+</pre></div>
+</div>
+<p>Teste argumentos inadequados</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_by_management</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">Argumentos inadequados</span>
+</pre></div>
+</div>
+<p>Teste chave fora da formação</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Chave fora da formatação necessária</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -668,22 +695,30 @@ Chave fora da formatação necessária</p>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
-<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-para encontrar a coluna dentro do df inserido.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.</p>
+</div>
 <p>Teste mediana</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
 </pre></div>
 </div>
-<p>Teste normal
-&gt;&gt;&gt; median_by_management(df_test, “M”, “LEITOS_SUS”)
-2.0</p>
-<p>Teste argumentos inadequados
-&gt;&gt;&gt; median_by_management(1, “M”, “LEITOS_SUS”)
-Argumentos inadequados</p>
-<p>Teste chave fora da formação
-&gt;&gt;&gt; median_by_management(df_test, 1, 2)
-Chave fora da formatação necessária</p>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<p>Teste argumentos inadequados</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_by_management</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">Argumentos inadequados</span>
+</pre></div>
+</div>
+<p>Teste chave fora da formação</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">median_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Chave fora da formatação necessária</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -704,22 +739,30 @@ Chave fora da formatação necessária</p>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
-<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-para encontrar a coluna dentro do df inserido.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.</p>
+</div>
 <p>Teste desvio padrão</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
 </pre></div>
 </div>
-<p>Teste normal
-&gt;&gt;&gt; std_by_management(df_test, “M”, “LEITOS_SUS”)
-1.0</p>
-<p>Teste argumentos inadequados
-&gt;&gt;&gt; std_by_management(1, “M”, “LEITOS_SUS”)
-Argumentos inadequados</p>
-<p>Teste chave fora da formação
-&gt;&gt;&gt; std_by_management(df_test, 1, 2)
-Chave fora da formatação necessária</p>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>Teste argumentos inadequados</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_by_management</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">Argumentos inadequados</span>
+</pre></div>
+</div>
+<p>Teste chave fora da formação</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">std_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Chave fora da formatação necessária</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -741,22 +784,30 @@ diferentes tipos de gestão.</p>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
-<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-para encontrar a coluna dentro do df inserido.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.</p>
+</div>
 <p>Teste valores únicos</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;TP_GESTAO&quot;</span><span class="p">:[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;LEITOS_EXISTENTES&quot;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">])</span> 
 </pre></div>
 </div>
-<p>Teste normal
-&gt;&gt;&gt; unique_by_management(df_test, “M”, “LEITOS_SUS”)
-3</p>
-<p>Teste argumentos inadequados
-&gt;&gt;&gt; unique_by_management(1, “M”, “LEITOS_SUS”)
-Argumentos inadequados</p>
-<p>Teste chave fora da formação
-&gt;&gt;&gt; unique_by_management(df_test, 1, 2)
-Chave fora da formatação necessária</p>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">unique_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Teste argumentos inadequados</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">unique_by_management</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;LEITOS_SUS&quot;</span><span class="p">)</span>
+<span class="go">Argumentos inadequados</span>
+</pre></div>
+</div>
+<p>Teste chave fora da formação</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">unique_by_management</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Chave fora da formatação necessária</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -777,6 +828,11 @@ Chave fora da formatação necessária</p>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
+<p>Exemplo:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">calcular_estatisticas</span><span class="p">(([</span><span class="s1">&#39;CENTRO-OESTE&#39;</span><span class="p">,</span> <span class="s1">&#39;NORDESTE&#39;</span><span class="p">,</span> <span class="s1">&#39;NORTE&#39;</span><span class="p">,</span> <span class="s1">&#39;SUDESTE&#39;</span><span class="p">,</span> <span class="s1">&#39;SUL&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">30450</span><span class="p">,</span> <span class="mi">55476</span><span class="p">,</span> <span class="mi">22550</span><span class="p">,</span> <span class="mi">150046</span><span class="p">,</span> <span class="mi">35870</span><span class="p">]))</span>
+<span class="go">{&#39;Média&#39;: 63878.4, &#39;Mediana&#39;: 35870.0, &#39;Desvio Padrão&#39;: 44653.90232867641, &#39;Variância&#39;: 1995723475.2}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -844,6 +900,8 @@ Chave fora da formatação necessária</p>
             </div>
 
             <div class="right">
+                
+                    <a href="df_generator.html"><span>Limpeza, manipulação e geração de dataframes</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

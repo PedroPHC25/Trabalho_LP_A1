@@ -28,7 +28,7 @@ Além disso, na pasta raiz, existem os seguintes arquivos:
 
    data_analysis
    df_generator
-   .. graphs
+   graphs
 
 Indices and tables
 ==================

@@ -13,6 +13,7 @@ def calcular_estatisticas(tupla):
     :rtype: dict
 
     Exemplo:
+    
     >>> calcular_estatisticas((['CENTRO-OESTE', 'NORDESTE', 'NORTE', 'SUDESTE', 'SUL'], [30450, 55476, 22550, 150046, 35870]))
     {'Média': 63878.4, 'Mediana': 35870.0, 'Desvio Padrão': 44653.90232867641, 'Variância': 1995723475.2}
     """

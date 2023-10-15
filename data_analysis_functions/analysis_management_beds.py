@@ -20,9 +20,7 @@ def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> fl
     :return: Retorna a média em float.
     :rtype: float
 
-    .. warning::
-    O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-    para encontrar a coluna dentro do df inserido.
+    .. warning:: O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.
 
     Teste média 
 
@@ -30,14 +28,17 @@ def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> fl
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
 
     Teste normal
+
     >>> mean_by_management(df_test, "M", "LEITOS_SUS")
     2.6666666666666665
 
     Teste argumentos inadequados
+
     >>> mean_by_management(1, "M", "LEITOS_SUS")
     Argumentos inadequados
 
     Teste chave fora da formação
+
     >>> mean_by_management(df_test, 1, 2)
     Chave fora da formatação necessária
 
@@ -71,9 +72,7 @@ def median_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
     :return: Retorna a mediana em float.
     :rtype: float
 
-    .. warning::
-    O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-    para encontrar a coluna dentro do df inserido.
+    .. warning:: O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.
 
     Teste mediana
 
@@ -81,14 +80,17 @@ def median_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
 
     Teste normal
+
     >>> median_by_management(df_test, "M", "LEITOS_SUS")
     2.0
 
     Teste argumentos inadequados
+
     >>> median_by_management(1, "M", "LEITOS_SUS")
     Argumentos inadequados
 
     Teste chave fora da formação
+
     >>> median_by_management(df_test, 1, 2)
     Chave fora da formatação necessária
     """
@@ -118,9 +120,7 @@ def std_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> flo
     :return: Retorna o desvio padrão em float.
     :rtype: float
 
-    .. warning::
-    O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-    para encontrar a coluna dentro do df inserido.
+    .. warning:: O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.
     
     Teste desvio padrão
 
@@ -128,14 +128,17 @@ def std_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> flo
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
 
     Teste normal
+
     >>> std_by_management(df_test, "M", "LEITOS_SUS")
     1.0
 
     Teste argumentos inadequados
+
     >>> std_by_management(1, "M", "LEITOS_SUS")
     Argumentos inadequados
 
     Teste chave fora da formação
+
     >>> std_by_management(df_test, 1, 2)
     Chave fora da formatação necessária
     
@@ -169,9 +172,7 @@ def unique_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
     :return: Retorna os valores único.
     :rtype: int
 
-    .. warning::
-    O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente
-    para encontrar a coluna dentro do df inserido.
+    .. warning:: O parâmetro tipo_gestao e tipo_leito deve exister e estar ecrito corretamente para encontrar a coluna dentro do df inserido.
 
     Teste valores únicos
 
@@ -179,14 +180,17 @@ def unique_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
     >>> df_test = pd.DataFrame(test_data, index = ["A", "B", "C", "D", "E", "F", "G", "H"]) 
 
     Teste normal
+
     >>> unique_by_management(df_test, "M", "LEITOS_SUS")
     3
 
     Teste argumentos inadequados
+
     >>> unique_by_management(1, "M", "LEITOS_SUS")
     Argumentos inadequados
 
     Teste chave fora da formação
+    
     >>> unique_by_management(df_test, 1, 2)
     Chave fora da formatação necessária
     

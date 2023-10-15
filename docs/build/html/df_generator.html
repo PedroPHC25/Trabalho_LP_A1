@@ -15,6 +15,7 @@
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Geração de gráficos" href="graphs.html" />
     <link rel="prev" title="Análise de dados" href="data_analysis.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
@@ -121,6 +122,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Análise de dados</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Limpeza, manipulação e geração de dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphs.html">Geração de gráficos</a></li>
 </ul>
 
         </div>
@@ -273,24 +275,26 @@ os valores são NA.</p>
 </dl>
 <p>A função recebrá um DataFrame e as colunas que tiverem 
 TODOS os valores com NA serão removidas.</p>
-<p>..warning::
-A mudança ocorre ‘inplace’, ou seja, modifica o dataframe 
-original.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Aluno&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;José&quot;</span><span class="p">],</span><span class="s2">&quot;Curso&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Economia&quot;</span><span class="p">,</span> <span class="s2">&quot;Biologia&quot;</span><span class="p">,</span> <span class="s2">&quot;Pedagogia&quot;</span><span class="p">],</span><span class="s2">&quot;Trancamento do curso&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span> <span class="p">,</span> <span class="s2">&quot;&quot;</span> <span class="p">]}</span>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A mudança ocorre <cite>inplace</cite>, ou seja, modifica o dataframe original.</p>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Aluno&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="s2">&quot;José&quot;</span><span class="p">],</span><span class="s2">&quot;Curso&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Economia&quot;</span><span class="p">,</span> <span class="s2">&quot;Biologia&quot;</span><span class="p">,</span> <span class="s2">&quot;Pedagogia&quot;</span><span class="p">],</span><span class="s2">&quot;Trancamento do curso&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span> <span class="p">,</span> <span class="kc">None</span> <span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Teste normal
-&gt;&gt;&gt; delete_columns(df_test)</p>
-<blockquote>
-<div><p>Aluno     Curso</p>
-</div></blockquote>
-<p>1      João    Economia
-2     Maria    Biologia
-3      José    Pedagogia</p>
-<p>Teste de argumento ‘df’ não dataframe
-&gt;&gt;&gt; delete_columns(“A”)
-“Argumento ‘df’ não é um dataframe”</p>
+<p>Teste normal</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">delete_columns_na</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
+<span class="go">   Aluno      Curso</span>
+<span class="go">1   João   Economia</span>
+<span class="go">2  Maria   Biologia</span>
+<span class="go">3   José  Pedagogia</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">delete_columns_na</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="go">&quot;Argumento &#39;df&#39; não é um dataframe&quot;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -316,6 +320,40 @@ original.</p>
 </dl>
 <p>A função deixa explícita as colunas com as informações 
 para análise e plotagem do gráfico.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O paramêtro date precisa estar no formato 202001, anomês.</p>
+</div>
+<p>Teste para função formatar</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Data&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">202301</span><span class="p">,</span> <span class="mi">202301</span><span class="p">,</span> <span class="mi">202301</span><span class="p">,</span> <span class="mi">202301</span><span class="p">,</span> <span class="mi">202301</span><span class="p">,</span> <span class="mi">202301</span><span class="p">],</span><span class="s1">&#39;Estado&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">],</span> <span class="s1">&#39;Tipo_Hospital&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;HOSPITAL_FILANTROPICO&#39;</span><span class="p">,</span> <span class="s1">&#39;HOSPITAL_FILANTROPICO&#39;</span><span class="p">,</span> <span class="s1">&#39;HOSPITAL_PRIVADO&#39;</span><span class="p">,</span> <span class="s1">&#39;HOSPITAL_PRIVADO&#39;</span><span class="p">,</span><span class="s1">&#39;HOSPITAL_PUBLICO&#39;</span><span class="p">,</span> <span class="s1">&#39;HOSPITAL_PUBLICO&#39;</span><span class="p">],</span> <span class="s1">&#39;Valor&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">154</span><span class="p">],</span><span class="s2">&quot;Nome&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Hospital Santa Esperança&quot;</span><span class="p">,</span> <span class="s2">&quot;Instituto Médico Vital&quot;</span><span class="p">,</span> <span class="s2">&quot;Centro Hospitalar Estrela da Manhã&quot;</span><span class="p">,</span> <span class="s2">&quot;Hospital São Lucas&quot;</span><span class="p">,</span> <span class="s2">&quot;Clínica Médica da Esperança&quot;</span><span class="p">,</span> <span class="s2">&quot;Hospital das Crianças Felizes&quot;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="s2">&quot;Nome&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">formatar_df</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">202301</span><span class="p">,</span> <span class="s1">&#39;Estado&#39;</span><span class="p">,</span> <span class="s1">&#39;Tipo_Hospital&#39;</span><span class="p">,</span> <span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="go">  Estado  Hospital Filantrópico  Hospital Privado  Hospital Público</span>
+<span class="go">0     SP                    100               150               202</span>
+<span class="go">1     RJ                    200                50               154</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="df_generator_functions.filtra_year">
+<span class="sig-prename descclassname"><span class="pre">df_generator_functions.</span></span><span class="sig-name descname"><span class="pre">filtra_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">período</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#df_generator_functions.filtra_year" title="Link to this definition">¶</a></dt>
+<dd><p>Formatação para extração das informações necesssárias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame original.</p></li>
+<li><p><strong>período</strong> – Competência das análises, em formato anomês, 202001.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna um DataFrame com os dados filtrados pelo período especificado.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>O paramêtro date precisa estar no formato 202001, anomês.</p>
@@ -358,6 +396,22 @@ para análise e plotagem do gráfico.</p>
 <dd class="field-odd"><p>pandas.DataFrame</p>
 </dd>
 </dl>
+<p># Doctests</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>   <span class="s1">&#39;coluna1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="gp">... </span>   <span class="s1">&#39;coluna2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_limpo</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_limpo</span>
+<span class="go">   coluna1  coluna2</span>
+<span class="go">0        1      0.0</span>
+<span class="go">1        2      2.0</span>
+<span class="go">2        3      0.0</span>
+<span class="go">3        4      4.0</span>
+<span class="go">4        5      0.0</span>
+<span class="go">5        6      6.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -382,6 +436,7 @@ para análise e plotagem do gráfico.</p>
 <li><a class="reference internal" href="#df_generator_functions.not_necessary_columns"><code class="docutils literal notranslate"><span class="pre">not_necessary_columns()</span></code></a></li>
 <li><a class="reference internal" href="#df_generator_functions.delete_columns_na"><code class="docutils literal notranslate"><span class="pre">delete_columns_na()</span></code></a></li>
 <li><a class="reference internal" href="#df_generator_functions.formatar_df"><code class="docutils literal notranslate"><span class="pre">formatar_df()</span></code></a></li>
+<li><a class="reference internal" href="#df_generator_functions.filtra_year"><code class="docutils literal notranslate"><span class="pre">filtra_year()</span></code></a></li>
 <li><a class="reference internal" href="#df_generator_functions.generate_bar_chart_data"><code class="docutils literal notranslate"><span class="pre">generate_bar_chart_data()</span></code></a></li>
 <li><a class="reference internal" href="#df_generator_functions.clean_data"><code class="docutils literal notranslate"><span class="pre">clean_data()</span></code></a></li>
 </ul>
@@ -404,6 +459,8 @@ para análise e plotagem do gráfico.</p>
             </div>
 
             <div class="right">
+                
+                    <a href="graphs.html"><span>Geração de gráficos</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

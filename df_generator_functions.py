@@ -154,9 +154,7 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     A função recebrá um DataFrame e as colunas que tiverem 
     TODOS os valores com NA serão removidas.
 
-    ..warning::
-    A mudança ocorre 'inplace', ou seja, modifica o dataframe 
-    original.
+    .. warning:: A mudança ocorre `inplace`, ou seja, modifica o dataframe original.
 
     >>> test_data = {"Aluno": ["João", "Maria", "José"],"Curso": ["Economia", "Biologia", "Pedagogia"],"Trancamento do curso": [None, None , None ]}
     >>> df_test = pd.DataFrame(test_data, index = ["1", "2", "3"])
@@ -213,8 +211,7 @@ def formatar_df(df_original: pd.DataFrame,
     A função deixa explícita as colunas com as informações 
     para análise e plotagem do gráfico.
 
-    .. warning::
-    O paramêtro date precisa estar no formato 202001, anomês.
+    .. warning:: O paramêtro date precisa estar no formato 202001, anomês.
     
     Teste para função formatar
 
@@ -269,8 +266,7 @@ def filtra_year(df: pd.DataFrame, período: int )-> pd.DataFrame:
     :return: Retorna um DataFrame com os dados filtrados pelo período especificado.
     :rtype: pd.DataFrame
 
-    .. warning::
-    O paramêtro date precisa estar no formato 202001, anomês.
+    .. warning:: O paramêtro date precisa estar no formato 202001, anomês.
     """
     try:
         df_filtrado = df[df["COMP"] == período]
@@ -319,6 +315,7 @@ def clean_data(df):
     :rtype: pandas.DataFrame
 
     # Doctests
+
     >>> data = pd.DataFrame({
     ...    'coluna1': [1, 2, 3, 4, 5, 6],
     ...    'coluna2': [None, 2, None, 4, None, 6]
