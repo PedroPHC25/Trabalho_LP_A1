@@ -16,5 +16,5 @@ gbm.replacement(df_test, "TP_GESTAO", "D", "Dupla gestão")
 print(df_test)
 
 
-gbm.graph_bar(df_test, "TP_GESTAO", "LEITOS_EXISTENTES")
+gbm.graph_bar(df_test, "TP_GESTAO", "LEITOS_SUS")
 print("a")

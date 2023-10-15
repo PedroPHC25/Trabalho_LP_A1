@@ -78,17 +78,17 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     :return: Salva o gráfico
     
     """
-    plt.bar(df[x_column], df[y_column], color = "DarkBlue")
+    plt.barh(df[x_column], df[y_column], color = "DarkSlateBlue")
 
     # Configurando os textos
     plt.title(title, fontsize = 16)
     plt.xlabel(x_label, fontsize = 12)
     plt.ylabel(y_label, fontsize = 12)
-    plt.tick_params(axis = "x", labelsize = 10)
-    plt.tick_params(axis = "y", labelsize = 10)
+    plt.tick_params(axis = "x", labelsize = 8)
+    plt.tick_params(axis = "y", labelsize = 8)
 
     plt.savefig(f"graphs/{image_graph_name}")
-    # plt.show()
+    plt.show()
 
-graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES")
+# graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES")
 
