@@ -98,29 +98,32 @@ mean_beds_sus_municipal = amb.mean_by_management(data_management, "M", "LEITOS_S
 mean_beds_sus_estadual = amb.mean_by_management(data_management, "E", "LEITOS_SUS")
 mean_beds_sus_dupla = amb.mean_by_management(data_management, "D", "LEITOS_SUS")
 mean_beds_sus_sem_gestao = amb.mean_by_management(data_management, "S", "LEITOS_SUS")
-print("média:", mean_beds_sus_dupla, mean_beds_sus_estadual, mean_beds_sus_municipal)
-# Mediana dos leitos existentes de cada gestão
+print("média SUS:", mean_beds_sus_dupla, mean_beds_sus_estadual, mean_beds_sus_municipal)
+# Mediana dos leitos SUS existentes de cada gestão
 median_beds_sus_municipal = amb.median_by_management(data_management, "M", "LEITOS_SUS")
 median_beds_sus_estadual = amb.median_by_management(data_management, "E", "LEITOS_SUS")
 median_beds_sus_dupla = amb.median_by_management(data_management, "D", "LEITOS_SUS")
+print("mediana SUS:", median_beds_sus_dupla, median_beds_sus_estadual, median_beds_sus_municipal)
 
-# Desvio padrão dos leitos existentes de cada gestão
+# Desvio padrão dos leitos SUS existentes de cada gestão
 std_beds_sus_municipal = amb.std_by_management(data_management, "M", "LEITOS_SUS")
 std_beds_sus_estadual = amb.std_by_management(data_management, "E", "LEITOS_SUS")
 std_beds_sus_dupla = amb.std_by_management(data_management, "D", "LEITOS_SUS")
+print("Desvio padrão SUS:", std_beds_sus_dupla, std_beds_sus_estadual, std_beds_sus_municipal)
 
-# Quantidade de valores distintos de leitos em cada gestão
+# Quantidade de valores distintos de leitos SUS em cada gestão
 unique_beds_sus_municipal = amb.unique_by_management(data_management, "M", "LEITOS_SUS")
 unique_beds_sus_estadual = amb.unique_by_management(data_management, "E", "LEITOS_SUS")
 unique_beds_sus_dupla = amb.unique_by_management(data_management, "D", "LEITOS_SUS")
+print("Valores únicos SUS:", unique_beds_sus_dupla, unique_beds_sus_estadual, unique_beds_sus_municipal)
 
 # Gerando o gráfico de barras 
 data_management = gbm.replacement(data_management, "TP_GESTAO", "D", "Dupla")
 data_management = gbm.replacement(data_management, "TP_GESTAO", "M", "Municipal")
 data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
-graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_SUS", 
-                                     title ="Leitos existentes por tipo de gestão (Julho de 2019)", y_label = "Tipo de gestão atuante",
-                                     x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
+# graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_SUS", 
+#                                      title ="Leitos existentes por tipo de gestão (Julho de 2019)", y_label = "Tipo de gestão atuante",
+#                                      x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
 
 print("a")
 """
