@@ -2,11 +2,11 @@ import df_generator as dfg
 from data_analysis_functions import analysis_beds_year as aby
 from data_analysis_functions import analysis_functions_SUS as afs
 from data_analysis_functions import analysis_management_beds as amb
-# from data_analysis_functions import analysis_pediatric_regions as apr
+from data_analysis_functions import analysis_pediatric_regions as apr
 from graphs_functions import graph_beds_year as gby
 from graphs_functions import graph_bar_SUS as gbs
 from graphs_functions import graph_bar_management_beds as gbm
-# from graphs_functions import graph_bar_pediatric_region as gbpr
+from graphs_functions import graph_bar_pediatric_region as gbpr
 
 ### DADOS DA ANÁLISE "BEDS_YEAR" ###
 
@@ -124,12 +124,7 @@ data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
 # graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_SUS", 
 #                                      title ="Leitos existentes por tipo de gestão (Julho de 2019)", y_label = "Tipo de gestão atuante",
 #                                      x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
-'''
 
-<<<<<<< HEAD
-"""
-=======
->>>>>>> 386949aea94da6af6444be99bb1f02cce9537465
 ### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
 
 #importanto os dados
