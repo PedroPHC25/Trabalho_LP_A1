@@ -1,6 +1,6 @@
 #!C:\Users\pedro\OneDrive - Fundacao Getulio Vargas - FGV\2. Linguagens de Programação\Trabalho_LP_A1\.venv\Scripts\python.exe
 
-# $Id: rst2html4.py 9115 2022-07-28 17:06:24Z milde $
+# $Id: rst2html4.py 7994 2016-12-10 17:41:45Z milde $
 # Author: David Goodger <goodger@python.org>
 # Copyright: This module has been placed in the public domain.
 
@@ -14,7 +14,7 @@ and almost to HTML 4.01 transitional (except for closing empty tags).
 try:
     import locale
     locale.setlocale(locale.LC_ALL, '')
-except Exception:
+except:
     pass
 
 from docutils.core import publish_cmdline, default_description
