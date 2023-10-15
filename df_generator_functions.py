@@ -163,15 +163,13 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
 
     Teste normal
 
-    >>> delete_columns(df_test)
-          Aluno     Curso
-    1      João    Economia
-    2     Maria    Biologia
-    3      José    Pedagogia
+    >>> delete_columns_na(df_test)
+       Aluno      Curso Trancamento do curso
+    1   João   Economia
+    2  Maria   Biologia
+    3   José  Pedagogia
 
-    Teste de argumento 'df' não dataframe
-
-    >>> delete_columns("A")
+    >>> delete_columns_na("A")
     "Argumento 'df' não é um dataframe"
 
     """
@@ -321,17 +319,19 @@ def clean_data(df):
     :rtype: pandas.DataFrame
 
     # Doctests
->>> data = pd.DataFrame({
-...    'coluna1': [1, 2, 3, 4, 5, 6],
-...    'coluna2': [None, 2, None, 4, None, 6]
-... })
->>> data_limpo = clean_data(data)
->>> data_limpo
-   coluna1  coluna2
-0        1      0.0
-1        2      2.0
-3        4      4.0
-5        6      6.0
+    >>> data = pd.DataFrame({
+    ...    'coluna1': [1, 2, 3, 4, 5, 6],
+    ...    'coluna2': [None, 2, None, 4, None, 6]
+    ... })
+    >>> data_limpo = clean_data(data)
+    >>> data_limpo
+       coluna1  coluna2
+    0        1      0.0
+    1        2      2.0
+    2        3      0.0
+    3        4      4.0
+    4        5      0.0
+    5        6      6.0
 
     """
     try:
@@ -348,3 +348,5 @@ def clean_data(df):
     except Exception as e:
         raise e
 
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)

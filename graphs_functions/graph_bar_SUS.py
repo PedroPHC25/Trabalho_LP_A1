@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from typing import Optional
-import doctest
 
 # Função recebe o df e as colunas que serão as barras agrupadas 
 def graph_SUS(df: pd.DataFrame, 
@@ -86,6 +85,3 @@ def graph_SUS(df: pd.DataFrame,
         return "DataFrame inserido não válido"
     except:
         return "Erro desconhecido"
-
-if __name__ == "__main__":
-    doctest.testmod(verbose = True)
