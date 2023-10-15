@@ -6,7 +6,7 @@ do Brasil."""
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import ticker
-from df_generator import data_ped
+# from df_generator import data_ped
 
 def plot_bar_chart_from_tuples(labels, values, color='pink'):
     """
