@@ -1,1 +1,3 @@
 piccolo-theme
+pandas
+matplotlib
