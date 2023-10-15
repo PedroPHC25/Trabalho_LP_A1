@@ -30,13 +30,18 @@ def median_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
        para encontrar a coluna dentro do df inserido.
     
     Teste de mediana
+
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [5,6,8], [14,12,23]])
     
+    Resultado esperado
+
     >>> median_SUS(example, "a")
     5.0
 
     >>> median_SUS(example, "b")
     6.0
+
+    Tratamento de exceção
 
     >>> median_SUS(example, "d")
     'Chave fora da formatação necessária'
@@ -76,13 +81,18 @@ def mean_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
        para encontrar a coluna dentro do df inserido.
     
     Teste de média
+
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
     
+    Resultado esperado
+
     >>> mean_SUS(example, "a")
     7.0
 
     >>> mean_SUS(example, "b")
     5.0
+
+    Tratamento de exceção
 
     >>> mean_SUS(example, "d")
     'Chave fora da formatação necessária'
@@ -121,13 +131,18 @@ def std_SUS(df: pd.DataFrame, tipo_hospital: str) -> float:
        para encontrar a coluna dentro do df inserido.
 
     Teste de desvio padrão
+
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
     
+    Resultado esperado
+
     >>> std_SUS(example, "a")
     6.0
 
     >>> std_SUS(example, "b")
     2.6457513110645907
+
+    Tratamento de exceção
 
     >>> std_SUS(example, "d")
     'Chave fora da formatação necessária'
@@ -166,13 +181,18 @@ def max_min_SUS(df: pd.DataFrame, tipo_hospital: str) -> tuple:
        para encontrar a coluna dentro do df inserido.
     
     Teste de máximo e mínimo
+
     >>> example = pd.DataFrame(columns=["a", "b", "c"], data=[[1,2,3], [7,6,8], [13,7,23]])
     
+    Resultado esperado
+
     >>> max_min_SUS(example, "a")
     (1, 13)
 
     >>> max_min_SUS(example, "c")
     (3, 23)
+
+    Tratamento de exceção
 
     >>> max_min_SUS(example, "d")
     'Chave fora da formatação necessária'

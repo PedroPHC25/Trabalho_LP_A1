@@ -162,6 +162,7 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     >>> df_test = pd.DataFrame(test_data, index = ["1", "2", "3"])
 
     Teste normal
+
     >>> delete_columns(df_test)
           Aluno     Curso
     1      João    Economia
@@ -169,6 +170,7 @@ def delete_columns_na(df: pd.DataFrame)-> pd.DataFrame:
     3      José    Pedagogia
 
     Teste de argumento 'df' não dataframe
+
     >>> delete_columns("A")
     "Argumento 'df' não é um dataframe"
 
@@ -216,6 +218,8 @@ def formatar_df(df_original: pd.DataFrame,
     .. warning::
     O paramêtro date precisa estar no formato 202001, anomês.
     
+    Teste para função formatar
+
     >>> data = {'Data': [202301, 202301, 202301, 202301, 202301, 202301],'Estado': ['SP', 'RJ', 'SP', 'RJ','SP', 'RJ'], 'Tipo_Hospital': ['HOSPITAL_FILANTROPICO', 'HOSPITAL_FILANTROPICO', 'HOSPITAL_PRIVADO', 'HOSPITAL_PRIVADO','HOSPITAL_PUBLICO', 'HOSPITAL_PUBLICO'], 'Valor': [100, 200, 150, 50, 202, 154],"Nome" : ["Hospital Santa Esperança", "Instituto Médico Vital", "Centro Hospitalar Estrela da Manhã", "Hospital São Lucas", "Clínica Médica da Esperança", "Hospital das Crianças Felizes"]}
     >>> example = pd.DataFrame(data)
     >>> example.set_index(["Data", "Nome"], inplace=True)
@@ -252,6 +256,15 @@ def formatar_df(df_original: pd.DataFrame,
                             df_original.loc[estado].loc["HOSPITAL_PUBLICO"]]
                 df_formatado.loc[len(df_formatado)] = nova_linha
     return df_formatado
+
+
+def filtra_year(df: pd.DataFrame, período: int )-> pd.DataFrame:
+    df_filtrado = df[df["COMP"]== período]
+    return  df_filtrado
+
+
+
+
 
 
 
@@ -352,3 +365,4 @@ if __name__ == "__main__":
     
 if __name__ == "__main__":
     doctest.testmod(verbose = True)
+

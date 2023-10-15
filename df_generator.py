@@ -36,25 +36,27 @@ data = pd.concat([data_2019, data_2020, data_2021, data_2022, data_2023], axis =
 
 data.set_index(["COMP", "CNES"], inplace = True)
 
-### GERAÇÃO DO DATAFRAME PARA A ANÁLISE "BEDS X YEAR" ###
+# ### GERAÇÃO DO DATAFRAME PARA A ANÁLISE "BEDS X YEAR" ###
 
-data_beds_year = dfgf.select_columns(data, ["LEITOS_EXISTENTES"])
-data_beds_year = dfgf.reset_index(data_beds_year)
-data_beds_year = dfgf.not_necessary_columns(data_beds_year, ["CNES"])
+# data_beds_year = dfgf.select_columns(data, ["LEITOS_EXISTENTES"])
+# data_beds_year = dfgf.reset_index(data_beds_year)
+# data_beds_year = dfgf.not_necessary_columns(data_beds_year, ["CNES"])
 
-### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS SUS"
+# ### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS SUS"
 
-useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO", "NO_BAIRRO", "CO_CEP", "NU_TELEFONE", "NO_EMAIL"]
-data_SUS = dfgf.not_necessary_columns(data, useless)
-data_SUS = dfgf.delete_columns_na(data_SUS)
-data_SUS = dfgf.formatar_df(data_SUS,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")
+# useless = ["NATUREZA_JURIDICA", "NO_LOGRADOURO", "NU_ENDERECO", "NO_COMPLEMENTO", "NO_BAIRRO", "CO_CEP", "NU_TELEFONE", "NO_EMAIL"]
+# data_SUS = dfgf.not_necessary_columns(data, useless)
+# data_SUS = dfgf.delete_columns_na(data_SUS)
+# data_SUS = dfgf.formatar_df(data_SUS,202201, "UF", "DESC_NATUREZA_JURIDICA", "LEITOS_SUS")
 
 ### GERAÇÃO DO DATAFRAME PARA ANÁLISE "BEDS X MANAGEMENT"
 
 data_management = dfgf.select_columns(data, ["LEITOS_EXISTENTES", "LEITOS_SUS", "TP_GESTAO", "NOME_ESTABELECIMENTO"])
 data_management = dfgf.reset_index(data_management)
-data_management = dfgf.not_necessary_columns(data_management, ["CNES", "COMP"])
+data_management = dfgf.not_necessary_columns(data_management, ["CNES"])
+data_management = dfgf.filtra_year(data_management, 201906)
+print(data_management)
 
 ### GERAÇÃO DO DATAFRAME PARA ANÁLISE "LEITOS PEDIÁTRICOS POR REGIÃO"
 
-data_ped = dfgf.generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
+# data_ped = dfgf.generate_bar_chart_data(data, "REGIAO", "UTI_PEDIATRICO_EXIST")
