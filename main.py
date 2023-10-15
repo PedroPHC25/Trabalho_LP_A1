@@ -124,9 +124,8 @@ data_management = gbm.replacement(data_management, "TP_GESTAO", "E", "Estadual")
 # graph_bar_management = gbm.graph_bar(data_management, "TP_GESTAO", "LEITOS_SUS", 
 #                                      title ="Leitos existentes por tipo de gestão (Julho de 2019)", y_label = "Tipo de gestão atuante",
 #                                      x_label = "Quantidade de leitos SUS", image_graph_name = "graph_management_horizontal")
-'''
 
-"""
+
 ### DADOS DA ANÁLISE "LEITOS PEDIÁTRICOS EXISTENTES X REGIÃO BRASILEIRA" ###
 
 #importanto os dados
