@@ -95,3 +95,29 @@ class TestDFGeneratorFunctions(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+if __name__ == "__main__":
+    import unittest
+
+    class TestCleanData(unittest.TestCase):
+        def test_clean_data(self):
+            # Teste com dados nulos
+            data = pd.DataFrame({
+                'coluna1': [1, 2, 3, 4, 5, 6],
+                'coluna2': [None, 2, None, 4, None, 6]
+            })
+            cleaned_data = clean_data(data)
+            self.assertEqual(cleaned_data['coluna2'].isnull().sum(), 0)
+
+            # Teste com duplicatas
+            data = pd.DataFrame({
+                'coluna1': [1, 2, 2, 3, 4, 5, 5, 6],
+                'coluna2': [None, 2, None, 4, None, 6, 6, 6]
+            })
+            cleaned_data = clean_data(data)
+            self.assertEqual(len(cleaned_data), len(data.drop_duplicates()))
+
+    unittest.main()
+    
+if __name__ == "__main__":
+    doctest.testmod(verbose = True)

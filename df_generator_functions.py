@@ -288,18 +288,7 @@ def filtra_year(df: pd.DataFrame, período: int )-> pd.DataFrame:
 
     
 
-
-
-
-
-
-
-
-
-
-
-
-#GRÁFICO DE BARRAS - LEITOS PEDIÁTRICOS
+##GRÁFICO DE BARRAS - LEITOS PEDIÁTRICOS
 # Gerando um novo data frame a partir do data
 def generate_bar_chart_data(data, group_column, value_column):
     """
@@ -320,6 +309,7 @@ def generate_bar_chart_data(data, group_column, value_column):
     values = grouped_data.values.tolist()
     return labels, values
 
+
 def clean_data(df):
     """
     Limpa os dados do DataFrame.
@@ -329,6 +319,20 @@ def clean_data(df):
 
     :return: DataFrame limpo.
     :rtype: pandas.DataFrame
+
+    # Doctests
+>>> data = pd.DataFrame({
+...    'coluna1': [1, 2, 3, 4, 5, 6],
+...    'coluna2': [None, 2, None, 4, None, 6]
+... })
+>>> data_limpo = clean_data(data)
+>>> data_limpo
+   coluna1  coluna2
+0        1      0.0
+1        2      2.0
+3        4      4.0
+5        6      6.0
+
     """
     try:
         # Remover linhas duplicadas
@@ -343,54 +347,4 @@ def clean_data(df):
         return df
     except Exception as e:
         raise e
-
-# Exemplo de uso
-data = pd.DataFrame({
-    'coluna1': [1, 2, 3, 4, 5, 6],
-    'coluna2': [None, 2, None, 4, None, 6]
-})
-
-# Chamando a função para limpar os dados
-data_limpo = clean_data(data)
-
-# Doctests
-"""
->>> data = pd.DataFrame({
-...    'coluna1': [1, 2, 3, 4, 5, 6],
-...    'coluna2': [None, 2, None, 4, None, 6]
-... })
->>> data_limpo = clean_data(data)
->>> data_limpo
-   coluna1  coluna2
-0        1      0.0
-1        2      2.0
-3        4      4.0
-5        6      6.0
-"""
-
-if __name__ == "__main__":
-    import unittest
-
-    class TestCleanData(unittest.TestCase):
-        def test_clean_data(self):
-            # Teste com dados nulos
-            data = pd.DataFrame({
-                'coluna1': [1, 2, 3, 4, 5, 6],
-                'coluna2': [None, 2, None, 4, None, 6]
-            })
-            cleaned_data = clean_data(data)
-            self.assertEqual(cleaned_data['coluna2'].isnull().sum(), 0)
-
-            # Teste com duplicatas
-            data = pd.DataFrame({
-                'coluna1': [1, 2, 2, 3, 4, 5, 5, 6],
-                'coluna2': [None, 2, None, 4, None, 6, 6, 6]
-            })
-            cleaned_data = clean_data(data)
-            self.assertEqual(len(cleaned_data), len(data.drop_duplicates()))
-
-    unittest.main()
-    
-if __name__ == "__main__":
-    doctest.testmod(verbose = True)
 
