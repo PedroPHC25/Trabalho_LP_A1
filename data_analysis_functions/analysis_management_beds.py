@@ -46,7 +46,9 @@ def mean_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> fl
     try:
         df = df[df["TP_GESTAO"] == tipo_gestao]
         mean = df[tipo_leito].mean()
-        return mean
+        if mean != None:
+            return mean
+    
     except TypeError:
         print("Argumentos inadequados")
     except KeyError:
@@ -206,7 +208,5 @@ def unique_by_management(df: pd.DataFrame, tipo_gestao:str, tipo_leito: str) -> 
 
 if __name__ == "__main__":
     doctest.testmod(verbose = True)
-
-
 
 
