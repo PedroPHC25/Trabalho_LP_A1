@@ -8,7 +8,7 @@ import pandas as pd
 import  matplotlib.pyplot as plt
 from typing import Optional
 
-from df_generator import data_management
+# from df_generator import data_management
 
 #Função que substitui os códigos de domínio pelo nome extenso
 def replacement(df: pd.DataFrame,
@@ -78,17 +78,24 @@ def graph_bar(df: pd.DataFrame, x_column: str, y_column: str,
     :return: Salva o gráfico
     
     """
-    plt.barh(df[x_column], df[y_column], color = "DarkSlateBlue")
+    try:
+        plt.barh(df[x_column], df[y_column], color = "DarkSlateBlue")
 
-    # Configurando os textos
-    plt.title(title, fontsize = 16)
-    plt.xlabel(x_label, fontsize = 12)
-    plt.ylabel(y_label, fontsize = 12)
-    plt.tick_params(axis = "x", labelsize = 8)
-    plt.tick_params(axis = "y", labelsize = 8)
+        # Configurando os textos
+        plt.title(title, fontsize = 16)
+        plt.xlabel(x_label, fontsize = 12)
+        plt.ylabel(y_label, fontsize = 12)
+        plt.tick_params(axis = "x", labelsize = 8)
+        plt.tick_params(axis = "y", labelsize = 8)
 
-    plt.savefig(f"graphs/{image_graph_name}")
-    plt.show()
+        plt.savefig(f"graphs/{image_graph_name}")
+        # plt.show()
 
-# graph_bar(data_management, "TP_GESTAO", "LEITOS_EXISTENTES")
+    except KeyError:
+        return "Coluna(s) não encontrada(s)"
+    except TypeError:
+        return "Argumento inadequado"
+    except:
+        return "Erro desconhecido"
+
 
